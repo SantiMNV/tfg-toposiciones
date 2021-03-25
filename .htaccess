@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+#urls
+DirectoryIndex controller/index.php
+RewriteRule ^$ controller/index.php
