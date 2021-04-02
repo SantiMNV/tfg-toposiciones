@@ -4,3 +4,8 @@ RewriteEngine On
 #urls
 DirectoryIndex controller/index.php
 RewriteRule ^$ controller/index.php
+RewriteRule ^convocatorias/$ controller/convocatorias.php
+RewriteRule ^temas/$ controller/temas.php
+RewriteRule ^soluciones/$ controller/soluciones.php
+RewriteRule ^foros/$ controller/foros.php
+RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/convocatoria.php?id=$1 [L]

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-25 19:55:58
+/* Smarty version 3.1.39, created on 2021-04-02 17:17:49
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605ceacecbaf14_67322323',
+  'unifunc' => 'content_606751bd1315a5_45051159',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1616702157,
+      1 => 1617383867,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl) {
-?><!-- SantiMNV
+function content_606751bd1315a5_45051159 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
+<!-- SantiMNV
   // Extra small screen / phone
   xs: 0,
   // Small screen / phone
@@ -39,7 +43,8 @@ function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl)
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Beans </title>
+  <title><?php echo $_smarty_tpl->tpl_vars['page']->value->topTitle;?>
+</title>
   <!-- fontawesome -->
   <link href="<?php echo $_smarty_tpl->tpl_vars['CSS_DIRECTORY']->value;?>
 /fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -51,16 +56,19 @@ function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl)
   <!-- CSS propio que usaremos para personalizar BS -->
   <link rel="stylesheet " href="<?php echo $_smarty_tpl->tpl_vars['CSS_DIRECTORY']->value;?>
 /estilos.css" />
-  <!--<link rel="icon" href="./images/fototopo32no-fondo.png"> -->
+  <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/company/fototopo32no-fondo.png">
 </head>
 
 <body>
+
+
 
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
     <div class=" col-md-3" id="menu-first-line">
-      <a class="navbar-brand " href="#" id="brand-menu">
+      <a class="navbar-brand " href="/toposiciones/" id="brand-menu">
         <!-- <img src="../../../../media/images/fototopo64v2.png">-->
         <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/company/fototopo64v2.png">
@@ -76,11 +84,11 @@ function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Menu -->
     <div class="collapse col-md-9 navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav col-md-8 col-sm-6 col-6" id="main-menu">
-        <li class="nav-item"><a class="nav-link" href="">Convocatorias</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Temas</a></li>
+        <li class="nav-item"><a class="nav-link" href="/toposiciones/convocatorias/">Convocatorias</a></li>
+        <li class="nav-item"><a class="nav-link" href="/toposiciones/temas/">Temas</a></li>
         <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>-->
-        <li class="nav-item"><a class="nav-link" href="">Soluciones</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Foros</a></li>
+        <li class="nav-item"><a class="nav-link" href="/toposiciones/soluciones/">Soluciones</a></li>
+        <li class="nav-item"><a class="nav-link" href="/toposiciones/foros/">Foros</a></li>
       </ul>
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
@@ -99,149 +107,132 @@ function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   </nav>
   <div class="container-fluid row" id="wrapper">
+    <!-- Left bar -->
     <div class="left-bar col-md-3 d-none d-lg-block order-1">
       <div class="sticky-top">
         <div class="card">
           <img class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/calendario-sin-fondo.png" alt="Calendario">
-          <h5 class="card-title">Últimas oposiciones</h5>
+          <h5 class="card-title"><a href="/toposiciones/convocatorias/">Últimas oposiciones</a></h5>
           <ul class="list-group list-group-flush">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['oppositions']->value, 'opposition');
+$_smarty_tpl->tpl_vars['opposition']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['opposition']->value) {
+$_smarty_tpl->tpl_vars['opposition']->do_else = false;
+?>
             <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/banderas/bandera-asturias.png"
-                alt="bandera-asturias">
+              <img class="rounded-circle img-responsive"
+                src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/banderas/bandera-<?php echo mb_strtolower(urlify($_smarty_tpl->tpl_vars['opposition']->value['state']), 'UTF-8');?>
+.png">
               <div class="">
-                <a class="card-link" href="">
-                  Convocadas CINCUENTA Y OCHO [58] plazas Cuerpo Superior de
-                  Inspectores de
-                  Trabajo y Seguridad Social (Estado)
-                </a>
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/banderas/bandera-asturias.png"
-                alt="bandera-asturias">
-              <div class="">
+                <a class="card-link" href="/toposiciones/convocatorias/convocatoria/<?php echo $_smarty_tpl->tpl_vars['opposition']->value['oppositionId'];?>
+">
+                  <?php ob_start();
+echo $_smarty_tpl->tpl_vars['opposition']->value['seats'];
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 > 1) {?>
+                  <?php echo ($_smarty_tpl->tpl_vars['opposition']->value['opposition_status']).("s");?>
 
-                <a class="card-link" href="">
-                  Convocadas CINCUENTA Y OCHO [58] plazas Cuerpo Superior de
-                  Inspectores de
-                  Trabajo y Seguridad Social (Estado)
+                  <?php } else { ?>
+                  <?php echo $_smarty_tpl->tpl_vars['opposition']->value['opposition_status'];?>
+
+                  <?php }?>
+                  [<?php echo $_smarty_tpl->tpl_vars['opposition']->value['seats'];?>
+]
+                  <?php ob_start();
+echo $_smarty_tpl->tpl_vars['opposition']->value['seats'];
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2 > 1) {?>
+                  plazas
+                  <?php } else { ?>
+                  plaza
+                  <?php }?>
+                  de <?php echo $_smarty_tpl->tpl_vars['opposition']->value['category_name'];?>
+ en <?php echo $_smarty_tpl->tpl_vars['opposition']->value['state'];?>
+
                 </a>
               </div>
               <div class="date">
-                23/3/21 8:41
+                <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['updated_at'],"%e/%b/%G %H:%M:%S");?>
+
               </div>
             </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/banderas/bandera-cordoba.png"
-                alt="bandera-cordoba">
-              <div class="">
-                <a class="card-link" href="">
-                  Abierto Plazo Bolsa de Trabajo de Administrativo en el Ayuntamiento de Montoro
-                  (Córdoba)
-                </a>
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/banderas/bandera-asturias.png"
-                alt="bandera-cordoba">
-              <div class="">
-                <a class="card-link" href="">
-                  Convocada una [1] plazas Auxiliar de Inclusión Social en el Ayuntamiento de Adamuz
-                  (Córdoba)
-                </a>
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/banderas/bandera-cordoba.png"
-                alt="bandera-cordoba">
-              <div class="">
-                <a class="card-link" href="">
-                  Abierto Plazo Bolsa de Trabajo de Auxiliar de Archivo y Biblioteca en el
-                  Ayuntamiento de
-                  Burgos (Burgos)
-                </a>
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </ul>
         </div>
       </div>
     </div>
+    <!-- Content -->
     <div class="col-md order-2" id="content">
       <nav aria-label="breadcrumb" class="sticky-top breadcrumb-nav d-none d-lg-block">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Library</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['breadCrumbs']->value, 'crumb', false, NULL, 'breadCrumb', array (
+  'first' => true,
+  'last' => true,
+  'index' => true,
+  'iteration' => true,
+  'total' => true,
+));
+$_smarty_tpl->tpl_vars['crumb']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['crumb']->value) {
+$_smarty_tpl->tpl_vars['crumb']->do_else = false;
+$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['iteration']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['index']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['first'] = !$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['index'];
+$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] = $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['iteration'] === $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['total'];
+?>
+          <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['first'] : null)) {?>
+          <li class="breadcrumb-item"><a href="/<?php echo (mb_strtolower($_smarty_tpl->tpl_vars['crumb']->value, 'UTF-8')).('/');?>
+">Inicio</a>
+          </li>
+          <?php } else { ?>
+          <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] : null)) {?>
+          <li class="breadcrumb-item active" aria-current="page"><?php echo $_smarty_tpl->tpl_vars['crumb']->value;?>
+
+          </li>
+          <?php } else { ?>
+          <li class="breadcrumb-item"><a href="/toposiciones/<?php echo (mb_strtolower($_smarty_tpl->tpl_vars['crumb']->value, 'UTF-8')).('/');?>
+"><?php echo $_smarty_tpl->tpl_vars['crumb']->value;?>
+</a></li>
+          <?php }?>
+          <?php }?>
+
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </ol>
       </nav>
-      <div class="alert alert-info alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Cuidado!</strong> Este es un mensaje
+      <div class="alerts">
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alerts']->value, 'alert_item', false, 'alert_key');
+$_smarty_tpl->tpl_vars['alert_item']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['alert_key']->value => $_smarty_tpl->tpl_vars['alert_item']->value) {
+$_smarty_tpl->tpl_vars['alert_item']->do_else = false;
+?>
+        <div class="alert <?php echo $_smarty_tpl->tpl_vars['alert_item']->value;?>
+ alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <?php echo $_smarty_tpl->tpl_vars['alert_key']->value;?>
+
+        </div>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </div>
-      <div class="page-header">
-        <h2>Temas de las fotografías</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et
-          dolore magna aliqua. Ut enim ad</p>
+      <div class="body-content">
+        <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_565416686606751bd12d505_71467244', "body-content");
+?>
+
       </div>
-      <!-- SECCION TEMAS -->
-      <section id="temas" class="col-md-12">
-        <!-- TEMA-->
-        <div id="tema1" class="tema row col-md-12">
-          <div class="texto-tema col-md-10">
-            <h3>Procedimiento administrativo local</h3>
-            <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
-              de la presentación de
-              documentos. Comunicaciones y notificaciones</p>
-          </div>
-          <div class="col-md-2">
-            <button type="button" class="btn btn-info">Acceder</button>
-          </div>
-          <hr />
-        </div>
-        <div id="tema1" class="tema row col-md-12">
-          <div class="texto-tema col-md-10">
-            <h3>Procedimiento administrativo local</h3>
-            <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
-              de la presentación de
-              documentos. Comunicaciones y notificaciones</p>
-          </div>
-          <div class="col-md-2">
-            <button type="button" class="btn btn-info">Acceder</button>
-          </div>
-          <hr />
-        </div>
-        <div id="tema1" class="tema row col-md-12">
-          <div class="texto-tema col-md-10">
-            <h3>Procedimiento administrativo local</h3>
-            <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
-              de la presentación de
-              documentos. Comunicaciones y notificaciones</p>
-          </div>
-          <div class="col-md-2">
-            <button type="button" class="btn btn-info">Acceder</button>
-          </div>
-          <hr />
-        </div>
-      </section>
+
     </div>
+    <!-- Right bar -->
     <div class="right-bar col-md-2 d-none d-lg-block order-3 ">
       <div class="sticky-top">
         <div class="card">
@@ -307,9 +298,11 @@ function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl)
         <a class="btn btn-outline-light m-2" href="mailto:santimnv27@gmail.com" role="button"><i
             class="fab fa-google"></i></a>
         <!-- Linkedin -->
-        <a class="btn btn-outline-light m-2" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+        <a class="btn btn-outline-light m-2" href="www.linkedin.com/in/santimnv" role="button"><i
+            class="fab fa-linkedin-in"></i></a>
         <!-- Github -->
-        <a class="btn btn-outline-light m-2" href="#!" role="button"><i class="fab fa-github"></i></a>
+        <a class="btn btn-outline-light m-2" href="https://github.com/santimnv" role="button"><i
+            class="fab fa-github"></i></a>
       </section>
       <section class="mb-4">
         <p>
@@ -351,4 +344,66 @@ function content_605ceacecbaf14_67322323 (Smarty_Internal_Template $_smarty_tpl)
 >
 
 </html><?php }
+/* {block "body-content"} */
+class Block_565416686606751bd12d505_71467244 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'body-content' => 
+  array (
+    0 => 'Block_565416686606751bd12d505_71467244',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+        <div class="page-header">
+          <h2><?php echo $_smarty_tpl->tpl_vars['page']->value->pageTitle;?>
+</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et
+            dolore magna aliqua. Ut enim ad</p>
+        </div>
+        <!-- SECCION TEMAS -->
+        <section id="temas" class="col-md-12">
+          <!-- TEMA-->
+          <div id="tema1" class="tema row col-md-12">
+            <div class="texto-tema col-md-10">
+              <h3>Procedimiento administrativo local</h3>
+              <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
+                de la presentación de
+                documentos. Comunicaciones y notificaciones</p>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-info">Acceder</button>
+            </div>
+            <hr />
+          </div>
+          <div id="tema1" class="tema row col-md-12">
+            <div class="texto-tema col-md-10">
+              <h3>Procedimiento administrativo local</h3>
+              <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
+                de la presentación de
+                documentos. Comunicaciones y notificaciones</p>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-info">Acceder</button>
+            </div>
+            <hr />
+          </div>
+          <div id="tema1" class="tema row col-md-12">
+            <div class="texto-tema col-md-10">
+              <h3>Procedimiento administrativo local</h3>
+              <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
+                de la presentación de
+                documentos. Comunicaciones y notificaciones</p>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-info">Acceder</button>
+            </div>
+            <hr />
+          </div>
+        </section>
+        <?php
+}
+}
+/* {/block "body-content"} */
 }

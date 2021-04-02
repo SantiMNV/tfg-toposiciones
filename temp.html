@@ -1,9 +1,0 @@
-{foreach name=categoria from=$categorias item=categoria}
-{if $smarty.foreach.categoria.iteration%2==0}
-<p>Es par</p>
-{else}
-<p>Es inpar</p>
-{/if}
-{$smarty.foreach.categoria.iteration}
-<a href="{$categoria.url}" title="{$categoria.categoria}">{$categoria.categoria}</a>
-{/foreach}
