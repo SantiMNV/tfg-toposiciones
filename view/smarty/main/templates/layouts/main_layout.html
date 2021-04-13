@@ -60,13 +60,20 @@
       </ul>
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
-          <a class="nav-link" href="">
+          {if isset($smarty.session.login_user)}
+          <a class="nav-link" href="/toposiciones/profile/">
+            <i class="fas fa-user"></i>
+            Cuenta
+          </a>
+          {else}
+          <a class="nav-link" href="/toposiciones/login/">
             <i class="fas fa-user"></i>
             Entrar
           </a>
+          {/if}
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">
+        <li class="nav-item" id="searchBtn">
+          <a class="nav-link">
             <i class="fas fa-search"></i>
             Buscar
           </a>
@@ -131,6 +138,9 @@
           {/foreach}
         </ol>
       </nav>
+      <div id="search-container" class="col-md-12">
+
+      </div>
       <div class="alerts">
         {foreach key=alert_key item=alert_item from=$alerts}
         <div class="alert {$alert_item} alert-dismissable">
@@ -186,6 +196,7 @@
             <hr />
           </div>
         </section>
+
         {/block}
       </div>
 

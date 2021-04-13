@@ -1,0 +1,47 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+  <p>Información de los últimos temas</p>
+</div>
+
+<!-- SECCION TEMAS -->
+<div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll;">
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre tema</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Contenido</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Fecha Creación</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$all_themes item=theme}
+      <tr onclick="window.location='/toposiciones/temas/tema/{$theme.themeId}';">
+        <th>
+          <form action="/toposiciones/lista-tema/" method="POST">
+            <input type="hidden" name="remove-request" value="remove">
+            <input type="hidden" name="remove-theme" value="{$theme.themeId}">
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+
+          </form>
+        </th>
+        <th scope="row">{$theme.themeId}</th>
+        <td class="cut">{$theme.theme_name}</td>
+        <td>{$theme.category_name}</td>
+        <td class="cut">{$theme.content}</td>
+        <td>{$theme.user_name}</td>
+        <td style="min-width: 100px;">{$theme.created_at}</td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+
+{/block}

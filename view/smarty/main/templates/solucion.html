@@ -1,0 +1,21 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+{foreach from=$all_themes item=theme}
+<div class="page-header">
+  <h2>{$page->pageTitle}:</h2>
+</div>
+<section id="temas" class="col-md-12">
+  <!-- TEMA-->
+  <div id="tema1" class="tema row col-md-12">
+    <div class="texto-tema">
+      <h3>{$theme.theme_name}</h3>
+      <div>
+        <p>{$theme.category_name} | {$theme.user_name}</p>
+      </div>
+      <div>{$theme.content}</div>
+    </div>
+    <hr />
+  </div>
+</section>
+{/foreach}
+{/block}

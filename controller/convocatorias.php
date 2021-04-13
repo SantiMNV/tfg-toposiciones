@@ -11,4 +11,9 @@ $smarty->assign('nombre', "Juan");
 
 $smarty->assign("all_oppositions", getOppositions(0)->fetchAll());
 
+
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  $smarty->assign("all_oppositions", getOppositionParams($_POST)->fetchAll());
+}
 $smarty->display('convocatorias.html');

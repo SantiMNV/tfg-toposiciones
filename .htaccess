@@ -5,7 +5,21 @@ RewriteEngine On
 DirectoryIndex controller/index.php
 RewriteRule ^$ controller/index.php
 RewriteRule ^convocatorias/$ controller/convocatorias.php
+RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/convocatoria.php?id=$1 [L]
+
 RewriteRule ^temas/$ controller/temas.php
 RewriteRule ^soluciones/$ controller/soluciones.php
 RewriteRule ^foros/$ controller/foros.php
-RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/convocatoria.php?id=$1 [L]
+
+RewriteRule ^login/$ controller/login.php
+RewriteRule ^profile/$ controller/profile.php
+
+RewriteRule ^crear-tema/$ controller/add_theme.php
+RewriteRule ^lista-tema/$ controller/theme_list.php
+
+RewriteRule ^crear-convocatoria/$ controller/add_opposition.php
+RewriteRule ^lista-convocatoria/$ controller/opposition_list.php
+
+RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
+
+RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]

@@ -1,5 +1,22 @@
 {extends 'layouts/main_layout.html'}
 {block name="body-content"}
+{If isset($smarty.session.login_user)}
+<div id="add-content" class="text-center">
+  <a href="/toposiciones/crear-convocatoria/">
+    <i class="fas fa-plus-circle"></i>
+    <div>Añadir Convocatoria</div>
+  </a>
+</div>
+{If ($smarty.session.login_access_level > 5)}
+<br>
+<div id="add-content" class="text-center">
+  <a href="/toposiciones/lista-convocatoria/">
+    <i class="fas fa-list"></i>
+    <div>Listar Convocatorias</div>
+  </a>
+</div>
+{/if}
+{/if}
 <div class="page-header">
   <h2>{$page->pageTitle}</h2>
   <p>Información de las últimas oposiciones</p>

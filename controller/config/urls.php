@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+session_start();
+
 
 const MAIN_DIRECTORY = "/srv/http/toposiciones";
 const PUBLIC_DIRECTORY = "/toposiciones";
@@ -16,7 +18,10 @@ const JS_DIRECTORY = PUBLIC_DIRECTORY . "/view/js";
 require(SMARTY_LIB . '/libs/Smarty.class.php');
 require(MODEL_DIRECTORY . "/include/Page.php");
 require(MODEL_DIRECTORY . "/include/pdo_connection.php");
-require(MODEL_DIRECTORY . "/include/get_oppositions.php");
+require(MODEL_DIRECTORY . "/include/oppositions.php");
+require(MODEL_DIRECTORY . "/include/themes.php");
+require(MODEL_DIRECTORY . "/include/user.php");
+require(MODEL_DIRECTORY . "/include/states.php");
 
 $smarty = new Smarty;
 
@@ -45,4 +50,11 @@ foreach ($crumbs as $crumb) {
 }
 array_shift($breadCrumbs);
 array_pop($breadCrumbs);
+
+function php_console_log($data) {
+  echo '<script>';
+  echo 'console.log(' . json_encode($data) . ')';
+  echo '</script>';
+}
+
 $smarty->assign('breadCrumbs', $breadCrumbs);

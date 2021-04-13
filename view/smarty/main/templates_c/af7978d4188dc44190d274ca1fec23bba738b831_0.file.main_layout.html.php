@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-02 17:17:49
+/* Smarty version 3.1.39, created on 2021-04-10 10:23:39
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_606751bd1315a5_45051159',
+  'unifunc' => 'content_60717cab4e1031_85730727',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1617383867,
+      1 => 1618050218,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_606751bd1315a5_45051159 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60717cab4e1031_85730727 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -92,13 +92,20 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
       </ul>
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
-          <a class="nav-link" href="">
+          <?php if ((isset($_SESSION['login_user']))) {?>
+          <a class="nav-link" href="/toposiciones/profile/">
+            <i class="fas fa-user"></i>
+            Cuenta
+          </a>
+          <?php } else { ?>
+          <a class="nav-link" href="/toposiciones/login/">
             <i class="fas fa-user"></i>
             Entrar
           </a>
+          <?php }?>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">
+        <li class="nav-item" id="searchBtn">
+          <a class="nav-link">
             <i class="fas fa-search"></i>
             Buscar
           </a>
@@ -207,6 +214,9 @@ $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] = $_smarty_
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </ol>
       </nav>
+      <div id="search-container" class="col-md-12">
+
+      </div>
       <div class="alerts">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alerts']->value, 'alert_item', false, 'alert_key');
@@ -226,7 +236,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </div>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_565416686606751bd12d505_71467244', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20269720060717cab4dd8e7_49183241', "body-content");
 ?>
 
       </div>
@@ -345,12 +355,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_565416686606751bd1
 
 </html><?php }
 /* {block "body-content"} */
-class Block_565416686606751bd12d505_71467244 extends Smarty_Internal_Block
+class Block_20269720060717cab4dd8e7_49183241 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_565416686606751bd12d505_71467244',
+    0 => 'Block_20269720060717cab4dd8e7_49183241',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -402,6 +412,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <hr />
           </div>
         </section>
+
         <?php
 }
 }

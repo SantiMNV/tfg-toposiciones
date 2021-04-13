@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-02 17:07:16
+/* Smarty version 3.1.39, created on 2021-04-11 12:36:13
   from '/srv/http/toposiciones/view/smarty/main/templates/convocatorias.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60674f449a1881_26838218',
+  'unifunc' => 'content_6072ed3d20cfd7_55709411',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '90b1bf622e73417a31e0703676ba717ea4661da3' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/convocatorias.html',
-      1 => 1617380532,
+      1 => 1618144572,
       2 => 'file',
     ),
   ),
@@ -20,28 +20,45 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60674f449a1881_26838218 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6072ed3d20cfd7_55709411 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_55486886660674f4498b520_40076051', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5274970916072ed3d1fef65_69909963', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_55486886660674f4498b520_40076051 extends Smarty_Internal_Block
+class Block_5274970916072ed3d1fef65_69909963 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_55486886660674f4498b520_40076051',
+    0 => 'Block_5274970916072ed3d1fef65_69909963',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 
+<?php if ((isset($_SESSION['login_user']))) {?>
+<div id="add-content" class="text-center">
+  <a href="/toposiciones/crear-convocatoria/">
+    <i class="fas fa-plus-circle"></i>
+    <div>Añadir Convocatoria</div>
+  </a>
+</div>
+<?php if (($_SESSION['login_access_level'] > 5)) {?>
+<br>
+<div id="add-content" class="text-center">
+  <a href="/toposiciones/lista-convocatoria/">
+    <i class="fas fa-list"></i>
+    <div>Listar Convocatorias</div>
+  </a>
+</div>
+<?php }
+}?>
 <div class="page-header">
   <h2><?php echo $_smarty_tpl->tpl_vars['page']->value->pageTitle;?>
 </h2>

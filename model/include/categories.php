@@ -1,16 +1,20 @@
 <?php
 require("pdo_connection.php");
+getCategories(0);
 
-function getOppositions($count) {
+function getCategories($count) {
   global $conn;
-
-  $sql = "SELECT opposition.oppositionId,opposition.opposition_status,opposition.seats,opposition_category.category_name,spain_states.provincia as state,opposition.updated_at FROM opposition,spain_states,opposition_category where opposition.stateId = spain_states.stateId and opposition.categoryId = opposition_category.categoryId order by opposition.updated_at desc";
-  if ($count) {
-    $sql .= " limit " . $count;
+  $result = array();
+  $sql = "SELECT opposition_category.category_name,opposition_category.categoryId  FROM opposition_category order by opposition_category.category_name desc";
+  foreach ($conn->query($sql) as $row) {
+    /*array_push($result, $row['categoryId'], $row["category_name"]);*/
+    $result[$row['categoryId']] =    $row["category_name"];
   }
 
-  $resultado = $conn->query($sql);
-  return $resultado;
+
+  echo json_encode($result);
+
+  /*return $result;*/
 }
 
 function getOpposition($id) {

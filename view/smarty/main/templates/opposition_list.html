@@ -1,0 +1,49 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+
+<!-- SECCION TEMAS -->
+<div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll;">
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Id</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Plazas</th>
+        <th scope="col">Link</th>
+        <th scope="col">Provincia</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Inicio</th>
+        <th scope="col">Fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$all_oppositions item=opposition}
+      <tr onclick="window.location='/toposiciones/convocatorias/convocatoria/{$opposition.oppositionId}'">
+        <th>
+          <form action="/toposiciones/lista-convocatoria/" method="POST">
+            <input type="hidden" name="remove-request" value="remove">
+            <input type="hidden" name="remove-theme" value="{$opposition.oppositionId}">
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </th>
+        <th scope="row">{$opposition.oppositionId}</th>
+        <td>{$opposition.opposition_status}</td>
+        <td>{$opposition.seats}</td>
+        <td class="cut">{$opposition.official_link}</td>
+        <td>{$opposition.state}</td>
+        <td>{$opposition.category_name}</td>
+        <td style="min-width: 100px;">{$opposition.opposition_start_date}</td>
+        <td style="min-width: 100px;">{$opposition.opposition_end_date}</td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+
+{/block}
