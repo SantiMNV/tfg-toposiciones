@@ -22,6 +22,7 @@ require(MODEL_DIRECTORY . "/include/oppositions.php");
 require(MODEL_DIRECTORY . "/include/themes.php");
 require(MODEL_DIRECTORY . "/include/user.php");
 require(MODEL_DIRECTORY . "/include/states.php");
+require(MODEL_DIRECTORY . "/include/categories.php");
 
 $smarty = new Smarty;
 

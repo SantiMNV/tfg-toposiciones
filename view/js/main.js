@@ -2,7 +2,7 @@
 let backToTopBtn = null;
 let searchDisplayed = false;
 let stateSelected = "";
-let jsonResponseText;
+let jsonResponseText = {};
 document.onload = principal()
 
 
@@ -109,6 +109,7 @@ function showSearch() {
 function showCategories(field_id) {
   let categories_options = "";
   categories_options += "<option value='any' selected>Todas</option>";
+  console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -134,14 +135,21 @@ function searchJSON() {
   document.getElementById("searchForm").submit();
 }
 
-function searchCategoryJSON(params) {
+function searchCategoryJSON() {
   //JSONPostController("/toposiciones/model/include/categories.php?", categoriesJSONResponse, params);
-  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse(showCategories, "inputSearchCategory"), "request=categories");
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories");
+  setTimeout(console.log("Tardo"), 10600);
+  ///  setTimeout(showCategories("inputSearchCategory"), 1600);
 }
 
-function searchStateJSON(params) {
+function searchStateJSON() {
   //  JSONPostController("/toposiciones/jsonManager/?", rapido, "states=5");
-  JSONPostController("/toposiciones/controller/jsonManager.php?", rapido, "request=states&states=5");
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=states&states=5");
+  setTimeout(aft, 200);
+}
+
+function aft() {
+  console.log("Ha llamado a aft");
 }
 
 // manage json respones
@@ -152,27 +160,25 @@ function rapido() {
     //let serverCategories = JSON.parse(this.responseText);
     console.log(this.responseText);
     //console.log(JSON.parse(this.responseText));
-
-    for (let i in serverCategories) {
-      categories[i] = serverCategories[i];
-    }
-    //showCategories("inputSearchCategory");
-    console.log("Ha develto: " + serverCategories);
+    /*
+        for (let i in serverCategories) {
+          categories[i] = serverCategories[i];
+        }
+        //showCategories("inputSearchCategory");
+        console.log("Ha develto: " + serverCategories);
+        */
   }
 }
-
 // manage json respones
-function jsonResponse(after, params) {
-  console.log("Estas en json respoinse")
-  jsonResponseText = {};
+function jsonResponse() {
   if (this.readyState === 4 && (this.status === 200)) {
-    console.log("La respuesta es correcta")
+    //console.log("La respuesta es correcta: " + this.responseText)
+    //    jsonResponseText = {};
+
     let serverResponse = JSON.parse(this.responseText);
     for (let i in serverResponse) {
       jsonResponseText[i] = serverResponse[i];
     }
-    console.log(jsonResponseText);
-    //showCategories("inputSearchCategory");
-    after(params);
+    //console.log(jsonResponseText);
   }
 }
