@@ -116,18 +116,40 @@ function showCategories(field_id) {
   document.getElementById(field_id).innerHTML += categories_options;
 }
 
+function showCategoriesItems(field_id) {
+  let categories_options = "";
+  console.log(jsonResponseText);
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
+function showStates(field_id) {
+  let categories_options = "";
+  console.log(jsonResponseText);
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
+
 // JSON ATTACKERS
-function JSONPostController(url, responseFunct, params) {
+function JSONPostController(url, responseFunct, params, afterFunct) {
   let req = new XMLHttpRequest();
   req.onreadystatechange = responseFunct;
   req.open("POST", url, true);
   req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   req.send(params);
+  req.onload = function () {
+    afterFunct();
+  }
 }
 
 function searchJSON() {
   // Inicializo la consulta con nocache
-  //document.getElementById("sendCache").value = "nocache=" + Math.random();
+  document.getElementById("sendCache").value = Math.random();
   document.getElementById("sendStatus").value = document.getElementById("inputStatus").value;
   document.getElementById("sendCategory").value = document.getElementById("inputSearchCategory").value;
   document.getElementById("sendDate").value = document.getElementById("inputFromDate").value;
@@ -136,49 +158,19 @@ function searchJSON() {
 }
 
 function searchCategoryJSON() {
-  //JSONPostController("/toposiciones/model/include/categories.php?", categoriesJSONResponse, params);
-  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories");
-  setTimeout(console.log("Tardo"), 10600);
-  ///  setTimeout(showCategories("inputSearchCategory"), 1600);
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesItems("inputSearchCategory") })
 }
 
 function searchStateJSON() {
-  //  JSONPostController("/toposiciones/jsonManager/?", rapido, "states=5");
-  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=states&states=5");
-  setTimeout(aft, 200);
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=states", function () { showStates("inputSearchState") });
 }
 
-function aft() {
-  console.log("Ha llamado a aft");
-}
-
-// manage json respones
-function rapido() {
-  categories = {};
-  if (this.readyState === 4 && (this.status === 200)) {
-    console.log("Respuesta exityosa")
-    //let serverCategories = JSON.parse(this.responseText);
-    console.log(this.responseText);
-    //console.log(JSON.parse(this.responseText));
-    /*
-        for (let i in serverCategories) {
-          categories[i] = serverCategories[i];
-        }
-        //showCategories("inputSearchCategory");
-        console.log("Ha develto: " + serverCategories);
-        */
-  }
-}
 // manage json respones
 function jsonResponse() {
   if (this.readyState === 4 && (this.status === 200)) {
-    //console.log("La respuesta es correcta: " + this.responseText)
-    //    jsonResponseText = {};
-
     let serverResponse = JSON.parse(this.responseText);
     for (let i in serverResponse) {
       jsonResponseText[i] = serverResponse[i];
     }
-    //console.log(jsonResponseText);
   }
 }
