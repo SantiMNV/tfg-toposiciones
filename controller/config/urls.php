@@ -23,6 +23,7 @@ require(MODEL_DIRECTORY . "/include/themes.php");
 require(MODEL_DIRECTORY . "/include/user.php");
 require(MODEL_DIRECTORY . "/include/states.php");
 require(MODEL_DIRECTORY . "/include/categories.php");
+require(MODEL_DIRECTORY . "/include/forums.php");
 
 $smarty = new Smarty;
 
@@ -43,6 +44,7 @@ $smarty->registerPlugin('function', 'urlify', 'urlify');
 
 
 $smarty->assign("oppositions", getOppositions(5)->fetchAll());
+$smarty->assign("side_messages", getPostsSummary(5)->fetchAll());
 
 $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
 $breadCrumbs = array();

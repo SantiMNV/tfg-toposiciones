@@ -105,6 +105,30 @@ create table if not exists user (
   updated_at datetime NOT NULL,
   primary key (userId)
 );
+
+create table if not exists forum_post(
+  postId int not null auto_increment,
+  userId int not null,
+  title varchar(50) not null,
+  content LONGTEXT DEFAULT null,
+  created_at datetime NOT NULL,
+  primary key (postId),
+  foreign key (userId) REFERENCES user(userId)
+);
+
+create table if not exists forum_message(
+  postId int not null,
+  messageId int not null auto_increment,
+  userId int not null,
+  content LONGTEXT DEFAULT null,
+  created_at datetime NOT NULL,
+  primary key (messageId),
+  foreign key (postId) REFERENCES forum_post(postId),
+  foreign key (userId) REFERENCES user(userId)
+);
+
+
+
 create table if not exists theme (
   themeId int not null auto_increment,
   theme_name varchar (150) not null,
@@ -190,6 +214,38 @@ values (null,"Juan","juan@juan.com","123abc.",now(),now()),
 (null, "Ana", "ana@ana.com", "123abc.", now(), now()),
 (null, "Luis", "luis@luis.com", "123abc.", now(), now()),
 (null, "Santi", "santi@santi.com", "123abc.", now(), now());
+
+insert into forum_post
+values(null,2,"Alguien sabe cuánto es 1 + 1?","Teengo un problema desde hace ya un tiempo y es que no se como sumar",now()),
+(null,1,"Alguien el nombre de juan?","Teengo un problema desde hace ya un tiempo y es que no se como se llama juan",now()),
+(null,2,"Alguien sabe que hora es?","Teengo un problema desde hace ya un tiempo y es que no se que hora es",now()),
+(null,5,"Alguien sabe si está lloviendo?","Teengo un problema desde hace ya un tiempo y es que no se si llueve o no llueve",now()),
+(null,7,"Alguien sabe porqué llamamos pan al pan?","Teengo un problema desde hace ya un tiempo y es que no se porque se le llama pan al pan",now()),
+(null,7,"Alguien sabe porque las cosas se caen?","Teengo un problema desde hace ya un tiempo y es que no se porque las cosas se caen al suelo",now());
+
+insert into forum_message
+values (1,null,3,"Creo que es 2 pero no estoy muy seguro",now()),
+ (1,null,4,"No me acuerdo no fui ese dia a clase",now()),
+ (1, null, 3, "Ya yo tampoco iba",now()),
+ (1, null, 5, "He usado la calculadora, es 2",now()),
+ (1, null, 2, "Muchas gracias",now()),
+ (2, null, 2, "No me acuerdo y le vi el otro dia", now()),
+ (2, null, 5, "Se llama juan", now()),
+ (3, null, 1, "Me he dejado el reloj en casa", now()),
+ (3, null, 5, "No me sé las horas", now()),
+ (3, null, 7, "Son las 13:02", now()),
+ (3, null, 2, "Gracias ahora ya se que hora es", now()),
+ (4, null, 5, "Necesito saberlo, alguien me puede responder? ", now()),
+ (5, null, 2, "Es por algo antiguo creo", now()),
+ (5, null, 1, "A mi suena de algo de los alimentos ", now()),
+ (5, null, 4, "Es por trigo en chino ", now()),
+ (5, null, 7, "Gracias me voy a comer pan ", now()),
+ (6, null, 5, "Es porque pesan y al pesar se caen ", now()),
+ (6, null, 3, "Es por algo que inventó newton ", now()),
+ (6, null, 2, "Es por el planeta que vivimos ", now()),
+ (6, null, 6, "A mi me contaron algo de la gravedad ", now()),
+ (6, null, 7, "Gracias gente ", now());
+ 
 -- Themes
 insert into theme 
 values (null,"El Municipio.El Ayuntamiento.Organos de Gobierno Municipal",5,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Quisque quis ipsum ut dui faucibus suscipit.Ut fermentum lorem ut lacus consectetur mollis.Vivamus vel ex augue.Donec eget feugiat massa,in tincidunt leo.Sed lacus leo,imperdiet et eros a,aliquet iaculis mauris.Nulla pulvinar,

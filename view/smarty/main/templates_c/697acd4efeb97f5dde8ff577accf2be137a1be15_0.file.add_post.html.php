@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-18 10:37:43
-  from '/srv/http/toposiciones/view/smarty/main/templates/add_theme.html' */
+/* Smarty version 3.1.39, created on 2021-04-18 10:38:14
+  from '/srv/http/toposiciones/view/smarty/main/templates/add_post.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607c0bf79b0227_74805623',
+  'unifunc' => 'content_607c0c16dc1732_56171964',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '08e87293eeeed1c304acbb251169845afd89e704' => 
+    '697acd4efeb97f5dde8ff577accf2be137a1be15' => 
     array (
-      0 => '/srv/http/toposiciones/view/smarty/main/templates/add_theme.html',
-      1 => 1618742188,
+      0 => '/srv/http/toposiciones/view/smarty/main/templates/add_post.html',
+      1 => 1618742293,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607c0bf79b0227_74805623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_607c0c16dc1732_56171964 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1520473997607c0bf79abaf3_10003761', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1818353730607c0c16dbcd28_69324563', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1520473997607c0bf79abaf3_10003761 extends Smarty_Internal_Block
+class Block_1818353730607c0c16dbcd28_69324563 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1520473997607c0bf79abaf3_10003761',
+    0 => 'Block_1818353730607c0c16dbcd28_69324563',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,32 +48,23 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
   <h2><?php echo $_smarty_tpl->tpl_vars['page']->value->pageTitle;?>
 </h2>
 </div>
-<form action="/toposiciones/crear-tema/" method="POST">
+<form action="/toposiciones/crear-post/" method="POST">
   <div class="form-group">
-    <label for="input-theme-name">Título</label>
-    <input type="text" class="form-control" id="input-theme-name" name="input-theme-name" maxlength="250">
-    <small id="emailHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
+    <label for="input-post-title">Título</label>
+    <input type="text" class="form-control" id="input-post-title" name="input-post-title" maxlength="250">
+    <small id="titleHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
   </div>
   <div class="form-group">
-    <label for="input-theme-category">Categoría</label><br>
-    <select id="inputSearchCategory" class="form-control form-control-md" name="input-theme-category"></select>
-  </div>
-
-  <div class="form-group">
-    <label for="input-theme-content">Contenido</label>
-    <div class="ck-input-theme-content">
-      <textarea name="input-theme-content" id="input-theme-content"></textarea>
+    <label for="input-post-content">Contenido</label>
+    <div class="ck-input-post-content">
+      <textarea name="input-post-content" id="input-post-content"></textarea>
     </div>
-    
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" class="btn btn-primary">Publicar</button>
 </form>
 <?php echo '<script'; ?>
 >
-  window.onload = function () {
-    searchCategoryJSON("");
-  }
   ClassicEditor.defaultConfig = {
     toolbar: {
       items: [
@@ -103,11 +94,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     language: 'es',
   };
   ClassicEditor
-    .create(document.querySelector('#input-theme-content'))
+    .create(document.querySelector('#input-post-content'))
     .catch(error => {
       console.error(error);
     });
-
 <?php echo '</script'; ?>
 >
 <?php

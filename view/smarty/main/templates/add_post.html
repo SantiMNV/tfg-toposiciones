@@ -4,31 +4,22 @@
 <div class="page-header">
   <h2>{$page->pageTitle}</h2>
 </div>
-<form action="/toposiciones/crear-tema/" method="POST">
+<form action="/toposiciones/crear-post/" method="POST">
   <div class="form-group">
-    <label for="input-theme-name">Título</label>
-    <input type="text" class="form-control" id="input-theme-name" name="input-theme-name" maxlength="250">
-    <small id="emailHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
+    <label for="input-post-title">Título</label>
+    <input type="text" class="form-control" id="input-post-title" name="input-post-title" maxlength="250">
+    <small id="titleHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
   </div>
   <div class="form-group">
-    <label for="input-theme-category">Categoría</label><br>
-    <select id="inputSearchCategory" class="form-control form-control-md" name="input-theme-category"></select>
-  </div>
-
-  <div class="form-group">
-    <label for="input-theme-content">Contenido</label>
-    <div class="ck-input-theme-content">
-      <textarea name="input-theme-content" id="input-theme-content"></textarea>
+    <label for="input-post-content">Contenido</label>
+    <div class="ck-input-post-content">
+      <textarea name="input-post-content" id="input-post-content"></textarea>
     </div>
-    
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" class="btn btn-primary">Publicar</button>
 </form>
 <script>
-  window.onload = function () {
-    searchCategoryJSON("");
-  }
   ClassicEditor.defaultConfig = {
     toolbar: {
       items: [
@@ -58,10 +49,9 @@
     language: 'es',
   };
   ClassicEditor
-    .create(document.querySelector('#input-theme-content'))
+    .create(document.querySelector('#input-post-content'))
     .catch(error => {
       console.error(error);
     });
-
 </script>
 {/block}

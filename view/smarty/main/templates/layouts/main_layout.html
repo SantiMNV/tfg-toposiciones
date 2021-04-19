@@ -30,9 +30,6 @@
 </head>
 
 <body>
-
-
-
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -56,7 +53,7 @@
         <li class="nav-item"><a class="nav-link" href="/toposiciones/temas/">Temas</a></li>
         <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>-->
         <li class="nav-item"><a class="nav-link" href="/toposiciones/soluciones/">Soluciones</a></li>
-        <li class="nav-item"><a class="nav-link" href="/toposiciones/foros/">Foros</a></li>
+        <li class="nav-item"><a class="nav-link" href="/toposiciones/foro/">Foro</a></li>
       </ul>
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
@@ -109,7 +106,7 @@
                   de {$opposition.category_name} en {$opposition.state}
                 </a>
               </div>
-              <div class="date">
+              <div class="secondary">
                 {$opposition.updated_at|date_format:"%e/%b/%G %H:%M:%S"}
               </div>
             </li>
@@ -208,6 +205,20 @@
           <img class="card-img-top" src="{$MEDIA_DIRECTORY}/images/foro.jpg" alt="Foro">
           <h5 class="card-title">Mensajes en foro</h5>
           <ul class="list-group list-group-flush">
+            {foreach from=$side_messages item=m}
+            <li class="list-group-item">
+              <div class="question">
+                <a class="card-link" href="/toposiciones/foro/{$m.postId}">
+                  {$m.title}</a>
+
+              </div>
+              <div class="secondary">
+
+                {$m.user_name} | {$m.created_at|date_format:"%e/%b/%G"}
+              </div>
+            </li>
+            {/foreach}
+            <!--
             <li class="list-group-item">
               <img class="rounded-circle img-responsive" src="{$MEDIA_DIRECTORY}/images/profile_pic.jpeg" alt="Messi">
               <div class="user-name">
@@ -217,36 +228,11 @@
               <div class="question">
                 Cuanto es el resultado de uno mas uno?
               </div>
-              <div class="date">
+              <div class="secondary">
                 23/3/21 8:41
               </div>
             </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="{$MEDIA_DIRECTORY}/images/profile_pic.jpeg" alt="Messi">
-              <div class="user-name">
-                &nbsp;
-                <a href="">Messi chikito</a>
-              </div>
-              <div class="question">
-                Cuanto es el resultado de uno mas uno?
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="{$MEDIA_DIRECTORY}/images/profile_pic.jpeg" alt="Messi">
-              <div class="user-name">
-                &nbsp;
-                <a href="">Messi chikito</a>
-              </div>
-              <div class="question">
-                Cuanto es el resultado de uno mas uno?
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
+            -->
           </ul>
 
         </div>
@@ -296,7 +282,6 @@
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 <script src="{$JS_DIRECTORY}/main.js"></script>
 
 </html>

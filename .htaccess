@@ -9,7 +9,6 @@ RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/convocatoria.php?id=
 
 RewriteRule ^temas/$ controller/temas.php
 RewriteRule ^soluciones/$ controller/soluciones.php
-RewriteRule ^foros/$ controller/foros.php
 
 RewriteRule ^login/$ controller/login.php
 RewriteRule ^profile/$ controller/profile.php
@@ -21,5 +20,9 @@ RewriteRule ^crear-convocatoria/$ controller/add_opposition.php
 RewriteRule ^lista-convocatoria/$ controller/opposition_list.php
 
 RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
+
+RewriteRule ^foro/$ controller/forum.php
+RewriteRule ^foro/([^/]*)$ controller/forum_post.php?id=$1 [L]
+RewriteRule ^crear-post/$ controller/add_post.php
 
 RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]

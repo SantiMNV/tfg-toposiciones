@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-10 10:23:39
+/* Smarty version 3.1.39, created on 2021-04-18 11:32:04
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60717cab4e1031_85730727',
+  'unifunc' => 'content_607c18b4a48cc7_56966739',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1618050218,
+      1 => 1618745523,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60717cab4e1031_85730727 (Smarty_Internal_Template $_smarty_tpl) {
+function content_607c18b4a48cc7_56966739 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -61,9 +61,6 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 </head>
 
 <body>
-
-
-
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -88,7 +85,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
         <li class="nav-item"><a class="nav-link" href="/toposiciones/temas/">Temas</a></li>
         <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>-->
         <li class="nav-item"><a class="nav-link" href="/toposiciones/soluciones/">Soluciones</a></li>
-        <li class="nav-item"><a class="nav-link" href="/toposiciones/foros/">Foros</a></li>
+        <li class="nav-item"><a class="nav-link" href="/toposiciones/foro/">Foro</a></li>
       </ul>
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
@@ -161,7 +158,7 @@ if ($_prefixVariable2 > 1) {?>
 
                 </a>
               </div>
-              <div class="date">
+              <div class="secondary">
                 <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['updated_at'],"%e/%b/%G %H:%M:%S");?>
 
               </div>
@@ -236,7 +233,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </div>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20269720060717cab4dd8e7_49183241', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1263190989607c18b4a41767_49476696', "body-content");
 ?>
 
       </div>
@@ -250,6 +247,31 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20269720060717cab4
 /images/foro.jpg" alt="Foro">
           <h5 class="card-title">Mensajes en foro</h5>
           <ul class="list-group list-group-flush">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['side_messages']->value, 'm');
+$_smarty_tpl->tpl_vars['m']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
+$_smarty_tpl->tpl_vars['m']->do_else = false;
+?>
+            <li class="list-group-item">
+              <div class="question">
+                <a class="card-link" href="/toposiciones/foro/<?php echo $_smarty_tpl->tpl_vars['m']->value['postId'];?>
+">
+                  <?php echo $_smarty_tpl->tpl_vars['m']->value['title'];?>
+</a>
+
+              </div>
+              <div class="secondary">
+
+                <?php echo $_smarty_tpl->tpl_vars['m']->value['user_name'];?>
+ | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['m']->value['created_at'],"%e/%b/%G");?>
+
+              </div>
+            </li>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            <!--
             <li class="list-group-item">
               <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/profile_pic.jpeg" alt="Messi">
@@ -260,38 +282,11 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20269720060717cab4
               <div class="question">
                 Cuanto es el resultado de uno mas uno?
               </div>
-              <div class="date">
+              <div class="secondary">
                 23/3/21 8:41
               </div>
             </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/profile_pic.jpeg" alt="Messi">
-              <div class="user-name">
-                &nbsp;
-                <a href="">Messi chikito</a>
-              </div>
-              <div class="question">
-                Cuanto es el resultado de uno mas uno?
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/profile_pic.jpeg" alt="Messi">
-              <div class="user-name">
-                &nbsp;
-                <a href="">Messi chikito</a>
-              </div>
-              <div class="question">
-                Cuanto es el resultado de uno mas uno?
-              </div>
-              <div class="date">
-                23/3/21 8:41
-              </div>
-            </li>
+            -->
           </ul>
 
         </div>
@@ -347,7 +342,6 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20269720060717cab4
  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"><?php echo '</script'; ?>
 >
-
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['JS_DIRECTORY']->value;?>
 /main.js"><?php echo '</script'; ?>
@@ -355,12 +349,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20269720060717cab4
 
 </html><?php }
 /* {block "body-content"} */
-class Block_20269720060717cab4dd8e7_49183241 extends Smarty_Internal_Block
+class Block_1263190989607c18b4a41767_49476696 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_20269720060717cab4dd8e7_49183241',
+    0 => 'Block_1263190989607c18b4a41767_49476696',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -202,8 +202,7 @@ footer div:nth-child(2) {
   padding: 0;
 }
 
-.left-bar .date,
-.right-bar .date {
+.secondary {
   color: var(--second-color);
   font-size: 0.75em;
   bottom: 0;
@@ -423,8 +422,24 @@ td.cut {
   border: none;
 }
 
-.ck-content {
+.ck-input-theme-content .ck-content,
+.ck-input-post-content .ck-content {
   height: 500px;
+}
+
+#input-message-content .ck-content {
+  height: 100px;
+}
+
+.post-title {
+  font-weight: 600;
+}
+.post-content {
+  font-weight: normal;
+}
+
+#forum-body .card {
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 0 0 0 rgb(0 0 0 / 12%);
 }
 
 @media (min-width: 1400px) {

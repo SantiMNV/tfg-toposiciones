@@ -1,0 +1,104 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<div id="forum-body">
+  {foreach from=$post item=p}
+  <div class="col-md-12 card">
+    <div class="card-body col-md-12">
+      <div>
+        <div>{$p.user_name} | {$p.created_at|date_format:"%e/%b/%G"}</div>
+        {If isset($smarty.session.login_user)}
+        {If ($smarty.session.login_access_level >= 10)}
+        <div class="float-right">
+          <form action="/toposiciones/foro/{$p.postId}" method="POST">
+            <input type="hidden" name="remove-request" value="remove">
+            <input type="hidden" name="remove-post" value="{$p.postId}">
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+        {/If}
+        {/If}
+      </div>
+      <h3>{$p.title}</h3>
+      <div>{$p.content}</div>
+    </div>
+  </div>
+  <br>
+  {foreach from=$messages item=message}
+  <div class="col-md-12 card">
+    <div class="card-body col-md-12">
+      <div>
+        <div>{$message.user_name} | {$message.created_at|date_format:"%e/%b/%G"} </div>
+        {If isset($smarty.session.login_user)}
+        {If ($smarty.session.login_access_level >= 10)}
+        <div class="float-right">
+          <form action="/toposiciones/foro/{$p.postId}" method="POST">
+            <input type="hidden" name="remove-request" value="message">
+            <input type="hidden" name="remove-message" value="{$message.messageId}">
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+        {/If}
+        {/If}
+      </div>
+      <div>{$message.content}</div>
+    </div>
+  </div>
+  <br>
+  {/foreach}
+  {If isset($smarty.session.login_user)}
+  <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+  <form action="/toposiciones/foro/{$p.postId}" method="POST">
+    <input type="hidden" name="message-request" value="message">
+    <input type="hidden" name="input-message-post" value="{$p.postId}">
+    <div class="form-group">
+      <textarea name="input-message-content" id="input-message-content" placeholder="Añade un comentario"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+  <script>
+    ClassicEditor.defaultConfig = {
+      toolbar: {
+        items: [
+          'heading',
+          '|',
+          'bold',
+          'italic',
+          '|',
+          'bulletedList',
+          'numberedList',
+          '|',
+          'undo',
+          'redo'
+        ]
+      },
+      image: {
+        toolbar: [
+          'imageStyle:full',
+          'imageStyle:side',
+          '|',
+          'imageTextAlternative'
+        ]
+      },
+      table: {
+        contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+      },
+      language: 'es',
+    };
+    ClassicEditor
+      .create(document.querySelector('#input-message-content'))
+      .catch(error => {
+        console.error(error);
+      });
+
+  </script>
+  {/if}
+  {/foreach}
+</div>
+{/block}
