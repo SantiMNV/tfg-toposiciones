@@ -76,12 +76,17 @@ function removePost($id) {
   global $conn;
   // *** TRANSACTION ***
   $ok = true;
-  $conn->beginTransaction();
-  $sqlPost = "DELETE from forum_post where postId = '{$id}'";
-  $sqlMessage = "DELETE from forum_message where postId = '{$id}'";
 
+  $sqlSelect = "SELECT count(messageId) from forum_message where postId = {$id}";
+  $messageCount = $conn->query($sqlSelect)->fetch()[0];
+  $sqlPost = "DELETE from forum_post where postId = {$id}";
+  $sqlMessage = "DELETE from forum_message where postId = {$id}";
+  $conn->beginTransaction();
+
+  if ($messageCount) {
+    if ($conn->exec($sqlMessage) == 0) $ok = false;
+  }
   if ($conn->exec($sqlPost) == 0) $ok = false;
-  if ($conn->exec($sqlMessage) == 0) $ok = false;
   if ($ok) {
     $conn->commit();
     $status = "remove-post-success";
@@ -97,7 +102,7 @@ function removeMessage($id) {
   // *** TRANSACTION ***
   $ok = true;
   $conn->beginTransaction();
-  $sql = "DELETE from forum_message where messageId = '{$id}'";
+  $sql = "DELETE from forum_message where messageId = {$id}";
 
   if ($conn->exec($sql) == 0) $ok = false;
   if ($ok) {

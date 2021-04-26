@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-18 11:30:19
+/* Smarty version 3.1.39, created on 2021-04-24 16:36:50
   from '/srv/http/toposiciones/view/smarty/main/templates/forum_post.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607c184bcf6e54_72429835',
+  'unifunc' => 'content_60844922a0bc16_95885369',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e6c278248623a36c1804626a5efaecaa70399322' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/forum_post.html',
-      1 => 1618742713,
+      1 => 1619282202,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607c184bcf6e54_72429835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60844922a0bc16_95885369 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1621964457607c184bcd2d42_16003935', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_765410541608449229e7c45_23576832', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1621964457607c184bcd2d42_16003935 extends Smarty_Internal_Block
+class Block_765410541608449229e7c45_23576832 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1621964457607c184bcd2d42_16003935',
+    0 => 'Block_765410541608449229e7c45_23576832',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,7 +64,7 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
         <div class="float-right">
           <form action="/toposiciones/foro/<?php echo $_smarty_tpl->tpl_vars['p']->value['postId'];?>
 " method="POST">
-            <input type="hidden" name="remove-request" value="remove">
+            <input type="hidden" name="remove-request" value="post">
             <input type="hidden" name="remove-post" value="<?php echo $_smarty_tpl->tpl_vars['p']->value['postId'];?>
 ">
             <button type="submit">

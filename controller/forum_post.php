@@ -1,7 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("", "", "slug", "");
+$page = new Page("Foro", "", "", "slug", "");
 
 $alerts = array();
 if (isset($_SESSION['login_user'])) {
@@ -60,11 +60,11 @@ if (isset($_SESSION['login_user'])) {
         }
       }
     }
-    $smarty->assign("post", getPost($_GET['id'])->fetchAll());
-    $smarty->assign("messages", getMessages($_GET['id'])->fetchAll());
-    $smarty->assign('alerts', $alerts);
-    $smarty->assign('page', $page);
   }
 }
+$smarty->assign("post", getPost($_GET['id'])->fetchAll());
+$smarty->assign("messages", getMessages($_GET['id'])->fetchAll());
+$smarty->assign('alerts', $alerts);
+$smarty->assign('page', $page);
 
 $smarty->display('forum_post.html');

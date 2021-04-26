@@ -1,7 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("Añadir post", "", "slug", "");
+$page = new Page("Foro","Añadir post", "", "slug", "");
 
 $alerts = array();
 

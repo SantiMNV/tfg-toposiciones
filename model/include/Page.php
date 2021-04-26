@@ -2,22 +2,30 @@
 
 class Page {
   //Variables o atributos
+  var $currentPage;
   var $topTitle;
   var $pageTitle;
   var $slug;
   var $breadCrumb;
 
-
-  function __construct($topTitle, $pageTitle, $slug, $breadCrumb) {
+  function __construct($currentPage, $topTitle, $pageTitle, $slug, $breadCrumb) {
+    $this->currentPage = $currentPage;
     $this->topTitle = $topTitle;
     $this->pageTitle = $pageTitle;
     $this->slug = $slug;
     $this->breadCrumb = $breadCrumb;
   }
 
+  function setCurrentPage($currentPage) {
+    $this->currentPage = $currentPage;
+  }
 
   function setTopTitle($topTitle) {
     $this->topTitle = $topTitle;
+  }
+
+  function getCurrentPage() {
+    return $this->currentPage;
   }
 
   function getTopTitle() {

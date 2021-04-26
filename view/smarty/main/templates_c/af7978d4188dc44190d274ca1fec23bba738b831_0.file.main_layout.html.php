@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-18 11:32:04
+/* Smarty version 3.1.39, created on 2021-04-25 19:29:14
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607c18b4a48cc7_56966739',
+  'unifunc' => 'content_6085c30a14d417_35630443',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1618745523,
+      1 => 1619378951,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607c18b4a48cc7_56966739 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6085c30a14d417_35630443 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -58,6 +58,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 /estilos.css" />
   <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/company/fototopo32no-fondo.png">
+
 </head>
 
 <body>
@@ -75,38 +76,74 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
+        <!-- <i class="fas fa-bars"></i> -->
       </button>
     </div>
     <!-- Menu -->
     <div class="collapse col-md-9 navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav col-md-8 col-sm-6 col-6" id="main-menu">
-        <li class="nav-item"><a class="nav-link" href="/toposiciones/convocatorias/">Convocatorias</a></li>
-        <li class="nav-item"><a class="nav-link" href="/toposiciones/temas/">Temas</a></li>
-        <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>-->
-        <li class="nav-item"><a class="nav-link" href="/toposiciones/soluciones/">Soluciones</a></li>
-        <li class="nav-item"><a class="nav-link" href="/toposiciones/foro/">Foro</a></li>
+        <li class="nav-item">
+          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Convocatorias') {?>active-link<?php }?>"
+            href="/toposiciones/convocatorias/">
+            <!-- <i class="fas fa-calendar"></i> -->
+            Convocatorias
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Temas') {?>active-link<?php }?> " href="/toposiciones/temas/">
+            <!-- <i class="fas fa-book"></i> -->
+            Temas
+          </a>
+        </li>
+        <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>
+        <li class="nav-item"><a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Soluciones') {?>active-link<?php }?>"
+            href="/toposiciones/soluciones/">Soluciones</a></li>-->
+        <li class="nav-item"><a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Foro') {?>active-link<?php }?>"
+            href="/toposiciones/foro/">
+            <!-- <i class="fas fa-comments"></i> -->
+            Foro
+          </a></li>
+        <li class="nav-item"><a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Contacto') {?>active-link<?php }?>"
+            href="/toposiciones/contacto/">
+            <!--<i class="fas fa-id-card"></i> -->
+            Contacto
+          </a></li>
+
+        <?php if ((isset($_SESSION['login_user']))) {?>
+        <?php if (($_SESSION['login_access_level'] > 5)) {?>
+        <li class="nav-item" id="adminSite">
+          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Admin') {?>active-link<?php }?>" href="/toposiciones/admin/">
+            <i class="fas fa-tools"></i>
+            Admin
+          </a>
+        </li>
+        <?php }?>
+        <?php }?>
       </ul>
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
           <?php if ((isset($_SESSION['login_user']))) {?>
-          <a class="nav-link" href="/toposiciones/profile/">
+          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Perfil') {?>active-link<?php }?>" href="/toposiciones/profile/">
             <i class="fas fa-user"></i>
             Cuenta
           </a>
           <?php } else { ?>
-          <a class="nav-link" href="/toposiciones/login/">
+          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Login') {?>active-link<?php }?>" href="/toposiciones/login/">
             <i class="fas fa-user"></i>
             Entrar
           </a>
           <?php }?>
         </li>
-        <li class="nav-item" id="searchBtn">
-          <a class="nav-link">
+        <!--
+        <li class="nav-item" id="searchBtn2">
+          <a class="nav-link ">
             <i class="fas fa-search"></i>
             Buscar
           </a>
         </li>
+        -->
+
+
       </ul>
     </div>
   </nav>
@@ -205,15 +242,12 @@ $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] = $_smarty_
 </a></li>
           <?php }?>
           <?php }?>
-
           <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </ol>
       </nav>
-      <div id="search-container" class="col-md-12">
-
-      </div>
+      <div id="search-container2" class="col-md-12"></div>
       <div class="alerts">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alerts']->value, 'alert_item', false, 'alert_key');
@@ -231,13 +265,62 @@ $_smarty_tpl->tpl_vars['alert_item']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </div>
+
+
+
+
+
+      <div class="modal fade" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="notice d-flex justify-content-between align-items-center">
+                <div class="cookie-text">Este sitio usa cookies para mejorar la experiencia </div>
+                <div class="buttons d-flex flex-column flex-lg-row">
+                  <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">Acepto</a>
+                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm" data-dismiss="modal">
+                    Leer más.
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- 
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCookie1">
+        Launch modal
+      </button>
+      
+      <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" data-backdrop="true">
+        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="row d-flex justify-content-center align-items-center">
+                <p class="pt-3 pr-2">We use cookies to improve your website experience</p>
+                <a type="button" class="btn btn-primary" href="/toposiciones/privacidad/">Learn more
+                  <i class="fas fa-book ml-1"></i>
+                </a>
+                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      -->
+
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1263190989607c18b4a41767_49476696', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10373007976085c30a144740_55670033', "body-content");
 ?>
 
       </div>
-
     </div>
     <!-- Right bar -->
     <div class="right-bar col-md-2 d-none d-lg-block order-3 ">
@@ -292,6 +375,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
       </div>
     </div>
+    <div id="snackbar"></div>
     <button id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
   </div>
 
@@ -311,11 +395,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </section>
       <section class="mb-4">
         <p>
-          Trabajo Final de Grado IES A.G.Linares (Cantabria) <br />
-          Desarrollo de Aplicaciones Web
+          Toposiciones todo los que necesitas para sacar tu plaza! <br />
         </p>
         <p>
-          <a href="">Cookies & Política de privacidad</a>
+          <a href="/toposiciones/privacidad/">Cookies & Política de privacidad</a>
+        </p>
+        <p>
+          <a href="/toposiciones/contacto/">Contacta con nosotros</a>
         </p>
       </section>
     </div>
@@ -349,64 +435,126 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_1263190989607c18b4a41767_49476696 extends Smarty_Internal_Block
+class Block_10373007976085c30a144740_55670033 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1263190989607c18b4a41767_49476696',
+    0 => 'Block_10373007976085c30a144740_55670033',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-        <div class="page-header">
-          <h2><?php echo $_smarty_tpl->tpl_vars['page']->value->pageTitle;?>
-</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut et
-            dolore magna aliqua. Ut enim ad</p>
-        </div>
-        <!-- SECCION TEMAS -->
-        <section id="temas" class="col-md-12">
-          <!-- TEMA-->
-          <div id="tema1" class="tema row col-md-12">
-            <div class="texto-tema col-md-10">
-              <h3>Procedimiento administrativo local</h3>
-              <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
-                de la presentación de
-                documentos. Comunicaciones y notificaciones</p>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a href="/toposiciones/convocatorias/">
+                <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/calendar.jpg" alt="First slide">
+                <div class="carousel-caption ">
+                  <h5>Accede a las últimas convocatorias</h5>
+                  <p>Podras encontrar las últimas convocatorias anunciafas y filtrarlas según tu criterio</p>
+                </div>
+              </a>
             </div>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-info">Acceder</button>
+            <div class="carousel-item ">
+              <a href="/toposiciones/temas/">
+                <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/library.jpg" href="/toposiciones/temas/"
+                  alt="First slide">
+                <div class="carousel-caption ">
+                  <h5>Temas de oposiciones</h5>
+                  <p>Accede a la sección de temas para encontrar los últimos temas para las oposiciones</p>
+                </div>
+              </a>
             </div>
-            <hr />
-          </div>
-          <div id="tema1" class="tema row col-md-12">
-            <div class="texto-tema col-md-10">
-              <h3>Procedimiento administrativo local</h3>
-              <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
-                de la presentación de
-                documentos. Comunicaciones y notificaciones</p>
-            </div>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-info">Acceder</button>
-            </div>
-            <hr />
-          </div>
-          <div id="tema1" class="tema row col-md-12">
-            <div class="texto-tema col-md-10">
-              <h3>Procedimiento administrativo local</h3>
-              <p>Procedimiento administrativo local. El registro de entrada y salida de documentos. Requisitos
-                de la presentación de
-                documentos. Comunicaciones y notificaciones</p>
-            </div>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-info">Acceder</button>
-            </div>
-            <hr />
-          </div>
-        </section>
+            <div class="carousel-item ">
+              <a href="/toposiciones/foro/">
+                <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/forum.png" href="/toposiciones/foro/"
+                  alt="First slide">
+                <div class="carousel-caption">
+                  <h5>Foro</h5>
+                  <p>En el foro hallarás compañeros que plantean y resuelven dudas a diario</p>
+                </div>
+              </a>
 
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <br>
+        <hr><br>
+        <h2 class="text-center">Trucos para sacar plaza!</h2>
+        <br>
+        <div class="half-sq row">
+          <div class="col-md-6 d-block w-100 float-left">
+            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/trick_prepared.jpg" class="img-thumbnail" alt="">
+          </div>
+          <div class="col-md-6 d-block w-100 float-right">
+            <blockquote class="quote-card blue-card">
+              <p>
+                Recuerda llevar todo el material necesario, incluyendo dos bolígrafos al menos
+              </p>
+            </blockquote>
+          </div>
+        </div>
+        <div class="half-sq row">
+          <div class="col-md-6 d-block w-100 float-right">
+            <blockquote class="quote-card">
+              <p>
+                Se recomienda llevar una botella de agua, es común que un exámen dure 3 horas
+              </p>
+            </blockquote>
+          </div>
+          <div class="col-md-6 d-block w-100 float-left">
+            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/trick_bottle.jpg" class="img-thumbnail" alt="">
+          </div>
+        </div>
+        <div class="half-sq row">
+          <div class="col-md-6 d-block w-100 float-left">
+            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/trick_sad.jpg" class="img-thumbnail" alt="">
+          </div>
+          <div class="col-md-6 d-block w-100 float-right">
+            <blockquote class="quote-card green-card">
+              <p>
+                No se ponga nervioso/a es sólo un exámen
+              </p>
+            </blockquote>
+          </div>
+        </div>
+        <div class="half-sq row">
+          <div class="col-md-6 d-block w-100 float-right">
+            <blockquote class="quote-card red-card">
+              <p>
+                Lea las preguntas con detenimiento
+              </p>
+            </blockquote>
+          </div>
+          <div class="col-md-6 d-block w-100 float-left">
+            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/images/trick_read.jpg" class="img-thumbnail" alt="">
+          </div>
+        </div>
+        <!-- <div class="page-header">
+        </div>
+        -->
         <?php
 }
 }

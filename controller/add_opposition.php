@@ -1,7 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("Añadir convocatoria", "", "slug", "");
+$page = new Page("Convocatorias", "Añadir convocatoria", "", "slug", "");
 
 $alerts = array();
 

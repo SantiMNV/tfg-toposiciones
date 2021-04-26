@@ -6,6 +6,7 @@ session_start();
 
 
 const MAIN_DIRECTORY = "/srv/http/toposiciones";
+//const MAIN_DIRECTORY = "C:\\xampp\\htdocs\\toposiciones";
 const PUBLIC_DIRECTORY = "/toposiciones";
 
 const SMARTY_LIB = MAIN_DIRECTORY . "/view/smarty_lib";
@@ -24,6 +25,7 @@ require(MODEL_DIRECTORY . "/include/user.php");
 require(MODEL_DIRECTORY . "/include/states.php");
 require(MODEL_DIRECTORY . "/include/categories.php");
 require(MODEL_DIRECTORY . "/include/forums.php");
+require(MODEL_DIRECTORY . "/include/admin.php");
 
 $smarty = new Smarty;
 
@@ -46,13 +48,18 @@ $smarty->registerPlugin('function', 'urlify', 'urlify');
 $smarty->assign("oppositions", getOppositions(5)->fetchAll());
 $smarty->assign("side_messages", getPostsSummary(5)->fetchAll());
 
+// Receive the url
+//php_console_log($_SERVER["REQUEST_URI"]);
 $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
 $breadCrumbs = array();
 foreach ($crumbs as $crumb) {
+  //php_console_log("URL: " . ucfirst(str_replace(array(".php", "_"), array("", " "), $crumb)));
   array_push($breadCrumbs, ucfirst(str_replace(array(".php", "_"), array("", " "), $crumb)));
 }
+// Remove the first bc are empty
 array_shift($breadCrumbs);
 array_pop($breadCrumbs);
+
 
 function php_console_log($data) {
   echo '<script>';

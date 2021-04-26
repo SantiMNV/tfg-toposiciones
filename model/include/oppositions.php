@@ -30,7 +30,7 @@ function getOppositionParams($params) {
     if (isset($params["sendStatus"])) {
       // santi
       if ($params["sendStatus"] !== "any") {
-        if ($params["sendStatus"] === "Abierta") {
+        if ($params["sendStatus"] === "open") {
           $sql .= " and opposition.opposition_status LIKE 'Abierta'";
         } else {
           $sql .= " and opposition.opposition_status LIKE 'Cerrada'";
@@ -39,7 +39,7 @@ function getOppositionParams($params) {
     }
     if (isset($params["sendDate"])) {
       if ($params["sendDate"] !== "") {
-        $sql .= " and opposition.opposition_start_date LIKE '" . $params["sendDate"] . "'";
+        $sql .= " and opposition.opposition_start_date > '" . $params["sendDate"] . "'";
       }
     }
     if (isset($params["sendCategory"])) {
@@ -48,7 +48,9 @@ function getOppositionParams($params) {
       }
     }
     if (isset($params["sendState"])) {
-      $sql .= "and opposition.stateId LIKE '" . $params["sendState"] . "'";
+      if ($params["sendState"] > 0) {
+        $sql .= "and opposition.stateId LIKE '" . $params["sendState"] . "'";
+      }
     }
   }
   $resultado = $conn->query($sql);

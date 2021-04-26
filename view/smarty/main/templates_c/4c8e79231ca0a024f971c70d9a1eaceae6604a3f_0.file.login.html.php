@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-18 08:40:28
+/* Smarty version 3.1.39, created on 2021-04-24 16:05:36
   from '/srv/http/toposiciones/view/smarty/main/templates/login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607bf07c9b5e78_79230319',
+  'unifunc' => 'content_608441d04a7426_18317341',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4c8e79231ca0a024f971c70d9a1eaceae6604a3f' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/login.html',
-      1 => 1618680023,
+      1 => 1618929796,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607bf07c9b5e78_79230319 (Smarty_Internal_Template $_smarty_tpl) {
+function content_608441d04a7426_18317341 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_159069755607bf07c9b0693_15467838', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_23798512608441d04a58a0_61044403', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_159069755607bf07c9b0693_15467838 extends Smarty_Internal_Block
+class Block_23798512608441d04a58a0_61044403 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_159069755607bf07c9b0693_15467838',
+    0 => 'Block_23798512608441d04a58a0_61044403',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -93,46 +93,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
   </div>
 </div>
 <br>
-<div class="register-form">
-  <div class="cotainer">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Registrarse</div>
-          <div class="card-body">
-            <form action="/toposiciones/login/" method="POST">
-              <input type="hidden" name="login-request" value="register">
-              <div class="form-group row">
-                <label for="register-mail" class="col-md-4 col-form-label text-md-right">Email</label>
-                <div class="col-md-6">
-                  <input type="text" id="register-mail" class="form-control" name="register-mail" required autofocus>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="register-user" class="col-md-4 col-form-label text-md-right">Usuario</label>
-                <div class="col-md-6">
-                  <input type="text" id="register-user" class="form-control" name="register-user" required>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="register-password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
-                <div class="col-md-6">
-                  <input type="password" id="register-password" class="form-control" name="register-password" required>
-                </div>
-              </div>
-              <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                  Registrarse
-                </button>
-              </div>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 </main>
 
 <?php

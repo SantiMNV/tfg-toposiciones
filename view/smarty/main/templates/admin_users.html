@@ -1,0 +1,48 @@
+{extends 'layouts/main_layout.html'} {block name="body-content"}
+<div class="full-action-button text-center">
+  <a href="/toposiciones/admin/crear/">
+    <i class="fas fa-plus-circle"></i>
+    <div>Crear usuario</div>
+  </a>
+</div>
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll">
+  <table
+    class="table list-table table-striped table-hover table-sm table-bordered"
+  >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Id</th>
+        <th scope="col">Acceso</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha Registro</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$all_users item=user}
+      <tr>
+        <th>
+          <form action="/toposiciones/admin/usuarios/" method="POST">
+            <input type="hidden" name="remove-request" value="remove" />
+            <input type="hidden" name="remove-user" value="{$user.userId}" />
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </th>
+        <th scope="row">{$user.userId}</th>
+        <td>{$user.access_level}</td>
+        <td>{$user.mail}</td>
+        <td>{$user.user_name}</td>
+        <td style="min-width: 100px">{$opposition.opposition_start_date}</td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+
+{/block}

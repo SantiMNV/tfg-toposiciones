@@ -5,17 +5,29 @@ let stateSelected = "";
 let jsonResponseText = {};
 document.onload = principal()
 
-
-
 function principal() {
   console.log("Conectado")
   backToTopBtn = document.getElementById("backToTopBtn");
   backToTopBtn.addEventListener("click", topFunction)
   window.onscroll = function () { scrollFunction() };
-  document.getElementById("searchBtn").addEventListener('click', showSearch);
-  //document.getElementById("cantabria").addEventListener("click", search);
+
+  /*
+    $('#modalCookie1').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+    $('#modalCookie1').modal('show');
+    */
 }
 
+
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 // Show btn when scroll is 20 down
 function scrollFunction() {
@@ -41,17 +53,28 @@ function pickState(e) {
       document.getElementById(event.srcElement.id).style.stroke = "black";
       document.getElementById(event.srcElement.id).style.strokeWidth = 4;
       stateSelected = event.srcElement.id;
+
+      let x = document.getElementById("snackbar");
+      x.className = "show"
+      x.innerHTML = (event.srcElement.id + "").slice(event.srcElement.id.indexOf("-") + 1, event.srcElement.id.length).replace("-", " ");
+      setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     } else {
       if (stateSelected !== event.srcElement.id) {
         document.getElementById(stateSelected).style.stroke = "";
         document.getElementById(event.srcElement.id).style.stroke = "black";
         document.getElementById(event.srcElement.id).style.strokeWidth = 4;
         stateSelected = event.srcElement.id;
+
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        x.innerHTML = (event.srcElement.id + "").slice(event.srcElement.id.indexOf("-") + 1, event.srcElement.id.length).replace("-", " ");
+        setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000)
       } else {
         document.getElementById(stateSelected).style.stroke = "";
         stateSelected = "";
       }
     }
+
   }
 }
 
@@ -73,7 +96,7 @@ function getSearchInput() {
   if (date !== "") {
     params += "&date=" + date
   }
-  console.log(params);
+
   return params;
 }
 
@@ -89,7 +112,8 @@ function mapListeners() {
 function showSearch() {
   if (!searchDisplayed) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
+    //xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
+    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout2.html', true);
     xhr.onreadystatechange = function () {
       if (this.readyState !== 4) return;
       if (this.status !== 200) return;
@@ -99,8 +123,12 @@ function showSearch() {
     };
     xhr.send();
     searchDisplayed = true;
+    //document.getElementById("searchBtn").firstChild.nextSibling.className += "active-link"
+    //document.getElementById("searchBtn").className += "active-link"
     topFunction();
   } else {
+    //document.getElementById("searchBtn").firstChild.nextSibling.className = document.getElementById("searchBtn").firstChild.nextSibling.className.replace("active-link", "");
+    //document.getElementById("searchBtn").className = document.getElementById("searchBtn").className.replace("active-link", "");
     document.getElementById('search-container').innerHTML = "";
     searchDisplayed = false;
   }
@@ -109,7 +137,7 @@ function showSearch() {
 function showCategories(field_id) {
   let categories_options = "";
   categories_options += "<option value='any' selected>Todas</option>";
-  console.log(jsonResponseText);
+  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -118,7 +146,7 @@ function showCategories(field_id) {
 
 function showCategoriesItems(field_id) {
   let categories_options = "";
-  console.log(jsonResponseText);
+  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -127,7 +155,7 @@ function showCategoriesItems(field_id) {
 
 function showStates(field_id) {
   let categories_options = "";
-  console.log(jsonResponseText);
+  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -158,7 +186,8 @@ function searchJSON() {
 }
 
 function searchCategoryJSON() {
-  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesItems("inputSearchCategory") })
+  //JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesItems("inputSearchCategory") })
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategories("inputSearchCategory") })
 }
 
 function searchStateJSON() {
@@ -172,5 +201,16 @@ function jsonResponse() {
     for (let i in serverResponse) {
       jsonResponseText[i] = serverResponse[i];
     }
+  }
+}
+
+function showPasswoadrd() {
+  console.log("Quieres verla");
+  let pwInput = document.getElementById("input-password");
+  if (pwInput.type === "password") {
+    pwInput.type = "text";
+    console.log(pwInput.firstChild.innerHTML);
+  } else {
+    pwInput.type = "password";
   }
 }

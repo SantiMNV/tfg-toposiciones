@@ -1,7 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("Añadir tema", "", "slug", "");
+$page = new Page("Temas", "Añadir tema", "", "slug", "");
 
 $alerts = array();
 
@@ -26,7 +26,7 @@ if (isset($_SESSION['login_user'])) {
   }
   $smarty->assign('alerts', $alerts);
   $smarty->assign('page', $page);
-  
+
   $smarty->display('add_theme.html');
 } else {
   header('Location: /toposiciones/');
