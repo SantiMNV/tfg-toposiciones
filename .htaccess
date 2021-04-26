@@ -7,19 +7,32 @@ RewriteRule ^$ controller/index.php
 RewriteRule ^convocatorias/$ controller/convocatorias.php
 RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/convocatoria.php?id=$1 [L]
 
-RewriteRule ^temas/$ controller/temas.php
+RewriteRule ^temas/$ controller/themes.php
 RewriteRule ^soluciones/$ controller/soluciones.php
-RewriteRule ^foros/$ controller/foros.php
 
 RewriteRule ^login/$ controller/login.php
 RewriteRule ^profile/$ controller/profile.php
 
 RewriteRule ^crear-tema/$ controller/add_theme.php
 RewriteRule ^lista-tema/$ controller/theme_list.php
+RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]
 
 RewriteRule ^crear-convocatoria/$ controller/add_opposition.php
 RewriteRule ^lista-convocatoria/$ controller/opposition_list.php
 
 RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
 
-RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]
+RewriteRule ^foro/$ controller/forum.php
+RewriteRule ^foro/([^/]*)$ controller/forum_post.php?id=$1 [L]
+RewriteRule ^crear-post/$ controller/add_post.php
+
+RewriteRule ^contacto/$ controller/contact.php
+
+RewriteRule ^privacidad/$ controller/privacy.php
+
+RewriteRule ^admin/$ controller/admin.php
+RewriteRule ^admin/usuarios/$ controller/admin_users.php
+RewriteRule ^admin/crear/$ controller/admin_create_user.php
+
+RewriteRule ^de0/$ controller/de0.php
+RewriteRule ^de1/$ controller/de1.html

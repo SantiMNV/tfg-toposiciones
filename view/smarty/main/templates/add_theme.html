@@ -1,5 +1,4 @@
-{extends 'layouts/main_layout.html'}
-{block name="body-content"}
+{extends 'layouts/main_layout.html'} {block name="body-content"}
 <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
 <div class="page-header">
   <h2>{$page->pageTitle}</h2>
@@ -7,58 +6,73 @@
 <form action="/toposiciones/crear-tema/" method="POST">
   <div class="form-group">
     <label for="input-theme-name">Título</label>
-    <input type="text" class="form-control" id="input-theme-name" name="input-theme-name" maxlength="250">
-    <small id="emailHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
+    <input
+      type="text"
+      class="form-control"
+      id="input-theme-name"
+      name="input-theme-name"
+      maxlength="250"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >Máximo 250 caracteres.</small
+    >
   </div>
   <div class="form-group">
-    <label for="input-theme-category">Categoría</label><br>
-    <select id="inputSearchCategory" class="form-control form-control-md" name="input-theme-category"></select>
+    <label for="input-theme-category">Categoría</label><br />
+    <select
+      id="inputSearchCategory"
+      class="form-control form-control-md"
+      name="input-theme-category"
+    ></select>
   </div>
 
   <div class="form-group">
     <label for="input-theme-content">Contenido</label>
-    <textarea name="input-theme-content" id="input-theme-content"></textarea>
+    <div class="ck-input-theme-content">
+      <textarea name="input-theme-content" id="input-theme-content"></textarea>
+    </div>
   </div>
-  <br>
+  <br />
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 <script>
   window.onload = function () {
     searchCategoryJSON("");
-  }
+  };
   ClassicEditor.defaultConfig = {
     toolbar: {
       items: [
-        'heading',
-        '|',
-        'bold',
-        'italic',
-        '|',
-        'bulletedList',
-        'numberedList',
-        '|',
-        'undo',
-        'redo'
-      ]
+        "heading",
+        "|",
+        "bold",
+        "italic",
+        "|",
+        //"uploadImage",
+        //"|",
+        "bulletedList",
+        "numberedList",
+        "|",
+        "undo",
+        "redo",
+      ],
     },
     image: {
       toolbar: [
-        'imageStyle:full',
-        'imageStyle:side',
-        '|',
-        'imageTextAlternative'
-      ]
+        "imageStyle:full",
+        "imageStyle:side",
+        "|",
+        "imageTextAlternative",
+      ],
     },
     table: {
-      contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+      contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
     },
-    language: 'es',
+    language: "es",
   };
-  ClassicEditor
-    .create(document.querySelector('#input-theme-content'))
-    .catch(error => {
+  ClassicEditor.create(document.querySelector("#input-theme-content")).catch(
+    (error) => {
       console.error(error);
-    });
-
+    }
+  );
 </script>
 {/block}

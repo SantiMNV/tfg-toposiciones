@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-11 11:08:46
+/* Smarty version 3.1.39, created on 2021-04-18 11:43:38
   from '/srv/http/toposiciones/view/smarty/main/templates/theme_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6072d8bed93462_59080833',
+  'unifunc' => 'content_607c1b6a9ffa27_43658566',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fdbc98f817e07809e557b7065469b9f317ace183' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/theme_list.html',
-      1 => 1618139119,
+      1 => 1618682335,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6072d8bed93462_59080833 (Smarty_Internal_Template $_smarty_tpl) {
+function content_607c1b6a9ffa27_43658566 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12712342156072d8bed8c8f3_45030535', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1773618955607c1b6a9eed41_99904245', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_12712342156072d8bed8c8f3_45030535 extends Smarty_Internal_Block
+class Block_1773618955607c1b6a9eed41_99904245 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_12712342156072d8bed8c8f3_45030535',
+    0 => 'Block_1773618955607c1b6a9eed41_99904245',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -78,7 +78,6 @@ $_smarty_tpl->tpl_vars['theme']->do_else = false;
             <button type="submit">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
-
           </form>
         </th>
         <th scope="row"><?php echo $_smarty_tpl->tpl_vars['theme']->value['themeId'];?>

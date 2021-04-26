@@ -1,7 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("Lista Temas", "Listado de temas", "slug", "");
+$page = new Page("Temas","Lista Temas", "Listado de temas", "slug", "");
 
 
 

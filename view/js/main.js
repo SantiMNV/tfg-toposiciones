@@ -2,20 +2,32 @@
 let backToTopBtn = null;
 let searchDisplayed = false;
 let stateSelected = "";
-let jsonResponseText;
+let jsonResponseText = {};
 document.onload = principal()
-
-
 
 function principal() {
   console.log("Conectado")
   backToTopBtn = document.getElementById("backToTopBtn");
   backToTopBtn.addEventListener("click", topFunction)
   window.onscroll = function () { scrollFunction() };
-  document.getElementById("searchBtn").addEventListener('click', showSearch);
-  //document.getElementById("cantabria").addEventListener("click", search);
+
+  /*
+    $('#modalCookie1').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+    $('#modalCookie1').modal('show');
+    */
 }
 
+
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 // Show btn when scroll is 20 down
 function scrollFunction() {
@@ -41,17 +53,28 @@ function pickState(e) {
       document.getElementById(event.srcElement.id).style.stroke = "black";
       document.getElementById(event.srcElement.id).style.strokeWidth = 4;
       stateSelected = event.srcElement.id;
+
+      let x = document.getElementById("snackbar");
+      x.className = "show"
+      x.innerHTML = (event.srcElement.id + "").slice(event.srcElement.id.indexOf("-") + 1, event.srcElement.id.length).replace("-", " ");
+      setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     } else {
       if (stateSelected !== event.srcElement.id) {
         document.getElementById(stateSelected).style.stroke = "";
         document.getElementById(event.srcElement.id).style.stroke = "black";
         document.getElementById(event.srcElement.id).style.strokeWidth = 4;
         stateSelected = event.srcElement.id;
+
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        x.innerHTML = (event.srcElement.id + "").slice(event.srcElement.id.indexOf("-") + 1, event.srcElement.id.length).replace("-", " ");
+        setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000)
       } else {
         document.getElementById(stateSelected).style.stroke = "";
         stateSelected = "";
       }
     }
+
   }
 }
 
@@ -73,7 +96,7 @@ function getSearchInput() {
   if (date !== "") {
     params += "&date=" + date
   }
-  console.log(params);
+
   return params;
 }
 
@@ -89,7 +112,8 @@ function mapListeners() {
 function showSearch() {
   if (!searchDisplayed) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
+    //xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
+    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout2.html', true);
     xhr.onreadystatechange = function () {
       if (this.readyState !== 4) return;
       if (this.status !== 200) return;
@@ -99,8 +123,12 @@ function showSearch() {
     };
     xhr.send();
     searchDisplayed = true;
+    //document.getElementById("searchBtn").firstChild.nextSibling.className += "active-link"
+    //document.getElementById("searchBtn").className += "active-link"
     topFunction();
   } else {
+    //document.getElementById("searchBtn").firstChild.nextSibling.className = document.getElementById("searchBtn").firstChild.nextSibling.className.replace("active-link", "");
+    //document.getElementById("searchBtn").className = document.getElementById("searchBtn").className.replace("active-link", "");
     document.getElementById('search-container').innerHTML = "";
     searchDisplayed = false;
   }
@@ -109,24 +137,47 @@ function showSearch() {
 function showCategories(field_id) {
   let categories_options = "";
   categories_options += "<option value='any' selected>Todas</option>";
+  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
   document.getElementById(field_id).innerHTML += categories_options;
 }
 
+function showCategoriesItems(field_id) {
+  let categories_options = "";
+  //console.log(jsonResponseText);
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
+function showStates(field_id) {
+  let categories_options = "";
+  //console.log(jsonResponseText);
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
+
 // JSON ATTACKERS
-function JSONPostController(url, responseFunct, params) {
+function JSONPostController(url, responseFunct, params, afterFunct) {
   let req = new XMLHttpRequest();
   req.onreadystatechange = responseFunct;
   req.open("POST", url, true);
   req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   req.send(params);
+  req.onload = function () {
+    afterFunct();
+  }
 }
 
 function searchJSON() {
   // Inicializo la consulta con nocache
-  //document.getElementById("sendCache").value = "nocache=" + Math.random();
+  document.getElementById("sendCache").value = Math.random();
   document.getElementById("sendStatus").value = document.getElementById("inputStatus").value;
   document.getElementById("sendCategory").value = document.getElementById("inputSearchCategory").value;
   document.getElementById("sendDate").value = document.getElementById("inputFromDate").value;
@@ -134,45 +185,32 @@ function searchJSON() {
   document.getElementById("searchForm").submit();
 }
 
-function searchCategoryJSON(params) {
-  //JSONPostController("/toposiciones/model/include/categories.php?", categoriesJSONResponse, params);
-  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse(showCategories, "inputSearchCategory"), "request=categories");
+function searchCategoryJSON() {
+  //JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesItems("inputSearchCategory") })
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategories("inputSearchCategory") })
 }
 
-function searchStateJSON(params) {
-  //  JSONPostController("/toposiciones/jsonManager/?", rapido, "states=5");
-  JSONPostController("/toposiciones/controller/jsonManager.php?", rapido, "request=states&states=5");
-}
-
-// manage json respones
-function rapido() {
-  categories = {};
-  if (this.readyState === 4 && (this.status === 200)) {
-    console.log("Respuesta exityosa")
-    //let serverCategories = JSON.parse(this.responseText);
-    console.log(this.responseText);
-    //console.log(JSON.parse(this.responseText));
-
-    for (let i in serverCategories) {
-      categories[i] = serverCategories[i];
-    }
-    //showCategories("inputSearchCategory");
-    console.log("Ha develto: " + serverCategories);
-  }
+function searchStateJSON() {
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=states", function () { showStates("inputSearchState") });
 }
 
 // manage json respones
-function jsonResponse(after, params) {
-  console.log("Estas en json respoinse")
-  jsonResponseText = {};
+function jsonResponse() {
   if (this.readyState === 4 && (this.status === 200)) {
-    console.log("La respuesta es correcta")
     let serverResponse = JSON.parse(this.responseText);
     for (let i in serverResponse) {
       jsonResponseText[i] = serverResponse[i];
     }
-    console.log(jsonResponseText);
-    //showCategories("inputSearchCategory");
-    after(params);
+  }
+}
+
+function showPasswoadrd() {
+  console.log("Quieres verla");
+  let pwInput = document.getElementById("input-password");
+  if (pwInput.type === "password") {
+    pwInput.type = "text";
+    console.log(pwInput.firstChild.innerHTML);
+  } else {
+    pwInput.type = "password";
   }
 }

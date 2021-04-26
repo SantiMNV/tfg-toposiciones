@@ -1,0 +1,50 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+{If isset($smarty.session.login_user)}
+<div class="full-action-button text-center">
+  <a href="/toposiciones/crear-post/">
+    <i class="fas fa-plus-circle"></i>
+    <div>Crear post</div>
+  </a>
+</div>
+{If ($smarty.session.login_access_level > 5)}
+<!--
+<div class="full-action-button text-center">
+  <a href="/toposiciones/lista-posts/">
+    <i class="fas fa-list"></i>
+    <div>Listar posts</div>
+  </a>
+</div>
+-->
+{/if}
+{/if}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll">
+  <table class="table list-table table-striped table-hover table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Tema</th>
+        <th scope="col">Respuestas</th>
+        <th scope="col">Actividad</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$all_posts item=post}
+      <tr onclick="window.location='/toposiciones/foro/{$post.postId}';">
+        <th scope="row">
+          <div class="post-title">
+            {$post.title}
+            <div class="float-right secondary">{$post.user_name}</div>
+          </div>
+          <div class="post-content">{$post.content}</div>
+        </th>
+        <td class="text-center">{$post.message_count}</td>
+        <td style="min-width: 100px">{$post.created_at}</td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+{/block}

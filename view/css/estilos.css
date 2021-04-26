@@ -26,7 +26,7 @@ h1 {
 }
 h3 {
   font-size: 30px;
-  line-height: 27px;
+  line-height: 32px;
   font-weight: 600;
   letter-spacing: 0px;
 }
@@ -98,15 +98,15 @@ h3 {
 
 /* Iconos social*/
 
-.page-header h2 {
-  font-size: 60px;
+h2 {
+  font-size: 55px;
   font-weight: 800;
 }
 
 /* SECCION TEMAS */
 .tema hr {
   /*border: 1px solid var(--second-color);*/
-  margin: 2em auto;
+  margin: 1em auto;
   padding: 0;
   width: 90%;
 }
@@ -114,7 +114,7 @@ h3 {
 /* Opposition section */
 .opposition hr {
   /*border: 1px solid var(--second-color);*/
-  margin: 2em auto;
+  margin: 1em auto;
   padding: 0;
   width: 90%;
 }
@@ -129,7 +129,7 @@ h3 {
 }
 
 .fas {
-  color: white !important;
+  color: white;
 }
 
 .gal {
@@ -168,12 +168,14 @@ h3 {
 /*FOOTER*/
 
 footer {
-  left: 0;
-  bottom: 0;
+  /* clear: both;
+  position: relative;
+  height: 200px;*/
+  margin-top: auto;
+  /*bottom: 0;*/
   width: 100%;
-
   color: white;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 footer div:nth-child(1) {
@@ -202,8 +204,7 @@ footer div:nth-child(2) {
   padding: 0;
 }
 
-.left-bar .date,
-.right-bar .date {
+.secondary {
   color: var(--second-color);
   font-size: 0.75em;
   bottom: 0;
@@ -232,7 +233,7 @@ footer div:nth-child(2) {
   margin: 2%;
 }
 .breadcrumb {
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 .breadcrumb-nav {
   top: 64px;
@@ -290,7 +291,7 @@ footer div:nth-child(2) {
 #main-menu a {
   float: left;
   font-size: 20px;
-  color: white !important;
+  color: white;
 }
 
 #backToTopBtn {
@@ -346,45 +347,53 @@ footer div:nth-child(2) {
   color: var(--color-white);
 }
 #search-container {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px; */
   padding: 0;
 }
 
 #search-container > div {
-  border: 1px solid var(--second-color);
+  border: 1px solid var(--color-white);
   border-radius: 0.25rem;
   border-top: 0px;
-  padding: 20px;
+  padding: 5px 20px;
 }
 
-#search-container > div {
-  /*border: 1px solid var(--second-color); */
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 50px;
+.active-link {
+  color: var(--main-color) !important;
+  /*text-decoration: underline; */
+}
+
+.active-link i::before {
+  color: var(--main-color) !important;
 }
 
 #search-container form div {
   display: inline-block;
 }
 
-#add-content {
+.full-action-button {
   height: 50px;
   background-color: var(--color-white);
   border-radius: 0.25rem;
+  margin-bottom: 5px;
 }
 
-#add-content i {
+.full-action-button a:hover i::before,
+.full-action-button a:hover div {
+  color: var(--color-black);
+}
+
+.full-action-button i {
   margin: 10px;
 }
 
-#add-content i::before {
+.full-action-button i::before {
   color: var(--main-color);
   font-size: 2em;
   margin-top: 0.5em;
 }
 
-#add-content div {
+.full-action-button div {
   font-size: 2em;
   display: inline-block;
   color: var(--color-gray);
@@ -407,12 +416,33 @@ footer div:nth-child(2) {
   overflow: hidden;
   display: inline-block;
 }
-.fa-trash {
+.fa-trash,
+.fa-times-circle {
   color: #c20e68;
 }
-.fa-trash:hover {
+.fa-trash:hover,
+.fa-times-circle:hover,
+.fa-check-circle:hover {
   cursor: pointer;
   color: var(--color-back);
+}
+
+.fa-check-circle {
+  color: green;
+}
+
+.fa-eye-slash,
+.fa-eye {
+  color: var(--main-color) !important;
+}
+
+.input-group-append {
+  cursor: pointer;
+}
+
+.fa-envelope,
+.fa-key {
+  color: var(--main-color);
 }
 
 .halfInput {
@@ -423,11 +453,33 @@ td.cut {
   border: none;
 }
 
-.ck-content {
+.ck-input-theme-content .ck-content,
+.ck-input-post-content .ck-content {
   height: 500px;
 }
 
-@media (min-width: 1400px) {
+#input-message-content .ck-content {
+  height: 100px;
+}
+
+.post-title {
+  font-weight: 600;
+}
+.post-content {
+  font-weight: normal;
+}
+
+#forum-body .card {
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 0 0 0 rgb(0 0 0 / 12%);
+}
+
+#index-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+@media (min-width: 1300px) {
   .right-bar {
     display: block !important;
   }
@@ -439,4 +491,212 @@ td.cut {
     padding-left: 50px;
     float: left;
   }
+}
+
+/* SNACKBAR */
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: var(--color-back); /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.modal-dialog {
+  margin-top: 0rem;
+  max-width: 100%;
+}
+
+.btn {
+  margin: 0.2rem;
+}
+.modal-content {
+  border-radius: 0rem;
+}
+
+.modal-open[style] {
+  padding-right: 0px !important;
+}
+
+.carousel-item img {
+  height: 350px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  font-weight: 600;
+  /*top: 40px;*/
+  /*right: 40px;*/
+  /*width: 30%;*/
+  background-color: rgba(13, 40, 59, 0.8);
+  float: right;
+  border-radius: 20px;
+}
+
+.carousel-caption h5 {
+  font-size: 30px;
+}
+
+.half-sq div {
+  padding: 0;
+}
+
+/* QUOTE */
+
+.quote-card {
+  background: #fff;
+  color: #222222;
+  padding: 20px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.quote-card p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 80%;
+  padding-top: 15px;
+}
+
+.quote-card cite {
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  font-weight: 200;
+  opacity: 0.8;
+}
+.quote-card:before {
+  font-family: Georgia, serif;
+  content: "“";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 5em;
+  color: rgba(238, 238, 238, 0.8);
+  font-weight: normal;
+}
+.quote-card:after {
+  font-family: Georgia, serif;
+  content: "”";
+  position: absolute;
+  bottom: -110px;
+  line-height: 100px;
+  right: -32px;
+  font-size: 25em;
+  color: rgba(238, 238, 238, 0.8);
+  font-weight: normal;
+}
+@media (max-width: 640px) {
+  .quote-card:after {
+    font-size: 22em;
+    right: -25px;
+  }
+}
+.quote-card.blue-card {
+  background: #0078ff;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+}
+.quote-card.blue-card:before,
+.quote-card.blue-card:after {
+  color: #5faaff;
+}
+.quote-card.green-card {
+  background: #00970b;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+}
+.quote-card.green-card:before,
+.quote-card.green-card:after {
+  color: #59e063;
+}
+
+.quote-card.red-card {
+  background: #f61e32;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+}
+.quote-card.red-card:before,
+.quote-card.red-card:after {
+  color: #f65665;
+}
+
+.quote-card.yellow-card {
+  background: #f9a825;
+  color: #222222;
+  box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+}
+.quote-card.yellow-card:before,
+.quote-card.yellow-card:after {
+  color: #fbc02d;
 }

@@ -1,0 +1,57 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<form action="/toposiciones/crear-post/" method="POST">
+  <div class="form-group">
+    <label for="input-post-title">Título</label>
+    <input type="text" class="form-control" id="input-post-title" name="input-post-title" maxlength="250">
+    <small id="titleHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
+  </div>
+  <div class="form-group">
+    <label for="input-post-content">Contenido</label>
+    <div class="ck-input-post-content">
+      <textarea name="input-post-content" id="input-post-content"></textarea>
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Publicar</button>
+</form>
+<script>
+  ClassicEditor.defaultConfig = {
+    toolbar: {
+      items: [
+        'heading',
+        '|',
+        'bold',
+        'italic',
+        '|',
+        'bulletedList',
+        'numberedList',
+        '|',
+        'undo',
+        'redo'
+      ]
+    },
+    image: {
+      toolbar: [
+        'imageStyle:full',
+        'imageStyle:side',
+        '|',
+        'imageTextAlternative'
+      ]
+    },
+    table: {
+      contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+    },
+    language: 'es',
+  };
+  ClassicEditor
+    .create(document.querySelector('#input-post-content'))
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+{/block}
