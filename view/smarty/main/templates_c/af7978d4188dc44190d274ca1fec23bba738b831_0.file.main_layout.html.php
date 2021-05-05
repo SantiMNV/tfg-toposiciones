@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-25 19:29:14
+/* Smarty version 3.1.39, created on 2021-04-29 18:47:37
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6085c30a14d417_35630443',
+  'unifunc' => 'content_608aff49a2fa60_80812574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1619378951,
+      1 => 1619721999,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6085c30a14d417_35630443 (Smarty_Internal_Template $_smarty_tpl) {
+function content_608aff49a2fa60_80812574 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -62,6 +62,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 </head>
 
 <body>
+  
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -76,7 +77,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <!-- <i class="fas fa-bars"></i> -->
+        <i class="fas fa-bars"></i>
       </button>
     </div>
     <!-- Menu -->
@@ -142,8 +143,6 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
           </a>
         </li>
         -->
-
-
       </ul>
     </div>
   </nav>
@@ -317,7 +316,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10373007976085c30a144740_55670033', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_485495991608aff49a2b7f8_98845558', "body-content");
 ?>
 
       </div>
@@ -435,12 +434,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_10373007976085c30a144740_55670033 extends Smarty_Internal_Block
+class Block_485495991608aff49a2b7f8_98845558 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_10373007976085c30a144740_55670033',
+    0 => 'Block_485495991608aff49a2b7f8_98845558',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

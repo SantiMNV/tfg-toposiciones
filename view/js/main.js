@@ -11,13 +11,12 @@ function principal() {
   backToTopBtn.addEventListener("click", topFunction)
   window.onscroll = function () { scrollFunction() };
 
-  /*
-    $('#modalCookie1').modal({
-      backdrop: 'static',
-      keyboard: false
-    })
-    $('#modalCookie1').modal('show');
-    */
+  $('#modalCookie1').modal({
+    backdrop: 'static',
+    keyboard: false
+  })
+  $('#modalCookie1').modal('show');
+
 }
 
 
