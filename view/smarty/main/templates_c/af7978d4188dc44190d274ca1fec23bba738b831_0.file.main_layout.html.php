@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-08 17:00:37
+/* Smarty version 3.1.39, created on 2021-05-10 18:57:30
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6096c3b518fe02_98903584',
+  'unifunc' => 'content_6099821af35211_32475332',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1620239207,
+      1 => 1620673049,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6096c3b518fe02_98903584 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6099821af35211_32475332 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -268,7 +268,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
 
-      <?php if (!$_smarty_tpl->tpl_vars['cookies_accepted']->value || 1 == 1) {?>
+      <?php if (!$_smarty_tpl->tpl_vars['cookies_accepted']->value && $_SERVER['REQUEST_URI'] != "/toposiciones/privacidad/") {?>
       <div class="modal fade" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -292,11 +292,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
       </div>
       <?php }?>
-      <?php echo $_smarty_tpl->tpl_vars['_SERVER']->value["REQUEST_URI"];?>
-
-
-
-
 
       <!-- 
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCookie1">
@@ -324,7 +319,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7006975126096c3b518beb5_35568832', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14482452656099821af2b643_66107974', "body-content");
 ?>
 
       </div>
@@ -442,12 +437,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_7006975126096c3b518beb5_35568832 extends Smarty_Internal_Block
+class Block_14482452656099821af2b643_66107974 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_7006975126096c3b518beb5_35568832',
+    0 => 'Block_14482452656099821af2b643_66107974',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

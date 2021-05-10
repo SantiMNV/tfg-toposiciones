@@ -2,6 +2,11 @@
 require('./config/urls.php');
 
 $cookies_accepted = false;
+if (isset($_COOKIE['cookies_accepted'])) {
+  $cookies_accepted = true;
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['cookie_compliance'])) {
     if ($_POST['cookie_compliance'] == "accept") {
