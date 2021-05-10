@@ -1,9 +1,13 @@
 <?php
+function php_console_log($data) {
+  echo '<script>';
+  echo 'console.log(' . json_encode($data) . ')';
+  echo '</script>';
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-session_start();
-
 const MAIN_DIRECTORY = "/srv/http/toposiciones";
 //const MAIN_DIRECTORY = "/var/www/html/toposiciones";
 //const MAIN_DIRECTORY = "C:\\xampp\\htdocs\\toposiciones";
@@ -30,6 +34,18 @@ require(MODEL_DIRECTORY . "/include/admin.php");
 
 
 $smarty = new Smarty;
+
+$cookies_accepted = false;
+if (isset($_COOKIE['cookies_accepted'])) {
+  $cookies_accepted = true;
+  php_console_log("SI HAY SESION");
+} else {
+  php_console_log("NO HAY SESION");
+}
+
+$smarty->assign("cookies_accepted", $cookies_accepted);
+
+
 
 $smarty->template_dir = SMARTY_DIRECTORY . '/main/templates';
 $smarty->compile_dir = SMARTY_DIRECTORY . '/main/templates_c/';
@@ -63,10 +79,6 @@ array_shift($breadCrumbs);
 array_pop($breadCrumbs);
 
 
-function php_console_log($data) {
-  echo '<script>';
-  echo 'console.log(' . json_encode($data) . ')';
-  echo '</script>';
-}
+
 
 $smarty->assign('breadCrumbs', $breadCrumbs);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-29 18:47:37
+/* Smarty version 3.1.39, created on 2021-05-08 17:00:37
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_608aff49a2fa60_80812574',
+  'unifunc' => 'content_6096c3b518fe02_98903584',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1619721999,
+      1 => 1620239207,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_608aff49a2fa60_80812574 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6096c3b518fe02_98903584 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -62,7 +62,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 </head>
 
 <body>
-  
+
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -268,7 +268,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
 
-
+      <?php if (!$_smarty_tpl->tpl_vars['cookies_accepted']->value || 1 == 1) {?>
       <div class="modal fade" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -277,8 +277,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               <div class="notice d-flex justify-content-between align-items-center">
                 <div class="cookie-text">Este sitio usa cookies para mejorar la experiencia </div>
                 <div class="buttons d-flex flex-column flex-lg-row">
-                  <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">Acepto</a>
-                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm" data-dismiss="modal">
+                  <form action="/toposiciones/" method="POST">
+                    <input type="hidden" name="cookie_compliance" id="" value="accept">
+                    <input type="submit" value="Acepto" class="btn btn-success btn-sm" />
+                  </form>
+                  <!-- <a href="/toposiciones/" class="btn btn-success btn-sm" >Acepto</a> -->
+                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm">
                     Leer más.
                   </a>
                 </div>
@@ -287,6 +291,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </div>
         </div>
       </div>
+      <?php }?>
+      <?php echo $_smarty_tpl->tpl_vars['_SERVER']->value["REQUEST_URI"];?>
+
+
 
 
 
@@ -316,7 +324,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_485495991608aff49a2b7f8_98845558', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7006975126096c3b518beb5_35568832', "body-content");
 ?>
 
       </div>
@@ -434,12 +442,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_485495991608aff49a2b7f8_98845558 extends Smarty_Internal_Block
+class Block_7006975126096c3b518beb5_35568832 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_485495991608aff49a2b7f8_98845558',
+    0 => 'Block_7006975126096c3b518beb5_35568832',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
