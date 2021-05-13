@@ -38,9 +38,6 @@ $smarty = new Smarty;
 $cookies_accepted = false;
 if (isset($_COOKIE['cookies_accepted'])) {
   $cookies_accepted = true;
-  php_console_log("SI HAY SESION");
-} else {
-  php_console_log("NO HAY SESION");
 }
 
 $smarty->assign("cookies_accepted", $cookies_accepted);
