@@ -31,6 +31,7 @@
 </head>
 
 <body>
+
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -44,7 +45,7 @@
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <!-- <i class="fas fa-bars"></i> -->
+        <i class="fas fa-bars"></i>
       </button>
     </div>
     <!-- Menu -->
@@ -110,8 +111,6 @@
           </a>
         </li>
         -->
-
-
       </ul>
     </div>
   </nav>
@@ -180,11 +179,7 @@
         </div>
         {/foreach}
       </div>
-
-
-
-
-
+      {if !$cookies_accepted and $smarty.server.REQUEST_URI != "/toposiciones/privacidad/"}
       <div class="modal fade" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -193,8 +188,12 @@
               <div class="notice d-flex justify-content-between align-items-center">
                 <div class="cookie-text">Este sitio usa cookies para mejorar la experiencia </div>
                 <div class="buttons d-flex flex-column flex-lg-row">
-                  <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">Acepto</a>
-                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm" data-dismiss="modal">
+                  <form action="/toposiciones/" method="POST">
+                    <input type="hidden" name="cookie_compliance" id="" value="accept">
+                    <input type="submit" value="Acepto" class="btn btn-success btn-sm" />
+                  </form>
+                  <!-- <a href="/toposiciones/" class="btn btn-success btn-sm" >Acepto</a> -->
+                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm">
                     Leer más.
                   </a>
                 </div>
@@ -203,33 +202,7 @@
           </div>
         </div>
       </div>
-
-
-
-      <!-- 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCookie1">
-        Launch modal
-      </button>
-      
-      <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" data-backdrop="true">
-        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="row d-flex justify-content-center align-items-center">
-                <p class="pt-3 pr-2">We use cookies to improve your website experience</p>
-                <a type="button" class="btn btn-primary" href="/toposiciones/privacidad/">Learn more
-                  <i class="fas fa-book ml-1"></i>
-                </a>
-                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      -->
-
+      {/if}
       <div class="body-content">
         {block name="body-content"}
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

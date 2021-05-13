@@ -1,11 +1,15 @@
 <?php
+function php_console_log($data) {
+  echo '<script>';
+  echo 'console.log(' . json_encode($data) . ')';
+  echo '</script>';
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-session_start();
-
-
 const MAIN_DIRECTORY = "/srv/http/toposiciones";
+//const MAIN_DIRECTORY = "/var/www/html/toposiciones";
 //const MAIN_DIRECTORY = "C:\\xampp\\htdocs\\toposiciones";
 const PUBLIC_DIRECTORY = "/toposiciones";
 
@@ -19,6 +23,7 @@ const JS_DIRECTORY = PUBLIC_DIRECTORY . "/view/js";
 require(SMARTY_LIB . '/libs/Smarty.class.php');
 require(MODEL_DIRECTORY . "/include/Page.php");
 require(MODEL_DIRECTORY . "/include/pdo_connection.php");
+
 require(MODEL_DIRECTORY . "/include/oppositions.php");
 require(MODEL_DIRECTORY . "/include/themes.php");
 require(MODEL_DIRECTORY . "/include/user.php");
@@ -27,7 +32,17 @@ require(MODEL_DIRECTORY . "/include/categories.php");
 require(MODEL_DIRECTORY . "/include/forums.php");
 require(MODEL_DIRECTORY . "/include/admin.php");
 
+
 $smarty = new Smarty;
+
+$cookies_accepted = false;
+if (isset($_COOKIE['cookies_accepted'])) {
+  $cookies_accepted = true;
+}
+
+$smarty->assign("cookies_accepted", $cookies_accepted);
+
+
 
 $smarty->template_dir = SMARTY_DIRECTORY . '/main/templates';
 $smarty->compile_dir = SMARTY_DIRECTORY . '/main/templates_c/';
@@ -61,10 +76,6 @@ array_shift($breadCrumbs);
 array_pop($breadCrumbs);
 
 
-function php_console_log($data) {
-  echo '<script>';
-  echo 'console.log(' . json_encode($data) . ')';
-  echo '</script>';
-}
+
 
 $smarty->assign('breadCrumbs', $breadCrumbs);

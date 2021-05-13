@@ -36,3 +36,9 @@ RewriteRule ^admin/crear/$ controller/admin_create_user.php
 
 RewriteRule ^de0/$ controller/de0.php
 RewriteRule ^de1/$ controller/de1.html
+
+RewriteRule ^404/$ controller/404.php
+
+
+ErrorDocument 404 /toposiciones/404/
+

@@ -10,5 +10,5 @@ try {
   echo "Fallo al conectar con MySQL: " . $pdoE->getMessage();
   exit();
 }
-
+   
 
