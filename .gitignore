@@ -1,2 +1,4 @@
 #.htaccess
 .view/smarty_lib/
+.view/media/
+.view/smarty/main/templates_c
