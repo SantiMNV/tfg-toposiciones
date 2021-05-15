@@ -33,6 +33,7 @@ RewriteRule ^privacidad/$ controller/privacy.php
 RewriteRule ^admin/$ controller/admin.php
 RewriteRule ^admin/usuarios/$ controller/admin_users.php
 RewriteRule ^admin/crear/$ controller/admin_create_user.php
+RewriteRule ^admin/editar/([^/]*)$ controller/admin_edit_user.php?id=$1 [L]
 
 RewriteRule ^de0/$ controller/de0.php
 RewriteRule ^de1/$ controller/de1.html

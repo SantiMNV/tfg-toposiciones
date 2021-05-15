@@ -47,6 +47,13 @@ function loginUser($post) {
   return $status;
 }
 
+function getUser($id) {
+  global $conn;
+  $sql = "SELECT user.userId,user.user_name,user.mail,user.access_level from user where user.userId = $id";
+  $result = $conn->query($sql);
+  return $result->fetch();
+}
+
 function editUser($post) {
   global $conn;
   $ok = true;
@@ -92,6 +99,31 @@ function editUser($post) {
   }
   return $status;
 }
+
+
+function editUserFull($post) {
+  global $conn;
+  // *** TRANSACTION ***
+  $ok = true;
+  if (isset($post['edit-user']) && isset($post['edit-userId']) && isset($post['edit-mail']) && isset($post['edit-access'])) {
+    $conn->beginTransaction();
+    $sql = "UPDATE user set user.user_name = '{$post['edit-user']}', user.mail = '{$post['edit-mail']}',
+    user.access_level = {$post['edit-access']},user.updated_at = now() where user.userId = '{$post['edit-userId']}' ";
+    if ($conn->exec($sql) == 0) $ok = false;
+    if ($ok) {
+      $conn->commit();
+      $status = "edit-success";
+    } else {
+      $conn->rollback();
+      $status = "edit-failure";
+    }
+  } else {
+    $status = "nei";
+  }
+  return $status;
+}
+
+
 
 function getUsers() {
   global $conn;

@@ -1,37 +1,25 @@
 {extends 'layouts/main_layout.html'} {block name="body-content"}
 <script>
-function showPassword() {
-  let pwInput = document.getElementById("input-password");
-  if (pwInput.type === "password") {
-    pwInput.type = "text";
-    pwInput.parentElement.getElementsByTagName("i")[0].className = pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye-slash","fa-eye");
-  } else {
-    pwInput.type = "password";
-    pwInput.parentElement.getElementsByTagName("i")[0].className =  pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye","fa-eye-slash");
+  function showPassword() {
+    let pwInput = document.getElementById("input-password");
+    if (pwInput.type === "password") {
+      pwInput.type = "text";
+      pwInput.parentElement.getElementsByTagName("i")[0].className = pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye-slash", "fa-eye");
+    } else {
+      pwInput.type = "password";
+      pwInput.parentElement.getElementsByTagName("i")[0].className = pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye", "fa-eye-slash");
+    }
   }
-}
-/*
-function randomPassword() {
-  $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;%';
-  $pass = array(); //remember to declare $pass as an array
-  $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-  for ($i = 0; $i < 20; $i++) {
-    $n = rand(0, $alphaLength);
-    $pass[] = $alphabet[$n];
+  function randomPassword() {
+    let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;%";
+    let alphabetLength = alphabet.length;
+    let pass = "";
+    for (let i = 0; i < 12; i++) {
+      pass += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    }
+    document.getElementById("input-password").value = pass;
+    return pass;
   }
-  return implode($pass); //turn the array into a string
-}
-*/
-function randomPassword() {
-  let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;%";
-  let alphabetLength = alphabet.length;
-  let pass = "";
-  for (let i = 0;i < 12; i++) {
-    pass += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-  }
-  document.getElementById("input-password").value = pass;
-  return pass;
-}
 </script>
 <div class="page-header">
   <!-- <h2>{$page->pageTitle}</h2> -->
@@ -54,7 +42,7 @@ function randomPassword() {
               </div>
               <div class="form-group row">
                 <label for="register-user" class="col-md-4 col-form-label text-md-right">
-                Nombre
+                  Nombre
                 </label>
                 <div class="col-md-6">
                   <input type="text" id="register-user" class="form-control" name="register-user" required>
@@ -63,7 +51,8 @@ function randomPassword() {
               <div class="form-group row">
                 <label for="register-level" class="col-md-4 col-form-label text-md-right">Nivel Acceso</label>
                 <div class="col-md-6">
-                  <input type="number" id="register-access" class="form-control" name="register-access" required min="0" max="10" step="1" value="0" >
+                  <input type="number" id="register-access" class="form-control" name="register-access" required min="0"
+                    max="10" step="1" value="0">
                 </div>
               </div>
               <div class=" form-group row">
@@ -73,8 +62,9 @@ function randomPassword() {
                   <div class="input-group-append">
                     <div class="input-group-text" onclick="showPassword()"><i class="fas fa-eye-slash"></i></div>
                     <div class="input-group-text" onclick="randomPassword()">
-                    <i class="fas fa-key"></i></div> 
-                  </div >
+                      <i class="fas fa-key"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-md-6 offset-md-4">
@@ -89,20 +79,4 @@ function randomPassword() {
     </div>
   </div>
 </div>
-
-<script>
-  function generatePassword() {
-    let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;%';
-    let alphabetLen = alphabet.length;
-    let pw = array();
-
-    for (let i = 0; i < 10; i++) {
-        p += charset.charAt(Math.floor(Math.random() * alphabetLen));
-        pw.push(p);
-    }
-    return retVal;
-  }
-</script>
-
-
 {/block}

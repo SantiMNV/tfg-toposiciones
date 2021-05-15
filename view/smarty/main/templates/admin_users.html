@@ -9,9 +9,7 @@
   <h2>{$page->pageTitle}</h2>
 </div>
 <div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll">
-  <table
-    class="table list-table table-striped table-hover table-sm table-bordered"
-  >
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
     <thead class="thead-dark">
       <tr>
         <th scope="col"></th>
@@ -24,7 +22,7 @@
     </thead>
     <tbody>
       {foreach from=$all_users item=user}
-      <tr>
+      <tr onclick="window.location='/toposiciones/admin/editar/{$user.userId}'">
         <th>
           <form action="/toposiciones/admin/usuarios/" method="POST">
             <input type="hidden" name="remove-request" value="remove" />

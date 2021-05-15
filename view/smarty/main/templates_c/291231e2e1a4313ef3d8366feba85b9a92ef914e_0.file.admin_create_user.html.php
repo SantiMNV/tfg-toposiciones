@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-24 16:24:18
+/* Smarty version 3.1.39, created on 2021-05-15 17:33:49
   from '/srv/http/toposiciones/view/smarty/main/templates/admin_create_user.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60844632979aa0_69185154',
+  'unifunc' => 'content_60a005fde4c215_97477132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '291231e2e1a4313ef3d8366feba85b9a92ef914e' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin_create_user.html',
-      1 => 1618990738,
+      1 => 1621100008,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60844632979aa0_69185154 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a005fde4c215_97477132 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_176046458860844632972d24_71853301', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_76297986260a005fde45279_50195519', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_176046458860844632972d24_71853301 extends Smarty_Internal_Block
+class Block_76297986260a005fde45279_50195519 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_176046458860844632972d24_71853301',
+    0 => 'Block_76297986260a005fde45279_50195519',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -42,38 +42,26 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <?php echo '<script'; ?>
 >
-function showPassword() {
-  let pwInput = document.getElementById("input-password");
-  if (pwInput.type === "password") {
-    pwInput.type = "text";
-    pwInput.parentElement.getElementsByTagName("i")[0].className = pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye-slash","fa-eye");
-  } else {
-    pwInput.type = "password";
-    pwInput.parentElement.getElementsByTagName("i")[0].className =  pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye","fa-eye-slash");
+  function showPassword() {
+    let pwInput = document.getElementById("input-password");
+    if (pwInput.type === "password") {
+      pwInput.type = "text";
+      pwInput.parentElement.getElementsByTagName("i")[0].className = pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye-slash", "fa-eye");
+    } else {
+      pwInput.type = "password";
+      pwInput.parentElement.getElementsByTagName("i")[0].className = pwInput.parentElement.getElementsByTagName("i")[0].className.replace("fa-eye", "fa-eye-slash");
+    }
   }
-}
-/*
-function randomPassword() {
-  $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;%';
-  $pass = array(); //remember to declare $pass as an array
-  $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-  for ($i = 0; $i < 20; $i++) {
-    $n = rand(0, $alphaLength);
-    $pass[] = $alphabet[$n];
+  function randomPassword() {
+    let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;%";
+    let alphabetLength = alphabet.length;
+    let pass = "";
+    for (let i = 0; i < 12; i++) {
+      pass += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    }
+    document.getElementById("input-password").value = pass;
+    return pass;
   }
-  return implode($pass); //turn the array into a string
-}
-*/
-function randomPassword() {
-  let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;%";
-  let alphabetLength = alphabet.length;
-  let pass = "";
-  for (let i = 0;i < 12; i++) {
-    pass += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-  }
-  document.getElementById("input-password").value = pass;
-  return pass;
-}
 <?php echo '</script'; ?>
 >
 <div class="page-header">
@@ -98,7 +86,7 @@ function randomPassword() {
               </div>
               <div class="form-group row">
                 <label for="register-user" class="col-md-4 col-form-label text-md-right">
-                Nombre
+                  Nombre
                 </label>
                 <div class="col-md-6">
                   <input type="text" id="register-user" class="form-control" name="register-user" required>
@@ -107,7 +95,8 @@ function randomPassword() {
               <div class="form-group row">
                 <label for="register-level" class="col-md-4 col-form-label text-md-right">Nivel Acceso</label>
                 <div class="col-md-6">
-                  <input type="number" id="register-access" class="form-control" name="register-access" required min="0" max="10" step="1" value="0" >
+                  <input type="number" id="register-access" class="form-control" name="register-access" required min="0"
+                    max="10" step="1" value="0">
                 </div>
               </div>
               <div class=" form-group row">
@@ -117,8 +106,9 @@ function randomPassword() {
                   <div class="input-group-append">
                     <div class="input-group-text" onclick="showPassword()"><i class="fas fa-eye-slash"></i></div>
                     <div class="input-group-text" onclick="randomPassword()">
-                    <i class="fas fa-key"></i></div> 
-                  </div >
+                      <i class="fas fa-key"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-md-6 offset-md-4">
@@ -133,24 +123,6 @@ function randomPassword() {
     </div>
   </div>
 </div>
-
-<?php echo '<script'; ?>
->
-  function generatePassword() {
-    let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;%';
-    let alphabetLen = alphabet.length;
-    let pw = array();
-
-    for (let i = 0; i < 10; i++) {
-        p += charset.charAt(Math.floor(Math.random() * alphabetLen));
-        pw.push(p);
-    }
-    return retVal;
-  }
-<?php echo '</script'; ?>
->
-
-
 <?php
 }
 }
