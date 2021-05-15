@@ -8,6 +8,13 @@ function getThemes() {
   return $resultado;
 }
 
+function getThemeShortId($id) {
+  global $conn;
+  $sql = "SELECT theme.themeId,theme.theme_name,LEFT(theme.content,200) as content,theme.theme_category,user.user_name FROM theme,user,opposition_category where theme.theme_category = opposition_category.categoryId and theme.userId = user.userId and theme.themeId = " . $id . " order by theme.created_at desc";
+  $resultado = $conn->query($sql);
+  return $resultado->fetch();
+}
+
 function getTheme($id) {
   global $conn;
   $sql = "SELECT theme.themeId,theme.theme_name,theme.content,opposition_category.category_name,user.user_name FROM theme,user,opposition_category where theme.theme_category = opposition_category.categoryId and theme.userId = user.userId and theme.themeId = " . $id;
@@ -38,6 +45,17 @@ function addTheme($post) {
     $status = "add-theme-failure";
   }
   return $status;
+}
+
+function getThemesParams($txtSearch) {
+  global $conn;
+  $sql = "SELECT * FROM theme where theme_name like '%" . $txtSearch . "%' or content like '%" . $txtSearch . "%' ";
+  $resultado = $conn->query($sql);
+  $ids = array();
+  while ($row = $resultado->fetch()) {
+    array_push($ids, $row[0]);
+  }
+  return $ids;
 }
 
 

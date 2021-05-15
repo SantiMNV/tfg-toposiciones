@@ -1,7 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("Temas","Lista Temas", "Listado de temas", "slug", "");
+$page = new Page("Temas", "Lista Temas", "Listado de temas", "slug", "");
 
 
 
@@ -21,7 +21,7 @@ if (isset($_SESSION['login_user'])) {
             break;
           case "remove-theme-failure":
             $alerts = array(
-              "Ha ocurrido un fallo al eliminar el tema, inténtelo de nuevo o contacte a soporte@toposiciones.com" => "alert-danger"
+              "Ha ocurrido un fallo al eliminar el tema, inténtelo de nuevo o contacte a soporte@toposiciones.com" => "alert-warning"
             );
             break;
           default:

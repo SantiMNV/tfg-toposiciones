@@ -16,10 +16,7 @@ function principal() {
     keyboard: false
   })
   $('#modalCookie1').modal('show');
-
 }
-
-
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -136,7 +133,6 @@ function showSearch() {
 function showCategories(field_id) {
   let categories_options = "";
   categories_options += "<option value='any' selected>Todas</option>";
-  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -145,7 +141,6 @@ function showCategories(field_id) {
 
 function showCategoriesItems(field_id) {
   let categories_options = "";
-  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -154,7 +149,6 @@ function showCategoriesItems(field_id) {
 
 function showStates(field_id) {
   let categories_options = "";
-  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }

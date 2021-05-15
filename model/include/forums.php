@@ -11,6 +11,26 @@ function getPosts($count) {
   return $result;
 }
 
+function getPostsShortId($id) {
+  global $conn;
+  $sql = "SELECT forum_post.postId,user.userId,user.user_name,forum_post.title,LEFT(forum_post.content,120) as content,forum_post.created_at,(SELECT count(forum_message.messageId) from forum_message where forum_message.postId = forum_post.postId) as message_count FROM forum_post,user where user.userId = forum_post.userId and forum_post.postId = '{$id}' order by forum_post.created_at desc";
+  $result = $conn->query($sql);
+  return $result;
+}
+
+function getPostsParams($txtSearch) {
+  global $conn;
+  $sql = "SELECT * FROM forum_post where title like '%" . $txtSearch . "%' or content like '%" . $txtSearch . "%' ";
+  $resultado = $conn->query($sql);
+  $ids = array();
+  while ($row = $resultado->fetch()) {
+    array_push($ids, $row[0]);
+  }
+  return $ids;
+}
+
+
+
 function getPostsSummary($count) {
   global $conn;
   $sql = "SELECT forum_post.postId,user.user_name,forum_post.title,forum_post.created_at FROM forum_post,user where user.userId = forum_post.userId order by forum_post.created_at desc";

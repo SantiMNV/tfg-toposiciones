@@ -1,5 +1,26 @@
 {extends 'layouts/main_layout.html'}
 {block name="body-content"}
+<div class="full-action-button text-center">
+  <a data-toggle="collapse" data-target="#searchDiv">
+    <i class="fas fa-filter"></i>
+    <div>Filtrar Posts</div>
+  </a>
+</div>
+<div id="searchDiv" class="col-md-12 text-center collapse">
+  <form action="/toposiciones/foro/" method="POST">
+    <div class="row justify-content-center">
+      <div class="input-group">
+        <input type="hidden" name="search-request" value="search">
+        <input type="text" class="form-control" placeholder="Buscar" name="txtSearch" id="txtSearch" />
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <span class="fas fa-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 {If isset($smarty.session.login_user)}
 <div class="full-action-button text-center">
   <a href="/toposiciones/crear-post/">

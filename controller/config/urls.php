@@ -64,11 +64,9 @@ $smarty->assign("oppositions", getOppositions(5)->fetchAll());
 $smarty->assign("side_messages", getPostsSummary(5)->fetchAll());
 
 // Receive the url
-//php_console_log($_SERVER["REQUEST_URI"]);
 $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
 $breadCrumbs = array();
 foreach ($crumbs as $crumb) {
-  //php_console_log("URL: " . ucfirst(str_replace(array(".php", "_"), array("", " "), $crumb)));
   array_push($breadCrumbs, ucfirst(str_replace(array(".php", "_"), array("", " "), $crumb)));
 }
 // Remove the first bc are empty
