@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-10 18:57:30
+/* Smarty version 3.1.39, created on 2021-05-15 16:49:51
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6099821af35211_32475332',
+  'unifunc' => 'content_609ffbaf260b94_00176107',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1620673049,
+      1 => 1621097388,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6099821af35211_32475332 (Smarty_Internal_Template $_smarty_tpl) {
+function content_609ffbaf260b94_00176107 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -62,7 +62,6 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 </head>
 
 <body>
-
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -124,7 +123,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
           <?php if ((isset($_SESSION['login_user']))) {?>
-          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Perfil') {?>active-link<?php }?>" href="/toposiciones/profile/">
+          <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Perfil') {?>active-link<?php }?>" href="/toposiciones/perfil/">
             <i class="fas fa-user"></i>
             Cuenta
           </a>
@@ -264,10 +263,6 @@ $_smarty_tpl->tpl_vars['alert_item']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </div>
-
-
-
-
       <?php if (!$_smarty_tpl->tpl_vars['cookies_accepted']->value && $_SERVER['REQUEST_URI'] != "/toposiciones/privacidad/") {?>
       <div class="modal fade" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -292,34 +287,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
       </div>
       <?php }?>
-
-      <!-- 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCookie1">
-        Launch modal
-      </button>
-      
-      <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" data-backdrop="true">
-        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="row d-flex justify-content-center align-items-center">
-                <p class="pt-3 pr-2">We use cookies to improve your website experience</p>
-                <a type="button" class="btn btn-primary" href="/toposiciones/privacidad/">Learn more
-                  <i class="fas fa-book ml-1"></i>
-                </a>
-                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      -->
-
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14482452656099821af2b643_66107974', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_125602900609ffbaf25c1e4_75021693', "body-content");
 ?>
 
       </div>
@@ -437,12 +407,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_14482452656099821af2b643_66107974 extends Smarty_Internal_Block
+class Block_125602900609ffbaf25c1e4_75021693 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_14482452656099821af2b643_66107974',
+    0 => 'Block_125602900609ffbaf25c1e4_75021693',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

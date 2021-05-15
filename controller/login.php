@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $alerts = array(
           "Usuario correctamente logueado. " => "alert-success"
         );
+        header('Location: /toposiciones/perfil/');
         break;
       case "login-failure":
         $alerts = array(

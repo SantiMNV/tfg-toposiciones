@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
     <!-- Brand/logo -->
@@ -92,7 +91,7 @@
       <ul class="navbar-nav col-md-2 col-sm-6 col-6 ml-auto" id="right-menu">
         <li class="nav-item">
           {if isset($smarty.session.login_user)}
-          <a class="nav-link {if $page->getCurrentPage() == 'Perfil'}active-link{/if}" href="/toposiciones/profile/">
+          <a class="nav-link {if $page->getCurrentPage() == 'Perfil'}active-link{/if}" href="/toposiciones/perfil/">
             <i class="fas fa-user"></i>
             Cuenta
           </a>

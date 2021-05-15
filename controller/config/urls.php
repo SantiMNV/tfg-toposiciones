@@ -72,8 +72,27 @@ foreach ($crumbs as $crumb) {
 // Remove the first bc are empty
 array_shift($breadCrumbs);
 array_pop($breadCrumbs);
-
-
-
-
 $smarty->assign('breadCrumbs', $breadCrumbs);
+
+
+function cookieManager() {
+  $cookies_accepted = false;
+  if (isset($_COOKIE['cookies_accepted'])) {
+    $cookies_accepted = true;
+    session_start();
+  } else {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+      if (isset($_POST['cookie_compliance'])) {
+        if ($_POST['cookie_compliance'] == "accept") {
+          $cookies_accepted = true;
+          setcookie("cookies_accepted", "accepted", time() + (86400 * 30), "/");
+          session_start();
+        }
+      }
+    }
+  }
+  return $cookies_accepted;
+}
+
+
+$smarty->assign('cookies_accepted', cookieManager());

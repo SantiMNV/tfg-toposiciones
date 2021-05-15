@@ -11,7 +11,7 @@ RewriteRule ^temas/$ controller/themes.php
 RewriteRule ^soluciones/$ controller/soluciones.php
 
 RewriteRule ^login/$ controller/login.php
-RewriteRule ^profile/$ controller/profile.php
+RewriteRule ^perfil/$ controller/profile.php
 
 RewriteRule ^crear-tema/$ controller/add_theme.php
 RewriteRule ^lista-tema/$ controller/theme_list.php
