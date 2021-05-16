@@ -51,13 +51,12 @@
         </a>
       </div>
       <div class="date">
-        {$opposition.updated_at|date_format:"%e/%b/%G %H:%M:%S"}
+        {$opposition.updated_at|date_format:"%e/%m/%G"}
       </div>
     </div>
     <hr />
   </div>
 </section>
-
 {/foreach}
 <script>
   window.onload = function () {

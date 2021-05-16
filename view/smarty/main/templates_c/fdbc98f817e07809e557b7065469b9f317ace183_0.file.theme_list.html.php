@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-18 11:43:38
+/* Smarty version 3.1.39, created on 2021-05-16 15:47:42
   from '/srv/http/toposiciones/view/smarty/main/templates/theme_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607c1b6a9ffa27_43658566',
+  'unifunc' => 'content_60a13e9ec14230_05202260',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fdbc98f817e07809e557b7065469b9f317ace183' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/theme_list.html',
-      1 => 1618682335,
+      1 => 1621110119,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607c1b6a9ffa27_43658566 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a13e9ec14230_05202260 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1773618955607c1b6a9eed41_99904245', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_157157114460a13e9ec04347_71103636', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1773618955607c1b6a9eed41_99904245 extends Smarty_Internal_Block
+class Block_157157114460a13e9ec04347_71103636 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1773618955607c1b6a9eed41_99904245',
+    0 => 'Block_157157114460a13e9ec04347_71103636',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -75,7 +75,7 @@ $_smarty_tpl->tpl_vars['theme']->do_else = false;
             <input type="hidden" name="remove-request" value="remove">
             <input type="hidden" name="remove-theme" value="<?php echo $_smarty_tpl->tpl_vars['theme']->value['themeId'];?>
 ">
-            <button type="submit">
+            <button type="submit" class="btn btn-light">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </form>

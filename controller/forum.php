@@ -34,7 +34,5 @@ if (isset($postList)) {
   $smarty->assign("all_posts", getPosts(0)->fetchAll());
 }
 
-
-
 $smarty->assign('alerts', $alerts);
 $smarty->display('forum.html');

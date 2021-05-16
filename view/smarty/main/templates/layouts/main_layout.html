@@ -1,15 +1,4 @@
-<!-- SantiMNV
-  // Extra small screen / phone
-  xs: 0,
-  // Small screen / phone
-  sm: 576px,
-  // Medium screen / tablet
-  md: 768px,
-  // Large screen / desktop
-  lg: 992px,
-  // Extra large screen / wide desktop
-  xl: 1200px
--->
+<!-- SantiMNV -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,23 +10,20 @@
   <link href="{$CSS_DIRECTORY}/fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <!-- Versión compilada y minimizada del CSS de Bootstrap -->
+  <!-- Minimized bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- CSS propio que usaremos para personalizar BS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet " href="{$CSS_DIRECTORY}/estilos.css" />
   <link rel="icon" href="{$MEDIA_DIRECTORY}/images/company/fototopo32no-fondo.png">
-
 </head>
 
 <body>
-  <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
-    <!-- Brand/logo -->
+    <!-- Brand logo -->
     <div class=" col-md-3" id="menu-first-line">
       <a class="navbar-brand " href="/toposiciones/" id="brand-menu">
-        <!-- <img src="../../../../media/images/fototopo64v2.png">-->
-        <img src="{$MEDIA_DIRECTORY}/images/company/fototopo64v2.png">
+        <img src="{$MEDIA_DIRECTORY}/images/company/fototopo64v4.png">
         <div>
           <h1>Toposiciones</h1>
         </div>
@@ -63,9 +49,6 @@
             Temas
           </a>
         </li>
-        <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>
-        <li class="nav-item"><a class="nav-link {if $page->getCurrentPage() == 'Soluciones'}active-link{/if}"
-            href="/toposiciones/soluciones/">Soluciones</a></li>-->
         <li class="nav-item"><a class="nav-link {if $page->getCurrentPage() == 'Foro'}active-link{/if}"
             href="/toposiciones/foro/">
             <!-- <i class="fas fa-comments"></i> -->
@@ -76,7 +59,6 @@
             <!--<i class="fas fa-id-card"></i> -->
             Contacto
           </a></li>
-
         {if isset($smarty.session.login_user)}
         {If ($smarty.session.login_access_level > 5)}
         <li class="nav-item" id="adminSite">
@@ -102,14 +84,6 @@
           </a>
           {/if}
         </li>
-        <!--
-        <li class="nav-item" id="searchBtn2">
-          <a class="nav-link ">
-            <i class="fas fa-search"></i>
-            Buscar
-          </a>
-        </li>
-        -->
       </ul>
     </div>
   </nav>
@@ -142,7 +116,7 @@
                 </a>
               </div>
               <div class="secondary">
-                {$opposition.updated_at|date_format:"%e/%b/%G %H:%M:%S"}
+                {$opposition.updated_at|date_format:"%e/%m/%G "}
               </div>
             </li>
             {/foreach}
@@ -169,7 +143,6 @@
           {/foreach}
         </ol>
       </nav>
-      <div id="search-container2" class="col-md-12"></div>
       <div class="alerts">
         {foreach key=alert_key item=alert_item from=$alerts}
         <div class="alert {$alert_item} alert-dismissable">
@@ -191,8 +164,7 @@
                     <input type="hidden" name="cookie_compliance" id="" value="accept">
                     <input type="submit" value="Acepto" class="btn btn-success btn-sm" />
                   </form>
-                  <!-- <a href="/toposiciones/" class="btn btn-success btn-sm" >Acepto</a> -->
-                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm">
+                  <a href="/toposiciones/privacidad/" class="btn btn-light btn-sm">
                     Leer más.
                   </a>
                 </div>
@@ -239,7 +211,6 @@
                   <p>En el foro hallarás compañeros que plantean y resuelven dudas a diario</p>
                 </div>
               </a>
-
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -257,7 +228,7 @@
         <br>
         <div class="half-sq row">
           <div class="col-md-6 d-block w-100 float-left">
-            <img src="{$MEDIA_DIRECTORY}/images/trick_prepared.jpg" class="img-thumbnail" alt="">
+            <img src="{$MEDIA_DIRECTORY}/images/trick_pen.jpg" class="img-thumbnail trick-img float-right" alt="">
           </div>
           <div class="col-md-6 d-block w-100 float-right">
             <blockquote class="quote-card blue-card">
@@ -276,15 +247,15 @@
             </blockquote>
           </div>
           <div class="col-md-6 d-block w-100 float-left">
-            <img src="{$MEDIA_DIRECTORY}/images/trick_bottle.jpg" class="img-thumbnail" alt="">
+            <img src="{$MEDIA_DIRECTORY}/images/trick_time.jpg" class="img-thumbnail trick-img float-left" alt="">
           </div>
         </div>
         <div class="half-sq row">
           <div class="col-md-6 d-block w-100 float-left">
-            <img src="{$MEDIA_DIRECTORY}/images/trick_sad.jpg" class="img-thumbnail" alt="">
+            <img src="{$MEDIA_DIRECTORY}/images/trick_chill.jpeg" class="img-thumbnail trick-img float-right" alt="">
           </div>
           <div class="col-md-6 d-block w-100 float-right">
-            <blockquote class="quote-card green-card">
+            <blockquote class="quote-card yellow-card">
               <p>
                 No se ponga nervioso/a es sólo un exámen
               </p>
@@ -300,12 +271,9 @@
             </blockquote>
           </div>
           <div class="col-md-6 d-block w-100 float-left">
-            <img src="{$MEDIA_DIRECTORY}/images/trick_read.jpg" class="img-thumbnail" alt="">
+            <img src="{$MEDIA_DIRECTORY}/images/trick_check.jpg" class="img-thumbnail trick-img float-left" alt="">
           </div>
         </div>
-        <!-- <div class="page-header">
-        </div>
-        -->
         {/block}
       </div>
     </div>
@@ -321,38 +289,19 @@
               <div class="question">
                 <a class="card-link" href="/toposiciones/foro/{$m.postId}">
                   {$m.title}</a>
-
               </div>
               <div class="secondary">
-
-                {$m.user_name} | {$m.created_at|date_format:"%e/%b/%G"}
+                {$m.user_name} | {$m.created_at|date_format:"%e/%m/%G"}
               </div>
             </li>
             {/foreach}
-            <!--
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="{$MEDIA_DIRECTORY}/images/profile_pic.jpeg" alt="Messi">
-              <div class="user-name">
-                &nbsp;
-                <a href="">Messi chikito</a>
-              </div>
-              <div class="question">
-                Cuanto es el resultado de uno mas uno?
-              </div>
-              <div class="secondary">
-                23/3/21 8:41
-              </div>
-            </li>
-            -->
           </ul>
-
         </div>
       </div>
     </div>
     <div id="snackbar"></div>
     <button id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
   </div>
-
   <!-- Footer -->
   <footer class="text-center">
     <div class="p-4">
@@ -384,9 +333,7 @@
             &copy; 2021 Copyright: SantiMNV
             <a class=" text-white" href="https://toposiciones.es">Toposiciones.es</a>
     </div>
-    <!-- Copyright -->
   </footer>
-  <!-- Footer -->
 </body>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

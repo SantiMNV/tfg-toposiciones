@@ -28,7 +28,6 @@ if (isset($_SESSION['login_user'])) {
     $smarty->assign("all_oppositions", getOppositionsList()->fetchAll());
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-
     $smarty->display('opposition_list.html');
   } else {
     header('Location: /toposiciones/');

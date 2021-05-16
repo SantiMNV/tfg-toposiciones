@@ -4,15 +4,13 @@ RewriteEngine On
 #urls
 DirectoryIndex controller/index.php
 RewriteRule ^$ controller/index.php
-RewriteRule ^convocatorias/$ controller/convocatorias.php
-RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/convocatoria.php?id=$1 [L]
-
-RewriteRule ^temas/$ controller/themes.php
-RewriteRule ^soluciones/$ controller/soluciones.php
+RewriteRule ^convocatorias/$ controller/oppositions.php
+RewriteRule ^convocatorias/convocatoria/([^/]*)$ controller/opposition.php?id=$1 [L]
 
 RewriteRule ^login/$ controller/login.php
 RewriteRule ^perfil/$ controller/profile.php
 
+RewriteRule ^temas/$ controller/themes.php
 RewriteRule ^crear-tema/$ controller/add_theme.php
 RewriteRule ^lista-tema/$ controller/theme_list.php
 RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]
@@ -27,7 +25,6 @@ RewriteRule ^foro/([^/]*)$ controller/forum_post.php?id=$1 [L]
 RewriteRule ^crear-post/$ controller/add_post.php
 
 RewriteRule ^contacto/$ controller/contact.php
-
 RewriteRule ^privacidad/$ controller/privacy.php
 
 RewriteRule ^admin/$ controller/admin.php
@@ -35,11 +32,6 @@ RewriteRule ^admin/usuarios/$ controller/admin_users.php
 RewriteRule ^admin/crear/$ controller/admin_create_user.php
 RewriteRule ^admin/editar/([^/]*)$ controller/admin_edit_user.php?id=$1 [L]
 
-RewriteRule ^de0/$ controller/de0.php
-RewriteRule ^de1/$ controller/de1.html
-
 RewriteRule ^404/$ controller/404.php
-
-
 ErrorDocument 404 /toposiciones/404/
 

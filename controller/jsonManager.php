@@ -1,5 +1,7 @@
 <?php
 require('./config/urls.php');
+require(MODEL_DIRECTORY . "/include/categories.php");
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['request'])) {
     switch ($_POST['request']) {

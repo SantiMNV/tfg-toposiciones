@@ -13,7 +13,6 @@ function registerUser($post) {
     $conn->beginTransaction();
     if (isset($post['register-user']) && isset(($post['register-mail'])) && isset($post['register-password'])) {
       $sql = "INSERT into user values(null,0, '{$post['register-user']}', '{$post['register-mail']}','" . hash('sha512', $post['register-password']) . "', now(), now())";
-
       if ($conn->exec($sql) == 0) $ok = false;
       if ($ok) {
         $conn->commit();
@@ -33,7 +32,6 @@ function loginUser($post) {
   global $conn;
   $sql = "SELECT user.user_name,user.userId,user.access_level from user where user.mail = '{$post['login-mail']}' and user.user_password = '" . hash('sha512', $post['login-password']) . "'";
   $result = $conn->query($sql);
-
   if ($result->rowCount() > 0) {
     $row = $result->fetch();
     $status = "login-success";
@@ -57,7 +55,6 @@ function getUser($id) {
 function editUser($post) {
   global $conn;
   $ok = true;
-
   if (isset($post['login-user']) || isset($post['login-password'])) {
     if (isset($post['login-user'])) {
       if ($post['login-user'] != $_SESSION['login_user']) {
@@ -123,8 +120,6 @@ function editUserFull($post) {
   return $status;
 }
 
-
-
 function getUsers() {
   global $conn;
   $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user` where access_level != 10';
@@ -158,9 +153,7 @@ function sendContact($post) {
   if (isset($post['input-contact-mail']) && isset($post['input-contact-name']) && isset($post['input-contact-message'])) {
     $ok = true;
     $conn->beginTransaction();
-
     $sql = "INSERT into admin_messages values(null,'{$post['input-contact-mail']}','{$post['input-contact-message']}',0,now())";
-
     if ($conn->exec($sql) == 0) $ok = false;
     if ($ok) {
       $conn->commit();
@@ -172,6 +165,37 @@ function sendContact($post) {
   } else {
     $status = "nei";
   }
-
   return $status;
+}
+
+function sendResetPW($post) {
+  global $conn;
+  // *** TRANSACTION ***
+  if (isset($post['login-mail']) && isset($post['reset-btn'])) {
+    $ok = true;
+    $conn->beginTransaction();
+    $sql = "INSERT into admin_messages values(null,'{$post['login-mail']}','Restore password',0,now())";
+    if ($conn->exec($sql) == 0) $ok = false;
+    if ($ok) {
+      $conn->commit();
+      $status = "reset-success";
+    } else {
+      $conn->rollback();
+      $status = "reset-failure";
+    }
+  } else {
+    $status = "nei";
+  }
+  return $status;
+}
+
+function getUsersParams($txtSearch) {
+  global $conn;
+  $sql = "SELECT * FROM user where user_name like '%" . $txtSearch . "%' or mail like '%" . $txtSearch . "%' ";
+  $resultado = $conn->query($sql);
+  $ids = array();
+  while ($row = $resultado->fetch()) {
+    array_push($ids, $row[0]);
+  }
+  return $ids;
 }

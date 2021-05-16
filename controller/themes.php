@@ -1,5 +1,6 @@
 <?php
 require('./config/urls.php');
+require(MODEL_DIRECTORY . "/include/themes.php");
 global $smarty;
 $page = new Page("Temas", "Temas", "Temas", "slug", "");
 $smarty->assign('page', $page);
@@ -33,8 +34,5 @@ if (isset($themeList)) {
 } else {
   $smarty->assign("all_themes", getThemes()->fetchAll());
 }
-
 $smarty->assign('alerts', $alerts);
-
-
 $smarty->display('themes.html');

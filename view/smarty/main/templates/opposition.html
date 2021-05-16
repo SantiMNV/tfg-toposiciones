@@ -5,8 +5,6 @@
   <h2>{$page->pageTitle} {$opposition.opposition_status|lower}</h2>
   <p>{$opposition.opposition_description}</p>
 </div>
-
-
 <section id="" class="col-md-12">
   <div id="opposition1" class="opposition row col-md-12">
     <div class="opposition_image_container col-md-3 col-sm-3 text-center">
@@ -34,7 +32,7 @@
         </a>
       </div>
       <div class="date">
-        {$opposition.updated_at|date_format:"%e/%b/%G %H:%M:%S"}
+        {$opposition.updated_at|date_format:"%e/%m/%G"}
       </div>
     </div>
     <hr />
@@ -69,7 +67,6 @@
     <td>Fecha Fin</td>
     <td>{$opposition.opposition_end_date}</td>
   </tr>
-
   <tr>
     <td>Ámbito</td>
     <td>{$opposition.ambit_name}</td>

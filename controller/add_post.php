@@ -2,9 +2,7 @@
 require('./config/urls.php');
 global $smarty;
 $page = new Page("Foro","Añadir post", "", "slug", "");
-
 $alerts = array();
-
 
 if (isset($_SESSION['login_user'])) {
   if ($_SERVER['REQUEST_METHOD'] == "POST") {

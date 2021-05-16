@@ -1,6 +1,5 @@
 <?php
 require("pdo_connection.php");
-//getCategories(0);
 
 function getCategories($count) {
   global $conn;
@@ -8,11 +7,7 @@ function getCategories($count) {
   $sql = "SELECT opposition_category.category_name,opposition_category.categoryId  FROM opposition_category order by opposition_category.category_name desc";
   foreach ($conn->query($sql) as $row) {
     /*array_push($result, $row['categoryId'], $row["category_name"]);*/
-    $result[$row['categoryId']] =    $row["category_name"];
+    $result[$row['categoryId']] = $row["category_name"];
   }
-
-
   echo json_encode($result);
-
-  //return json_encode($result);
 }

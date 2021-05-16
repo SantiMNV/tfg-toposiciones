@@ -15,7 +15,6 @@ if (isset($_SESSION['login_user'])) {
               $alerts = array(
                 "Usuario correctamente editado. " => "alert-success"
               );
-              //header('Location: /toposiciones/admin/usuarios/');
               break;
             case "edit-failure":
               $alerts = array(

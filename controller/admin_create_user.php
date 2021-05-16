@@ -31,7 +31,7 @@ if (isset($_SESSION['login_user'])) {
           switch ($registerResult) {
             case "registered":
               $alerts = array(
-                "El usuario ya existe, por favor haga login. " => "alert-warning"
+                "El usuario ya existe. " => "alert-warning"
               );
               break;
             case "register-success":
@@ -59,7 +59,6 @@ if (isset($_SESSION['login_user'])) {
     $smarty->assign("all_users", getUsers()->fetchAll());
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    //resetPasswordMail();
     $smarty->display('admin_create_user.html');
   } else {
     header('Location: /toposiciones/');

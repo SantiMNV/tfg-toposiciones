@@ -6,7 +6,7 @@ let jsonResponseText = {};
 document.onload = principal()
 
 function principal() {
-  console.log("Conectado")
+  //console.log("Conectado")
   backToTopBtn = document.getElementById("backToTopBtn");
   backToTopBtn.addEventListener("click", topFunction)
   window.onscroll = function () { scrollFunction() };
@@ -16,13 +16,6 @@ function principal() {
     keyboard: false
   })
   $('#modalCookie1').modal('show');
-}
-
-function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 // Show btn when scroll is 20 down
@@ -42,7 +35,6 @@ function topFunction() {
 
 function pickState(e) {
   let event = window.event || e;
-  //console.log("Me han llamado: " + event.srcElement.id);
 
   if (event.srcElement.id !== "africa") {
     if (stateSelected === "") {
@@ -70,12 +62,10 @@ function pickState(e) {
         stateSelected = "";
       }
     }
-
   }
 }
 
 function getSearchInput() {
-  // Inicializo la consulta con nocache
   let params = "nocache=" + Math.random();
   let status = document.getElementById("inputStatus").value;
   let category = document.getElementById("inputSearchCategory").value;
@@ -92,7 +82,6 @@ function getSearchInput() {
   if (date !== "") {
     params += "&date=" + date
   }
-
   return params;
 }
 
@@ -108,8 +97,7 @@ function mapListeners() {
 function showSearch() {
   if (!searchDisplayed) {
     var xhr = new XMLHttpRequest();
-    //xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
-    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout2.html', true);
+    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
     xhr.onreadystatechange = function () {
       if (this.readyState !== 4) return;
       if (this.status !== 200) return;
@@ -119,12 +107,8 @@ function showSearch() {
     };
     xhr.send();
     searchDisplayed = true;
-    //document.getElementById("searchBtn").firstChild.nextSibling.className += "active-link"
-    //document.getElementById("searchBtn").className += "active-link"
     topFunction();
   } else {
-    //document.getElementById("searchBtn").firstChild.nextSibling.className = document.getElementById("searchBtn").firstChild.nextSibling.className.replace("active-link", "");
-    //document.getElementById("searchBtn").className = document.getElementById("searchBtn").className.replace("active-link", "");
     document.getElementById('search-container').innerHTML = "";
     searchDisplayed = false;
   }
@@ -179,7 +163,6 @@ function searchJSON() {
 }
 
 function searchCategoryJSON() {
-  //JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesItems("inputSearchCategory") })
   JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategories("inputSearchCategory") })
 }
 
@@ -194,16 +177,5 @@ function jsonResponse() {
     for (let i in serverResponse) {
       jsonResponseText[i] = serverResponse[i];
     }
-  }
-}
-
-function showPasswoadrd() {
-  console.log("Quieres verla");
-  let pwInput = document.getElementById("input-password");
-  if (pwInput.type === "password") {
-    pwInput.type = "text";
-    console.log(pwInput.firstChild.innerHTML);
-  } else {
-    pwInput.type = "password";
   }
 }

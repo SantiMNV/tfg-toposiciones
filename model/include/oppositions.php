@@ -7,7 +7,6 @@ function getOppositions($count) {
   if ($count) {
     $sql .= " limit " . $count;
   }
-
   $resultado = $conn->query($sql);
   return $resultado;
 }

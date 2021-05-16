@@ -29,8 +29,6 @@ function getPostsParams($txtSearch) {
   return $ids;
 }
 
-
-
 function getPostsSummary($count) {
   global $conn;
   $sql = "SELECT forum_post.postId,user.user_name,forum_post.title,forum_post.created_at FROM forum_post,user where user.userId = forum_post.userId order by forum_post.created_at desc";
@@ -61,7 +59,6 @@ function addPost($post) {
   $ok = true;
   $conn->beginTransaction();
   $sql = "INSERT into forum_post values(null,{$_SESSION['login_userId']},'{$post['input-post-title']}','{$post['input-post-content']}',now())";
-  //echo ("El sql de añadir es: " . $sql);
   if ($conn->exec($sql) == 0) $ok = false;
   if ($ok) {
     $conn->commit();
@@ -79,8 +76,6 @@ function addMessage($post) {
   $ok = true;
   $conn->beginTransaction();
   $sql = "INSERT into forum_message values({$post['input-message-post']},null,{$_SESSION['login_userId']},'{$post['input-message-content']}',now())";
-
-  //echo ("El sql de añadir es: " . $sql);
   if ($conn->exec($sql) == 0) $ok = false;
   if ($ok) {
     $conn->commit();
@@ -96,13 +91,11 @@ function removePost($id) {
   global $conn;
   // *** TRANSACTION ***
   $ok = true;
-
   $sqlSelect = "SELECT count(messageId) from forum_message where postId = {$id}";
   $messageCount = $conn->query($sqlSelect)->fetch()[0];
   $sqlPost = "DELETE from forum_post where postId = {$id}";
   $sqlMessage = "DELETE from forum_message where postId = {$id}";
   $conn->beginTransaction();
-
   if ($messageCount) {
     if ($conn->exec($sqlMessage) == 0) $ok = false;
   }
@@ -134,12 +127,3 @@ function removeMessage($id) {
   }
   return $status;
 }
-
-/*function getLastOppositionId() {
-  global $conn;
-  $sql = "SELECT oppositionId FROM opposition order by oppositionId desc LIMIT 1";
-  $result = $conn->query($sql);
-  $r = $result->fetch()['oppositionId'];
-  return $r;
-}
-*/

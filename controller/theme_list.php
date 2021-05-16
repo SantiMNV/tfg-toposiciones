@@ -1,9 +1,8 @@
 <?php
 require('./config/urls.php');
+require(MODEL_DIRECTORY . "/include/themes.php");
 global $smarty;
 $page = new Page("Temas", "Lista Temas", "Listado de temas", "slug", "");
-
-
 
 $alerts = array();
 $smarty->assign('alerts', $alerts);

@@ -2,10 +2,7 @@
 require('./config/urls.php');
 global $smarty;
 $page = new Page("Perfil", "Perfil", "", "slug", "");
-
-
 $alerts = array();
-
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if ($_POST['edit-request'] == "edit") {

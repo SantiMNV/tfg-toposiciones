@@ -1,6 +1,5 @@
 <?php
 require("pdo_connection.php");
-//getStates(0);
 
 function getStates($count) {
   global $conn;
@@ -11,5 +10,4 @@ function getStates($count) {
     $result[$row['stateId']] =    $row["provincia"];
   }
   echo json_encode($result);
-  /*return $result;*/
 }

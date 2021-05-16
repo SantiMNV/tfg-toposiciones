@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-12 17:46:49
+/* Smarty version 3.1.39, created on 2021-05-16 12:16:58
   from '/srv/http/toposiciones/view/smarty/main/templates/opposition_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607487892e45f0_89437815',
+  'unifunc' => 'content_60a10d3ac44e16_05451477',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '571d265617507d58f49a5f63a94cfbdef3c75b48' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/opposition_list.html',
-      1 => 1618249607,
+      1 => 1621167407,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607487892e45f0_89437815 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a10d3ac44e16_05451477 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1168842648607487892d2d53_06245652', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_52652792060a10d3ac2cad1_58413490', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1168842648607487892d2d53_06245652 extends Smarty_Internal_Block
+class Block_52652792060a10d3ac2cad1_58413490 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1168842648607487892d2d53_06245652',
+    0 => 'Block_52652792060a10d3ac2cad1_58413490',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 
 <div class="page-header">
@@ -76,7 +77,7 @@ $_smarty_tpl->tpl_vars['opposition']->do_else = false;
             <input type="hidden" name="remove-request" value="remove">
             <input type="hidden" name="remove-theme" value="<?php echo $_smarty_tpl->tpl_vars['opposition']->value['oppositionId'];?>
 ">
-            <button type="submit">
+            <button type="submit" class="btn btn-light">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </form>
@@ -93,9 +94,9 @@ $_smarty_tpl->tpl_vars['opposition']->do_else = false;
 </td>
         <td><?php echo $_smarty_tpl->tpl_vars['opposition']->value['category_name'];?>
 </td>
-        <td style="min-width: 100px;"><?php echo $_smarty_tpl->tpl_vars['opposition']->value['opposition_start_date'];?>
+        <td style="min-width: 100px;"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['opposition_start_date'],"%e/%m/%G");?>
 </td>
-        <td style="min-width: 100px;"><?php echo $_smarty_tpl->tpl_vars['opposition']->value['opposition_end_date'];?>
+        <td style="min-width: 100px;"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['opposition_end_date'],"%e/%m/%G");?>
 </td>
       </tr>
       <?php

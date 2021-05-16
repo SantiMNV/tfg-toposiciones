@@ -2,7 +2,6 @@
 require('./config/urls.php');
 global $smarty;
 $page = new Page("Admin", "Administración", "Mensajes pendientes", "slug", "");
-
 $alerts = array();
 
 if (isset($_SESSION['login_user'])) {
@@ -69,7 +68,6 @@ if (isset($_SESSION['login_user'])) {
     $smarty->assign("all_admin_messages", getAdminMessages()->fetchAll());
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-
     $smarty->display('admin.html');
   } else {
     header('Location: /toposiciones/');

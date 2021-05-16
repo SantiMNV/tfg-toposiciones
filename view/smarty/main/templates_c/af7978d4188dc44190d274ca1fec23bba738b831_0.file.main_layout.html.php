@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-15 16:49:51
+/* Smarty version 3.1.39, created on 2021-05-16 17:15:06
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_609ffbaf260b94_00176107',
+  'unifunc' => 'content_60a1531a7f42f2_56828808',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1621097388,
+      1 => 1621185296,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_609ffbaf260b94_00176107 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a1531a7f42f2_56828808 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
-<!-- SantiMNV
-  // Extra small screen / phone
-  xs: 0,
-  // Small screen / phone
-  sm: 576px,
-  // Medium screen / tablet
-  md: 768px,
-  // Large screen / desktop
-  lg: 992px,
-  // Extra large screen / wide desktop
-  xl: 1200px
--->
+<!-- SantiMNV -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -50,26 +39,23 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 /fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <!-- Versión compilada y minimizada del CSS de Bootstrap -->
+  <!-- Minimized bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- CSS propio que usaremos para personalizar BS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet " href="<?php echo $_smarty_tpl->tpl_vars['CSS_DIRECTORY']->value;?>
 /estilos.css" />
   <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/company/fototopo32no-fondo.png">
-
 </head>
 
 <body>
-  <!-- Barra Menu -->
   <nav class="navbar navbar-expand-md sticky-top container-fluid" id="menu-bar">
-    <!-- Brand/logo -->
+    <!-- Brand logo -->
     <div class=" col-md-3" id="menu-first-line">
       <a class="navbar-brand " href="/toposiciones/" id="brand-menu">
-        <!-- <img src="../../../../media/images/fototopo64v2.png">-->
         <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/company/fototopo64v2.png">
+/images/company/fototopo64v4.png">
         <div>
           <h1>Toposiciones</h1>
         </div>
@@ -95,9 +81,6 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             Temas
           </a>
         </li>
-        <!--<li class="nav-item"><a class="nav-link" href="">Tests</a></li>
-        <li class="nav-item"><a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Soluciones') {?>active-link<?php }?>"
-            href="/toposiciones/soluciones/">Soluciones</a></li>-->
         <li class="nav-item"><a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Foro') {?>active-link<?php }?>"
             href="/toposiciones/foro/">
             <!-- <i class="fas fa-comments"></i> -->
@@ -108,7 +91,6 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             <!--<i class="fas fa-id-card"></i> -->
             Contacto
           </a></li>
-
         <?php if ((isset($_SESSION['login_user']))) {?>
         <?php if (($_SESSION['login_access_level'] > 5)) {?>
         <li class="nav-item" id="adminSite">
@@ -134,14 +116,6 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
           </a>
           <?php }?>
         </li>
-        <!--
-        <li class="nav-item" id="searchBtn2">
-          <a class="nav-link ">
-            <i class="fas fa-search"></i>
-            Buscar
-          </a>
-        </li>
-        -->
       </ul>
     </div>
   </nav>
@@ -194,7 +168,7 @@ if ($_prefixVariable2 > 1) {?>
                 </a>
               </div>
               <div class="secondary">
-                <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['updated_at'],"%e/%b/%G %H:%M:%S");?>
+                <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['updated_at'],"%e/%m/%G ");?>
 
               </div>
             </li>
@@ -245,7 +219,6 @@ $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] = $_smarty_
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </ol>
       </nav>
-      <div id="search-container2" class="col-md-12"></div>
       <div class="alerts">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alerts']->value, 'alert_item', false, 'alert_key');
@@ -276,8 +249,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <input type="hidden" name="cookie_compliance" id="" value="accept">
                     <input type="submit" value="Acepto" class="btn btn-success btn-sm" />
                   </form>
-                  <!-- <a href="/toposiciones/" class="btn btn-success btn-sm" >Acepto</a> -->
-                  <a href="/toposiciones/privacidad/" class="btn btn-secondary btn-sm">
+                  <a href="/toposiciones/privacidad/" class="btn btn-light btn-sm">
                     Leer más.
                   </a>
                 </div>
@@ -289,7 +261,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_125602900609ffbaf25c1e4_75021693', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_90643357960a1531a7eac28_80930350', "body-content");
 ?>
 
       </div>
@@ -314,43 +286,23 @@ $_smarty_tpl->tpl_vars['m']->do_else = false;
 ">
                   <?php echo $_smarty_tpl->tpl_vars['m']->value['title'];?>
 </a>
-
               </div>
               <div class="secondary">
-
                 <?php echo $_smarty_tpl->tpl_vars['m']->value['user_name'];?>
- | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['m']->value['created_at'],"%e/%b/%G");?>
+ | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['m']->value['created_at'],"%e/%m/%G");?>
 
               </div>
             </li>
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-            <!--
-            <li class="list-group-item">
-              <img class="rounded-circle img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/profile_pic.jpeg" alt="Messi">
-              <div class="user-name">
-                &nbsp;
-                <a href="">Messi chikito</a>
-              </div>
-              <div class="question">
-                Cuanto es el resultado de uno mas uno?
-              </div>
-              <div class="secondary">
-                23/3/21 8:41
-              </div>
-            </li>
-            -->
           </ul>
-
         </div>
       </div>
     </div>
     <div id="snackbar"></div>
     <button id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
   </div>
-
   <!-- Footer -->
   <footer class="text-center">
     <div class="p-4">
@@ -382,9 +334,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             &copy; 2021 Copyright: SantiMNV
             <a class=" text-white" href="https://toposiciones.es">Toposiciones.es</a>
     </div>
-    <!-- Copyright -->
   </footer>
-  <!-- Footer -->
 </body>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -407,12 +357,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_125602900609ffbaf25c1e4_75021693 extends Smarty_Internal_Block
+class Block_90643357960a1531a7eac28_80930350 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_125602900609ffbaf25c1e4_75021693',
+    0 => 'Block_90643357960a1531a7eac28_80930350',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -456,7 +406,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                   <p>En el foro hallarás compañeros que plantean y resuelven dudas a diario</p>
                 </div>
               </a>
-
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -475,7 +424,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <div class="half-sq row">
           <div class="col-md-6 d-block w-100 float-left">
             <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/trick_prepared.jpg" class="img-thumbnail" alt="">
+/images/trick_pen.jpg" class="img-thumbnail trick-img float-right" alt="">
           </div>
           <div class="col-md-6 d-block w-100 float-right">
             <blockquote class="quote-card blue-card">
@@ -495,16 +444,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
           </div>
           <div class="col-md-6 d-block w-100 float-left">
             <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/trick_bottle.jpg" class="img-thumbnail" alt="">
+/images/trick_time.jpg" class="img-thumbnail trick-img float-left" alt="">
           </div>
         </div>
         <div class="half-sq row">
           <div class="col-md-6 d-block w-100 float-left">
             <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/trick_sad.jpg" class="img-thumbnail" alt="">
+/images/trick_chill.jpeg" class="img-thumbnail trick-img float-right" alt="">
           </div>
           <div class="col-md-6 d-block w-100 float-right">
-            <blockquote class="quote-card green-card">
+            <blockquote class="quote-card yellow-card">
               <p>
                 No se ponga nervioso/a es sólo un exámen
               </p>
@@ -521,12 +470,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
           </div>
           <div class="col-md-6 d-block w-100 float-left">
             <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/trick_read.jpg" class="img-thumbnail" alt="">
+/images/trick_check.jpg" class="img-thumbnail trick-img float-left" alt="">
           </div>
         </div>
-        <!-- <div class="page-header">
-        </div>
-        -->
         <?php
 }
 }

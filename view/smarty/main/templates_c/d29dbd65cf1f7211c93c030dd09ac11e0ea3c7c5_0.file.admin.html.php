@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-24 16:05:43
+/* Smarty version 3.1.39, created on 2021-05-15 20:22:02
   from '/srv/http/toposiciones/view/smarty/main/templates/admin.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_608441d73a7f75_67978724',
+  'unifunc' => 'content_60a02d6ab8fb25_75342977',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd29dbd65cf1f7211c93c030dd09ac11e0ea3c7c5' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin.html',
-      1 => 1618998226,
+      1 => 1621110119,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_608441d73a7f75_67978724 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a02d6ab8fb25_75342977 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1140525701608441d73892a6_37974032', "body-content");
-?>
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_177702590360a02d6ab740c7_76856826', "body-content");
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1140525701608441d73892a6_37974032 extends Smarty_Internal_Block
+class Block_177702590360a02d6ab740c7_76856826 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1140525701608441d73892a6_37974032',
+    0 => 'Block_177702590360a02d6ab740c7_76856826',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,9 +51,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 </h2>
 </div>
 <div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll">
-  <table
-    class="table list-table table-striped table-hover table-sm table-bordered"
-  >
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
     <thead class="thead-dark">
       <tr>
         <th scope="col"></th>
@@ -78,13 +74,9 @@ $_smarty_tpl->tpl_vars['admin_message']->do_else = false;
         <th>
           <form action="/toposiciones/admin/" method="POST">
             <input type="hidden" name="remove-request" value="remove" />
-            <input
-              type="hidden"
-              name="remove-message"
-              value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageId'];?>
-"
-            />
-            <button type="submit">
+            <input type="hidden" name="remove-message" value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageId'];?>
+" />
+            <button type="submit" class="btn btn-light">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </form>
@@ -98,19 +90,11 @@ $_smarty_tpl->tpl_vars['admin_message']->do_else = false;
  <?php if ($_smarty_tpl->tpl_vars['admin_message']->value['messageUserContent'] == "Restore password") {?>
           <form action="/toposiciones/admin/" method="POST">
             <input type="hidden" name="changepw-request" value="change" />
-            <input
-              type="hidden"
-              name="changepw-userMail"
-              value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageUserMail'];?>
-"
-            />
-            <input
-              type="hidden"
-              name="changepw-messageId"
-              value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageId'];?>
-"
-            />
-            <button type="submit">
+            <input type="hidden" name="changepw-userMail" value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageUserMail'];?>
+" />
+            <input type="hidden" name="changepw-messageId" value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageId'];?>
+" />
+            <button type="submit" class="btn btn-light">
               <i class="fas fa-key"></i>
             </button>
           </form>
@@ -121,8 +105,8 @@ $_smarty_tpl->tpl_vars['admin_message']->do_else = false;
             <a
               href="mailto:<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageUserMail'];?>
 ?subject=Contraseña reestablecida&body=Su nueva contraseña es: <?php echo $_smarty_tpl->tpl_vars['newpw']->value;?>
- "
-              ><i class="fas fa-envelope"></i>
+ "><i
+                class="fas fa-envelope"></i>
             </a>
             <?php }?> <?php }?> <?php }?>
           </div>
@@ -131,19 +115,11 @@ $_smarty_tpl->tpl_vars['admin_message']->do_else = false;
         <td class="text-center">
           <form action="/toposiciones/admin/" method="POST">
             <input type="hidden" name="readed-request" value="readed" />
-            <input
-              type="hidden"
-              name="read-message"
-              value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageId'];?>
-"
-            />
-            <input
-              type="hidden"
-              name="read-readed"
-              value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['readed'];?>
-"
-            />
-            <button type="submit">
+            <input type="hidden" name="read-message" value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['messageId'];?>
+" />
+            <input type="hidden" name="read-readed" value="<?php echo $_smarty_tpl->tpl_vars['admin_message']->value['readed'];?>
+" />
+            <button type="submit" class="btn btn-light">
               <?php if ($_smarty_tpl->tpl_vars['admin_message']->value['readed']) {?>
               <i class="fas fa-check-circle"></i>
               <?php } else { ?>

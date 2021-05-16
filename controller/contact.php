@@ -2,9 +2,7 @@
 require('./config/urls.php');
 global $smarty;
 $page = new Page("Contacto", "Contacta con nosotros", "", "slug", "");
-
 $alerts = array();
-
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['send-request'])) {
@@ -32,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
   }
 }
-
 $smarty->assign('alerts', $alerts);
 $smarty->assign('page', $page);
-
 $smarty->display('contact.html');

@@ -1,6 +1,5 @@
 <?php
 require("pdo_connection.php");
-//getCategories(0);
 
 function updateRead($id, $readed) {
   global $conn;
@@ -39,14 +38,7 @@ function changePassword($messageId, $mail) {
     $conn->beginTransaction();
     $newPass = randomPassword();
     $sqlUpdate = "UPDATE user set user_password = '" . hash('sha512', $newPass) . "' where userId = {$userId}";
-
-
-    //$sqlReaded = "UPDATE admin_messages set readed = 1 where messageId = {$messageId} ";
-    //echo ("El sql update es: " . $sqlUpdate);
-    //echo ("<br>El sql readed es: " . $sqlReaded);
-
     if ($conn->exec($sqlUpdate) == 0) $ok = false;
-    //if ($conn->exec($sqlReaded) == 0) $ok = false;
     if ($ok) {
       $conn->commit();
       $status = "update-pw-success-" . $newPass;
@@ -62,13 +54,14 @@ function changePassword($messageId, $mail) {
 
 function randomPassword() {
   $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;%';
-  $pass = array(); //remember to declare $pass as an array
-  $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+  $pass = array(); 
+  $alphaLength = strlen($alphabet) - 1; 
   for ($i = 0; $i < 20; $i++) {
     $n = rand(0, $alphaLength);
     $pass[] = $alphabet[$n];
   }
-  return implode($pass); //turn the array into a string
+  // Array to string
+  return implode($pass); 
 }
 
 function getAdminMessages() {

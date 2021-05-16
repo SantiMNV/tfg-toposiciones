@@ -3,7 +3,6 @@ require('./config/urls.php');
 global $smarty;
 $page = new Page("Solucion","Tema", "Tema", "slug", "");
 
-
 $alerts = array();
 $smarty->assign('alerts', $alerts);
 $smarty->assign('page', $page);

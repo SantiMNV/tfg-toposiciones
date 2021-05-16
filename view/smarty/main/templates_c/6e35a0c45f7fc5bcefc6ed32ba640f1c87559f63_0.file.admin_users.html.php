@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-15 17:21:10
+/* Smarty version 3.1.39, created on 2021-05-15 20:23:17
   from '/srv/http/toposiciones/view/smarty/main/templates/admin_users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a00306a9a7e1_46679617',
+  'unifunc' => 'content_60a02db57acaf1_79543030',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e35a0c45f7fc5bcefc6ed32ba640f1c87559f63' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin_users.html',
-      1 => 1621099267,
+      1 => 1621110119,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,47 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a00306a9a7e1_46679617 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a02db57acaf1_79543030 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_198203222960a00306a79d07_59126136', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_38798028660a02db579d5b8_54204793', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_198203222960a00306a79d07_59126136 extends Smarty_Internal_Block
+class Block_38798028660a02db579d5b8_54204793 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_198203222960a00306a79d07_59126136',
+    0 => 'Block_38798028660a02db579d5b8_54204793',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
+<div class="full-action-button text-center">
+  <a data-toggle="collapse" data-target="#searchDiv">
+    <i class="fas fa-filter"></i>
+    <div>Filtrar Usuarios</div>
+  </a>
+</div>
+<div id="searchDiv" class="col-md-12 text-center collapse">
+  <form action="/toposiciones/admin/usuarios/" method="POST">
+    <div class="row justify-content-center">
+      <div class="input-group">
+        <input type="hidden" name="search-request" value="search">
+        <input type="text" class="form-control" placeholder="Buscar" name="txtSearch" id="txtSearch" />
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <span class="fas fa-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 <div class="full-action-button text-center">
   <a href="/toposiciones/admin/crear/">
     <i class="fas fa-plus-circle"></i>
@@ -76,7 +97,7 @@ $_smarty_tpl->tpl_vars['user']->do_else = false;
             <input type="hidden" name="remove-request" value="remove" />
             <input type="hidden" name="remove-user" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
 " />
-            <button type="submit">
+            <button type="submit" class="btn btn-light">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </form>

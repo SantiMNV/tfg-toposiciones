@@ -1,5 +1,26 @@
 {extends 'layouts/main_layout.html'} {block name="body-content"}
 <div class="full-action-button text-center">
+  <a data-toggle="collapse" data-target="#searchDiv">
+    <i class="fas fa-filter"></i>
+    <div>Filtrar Usuarios</div>
+  </a>
+</div>
+<div id="searchDiv" class="col-md-12 text-center collapse">
+  <form action="/toposiciones/admin/usuarios/" method="POST">
+    <div class="row justify-content-center">
+      <div class="input-group">
+        <input type="hidden" name="search-request" value="search">
+        <input type="text" class="form-control" placeholder="Buscar" name="txtSearch" id="txtSearch" />
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <span class="fas fa-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="full-action-button text-center">
   <a href="/toposiciones/admin/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Crear usuario</div>
@@ -27,7 +48,7 @@
           <form action="/toposiciones/admin/usuarios/" method="POST">
             <input type="hidden" name="remove-request" value="remove" />
             <input type="hidden" name="remove-user" value="{$user.userId}" />
-            <button type="submit">
+            <button type="submit" class="btn btn-light">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </form>

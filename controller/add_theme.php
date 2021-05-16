@@ -1,10 +1,9 @@
 <?php
 require('./config/urls.php');
+require(MODEL_DIRECTORY . "/include/themes.php");
 global $smarty;
 $page = new Page("Temas", "Añadir tema", "", "slug", "");
-
 $alerts = array();
-
 
 if (isset($_SESSION['login_user'])) {
   if ($_SERVER['REQUEST_METHOD'] == "POST") {
