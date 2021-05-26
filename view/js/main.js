@@ -16,6 +16,13 @@ function principal() {
     keyboard: false
   })
   $('#modalCookie1').modal('show');
+
+
+
+  if (screen.width > 550 && document.getElementById("svg_map") != null) {
+    console.log("Estoy en el script");
+    document.getElementById("svg_map").style.height = "350px";
+  }
 }
 
 // Show btn when scroll is 20 down

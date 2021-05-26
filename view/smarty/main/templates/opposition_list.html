@@ -16,8 +16,6 @@
         <th scope="col">Link</th>
         <th scope="col">Provincia</th>
         <th scope="col">Categoría</th>
-        <th scope="col">Inicio</th>
-        <th scope="col">Fin</th>
       </tr>
     </thead>
     <tbody>
@@ -37,9 +35,7 @@
         <td>{$opposition.seats}</td>
         <td class="cut">{$opposition.official_link}</td>
         <td>{$opposition.state}</td>
-        <td>{$opposition.category_name}</td>
-        <td style="min-width: 100px;">{$opposition.opposition_start_date|date_format:"%e/%m/%G"}</td>
-        <td style="min-width: 100px;">{$opposition.opposition_end_date|date_format:"%e/%m/%G"}</td>
+        <td class="cut">{$opposition.category_name}</td>
       </tr>
       {/foreach}
     </tbody>

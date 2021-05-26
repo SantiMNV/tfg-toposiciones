@@ -8,4 +8,4 @@ $smarty->assign('page', $page);
 $smarty->assign('nombre', "Juan");
 
 $smarty->assign("all_oppositions", getOpposition($_GET['id'])->fetchAll());
-$smarty->display('oppositions.html');
+$smarty->display('opposition.html');

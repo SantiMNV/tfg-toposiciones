@@ -69,6 +69,11 @@ h3 {
   margin: 0.2rem;
 }
 
+.btn-primary {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
 .modal-content {
   border-radius: 0rem;
 }
@@ -408,6 +413,10 @@ footer div:nth-child(2) {
   display: inline-block;
 }
 
+td.cut {
+  border: none;
+}
+
 .input-group-append {
   cursor: pointer;
 }
@@ -415,9 +424,6 @@ footer div:nth-child(2) {
 .halfInput {
   float: left;
   padding: 0;
-}
-td.cut {
-  border: none;
 }
 
 /* CKEDITOR */
@@ -447,7 +453,6 @@ td.cut {
   height: 300px;
   object-fit: cover;
 }
-
 
 /* SNACKBAR */
 /* The snackbar - position it at the bottom and in the middle of the screen */

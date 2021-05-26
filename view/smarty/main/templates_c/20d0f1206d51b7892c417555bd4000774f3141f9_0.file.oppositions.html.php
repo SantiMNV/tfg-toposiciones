@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-16 16:14:29
+/* Smarty version 3.1.39, created on 2021-05-16 17:18:06
   from '/srv/http/toposiciones/view/smarty/main/templates/oppositions.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a144e5048517_98109939',
+  'unifunc' => 'content_60a153cec614a8_71708118',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '20d0f1206d51b7892c417555bd4000774f3141f9' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/oppositions.html',
-      1 => 1621181645,
+      1 => 1621184718,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a144e5048517_98109939 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a153cec614a8_71708118 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_52791412960a144e5026a34_07375889', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_37770573160a153cec3c6f9_27539800', "body-content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_52791412960a144e5026a34_07375889 extends Smarty_Internal_Block
+class Block_37770573160a153cec3c6f9_27539800 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_52791412960a144e5026a34_07375889',
+    0 => 'Block_37770573160a153cec3c6f9_27539800',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -122,7 +122,6 @@ if ($_prefixVariable2 > 1) {?> plazas <?php } else { ?> plaza <?php }?> de
     <hr />
   </div>
 </section>
-
 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);

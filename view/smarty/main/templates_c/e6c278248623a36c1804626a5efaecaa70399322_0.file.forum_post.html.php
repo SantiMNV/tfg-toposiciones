@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-16 11:21:19
+/* Smarty version 3.1.39, created on 2021-05-21 17:09:44
   from '/srv/http/toposiciones/view/smarty/main/templates/forum_post.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a1002fb7f050_34611864',
+  'unifunc' => 'content_60a7e95888e597_13398331',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e6c278248623a36c1804626a5efaecaa70399322' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/forum_post.html',
-      1 => 1621110119,
+      1 => 1621167401,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a1002fb7f050_34611864 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a7e95888e597_13398331 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_54582493460a1002fb599a8_65234503', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_94434300460a7e958868fc6_31148254', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_54582493460a1002fb599a8_65234503 extends Smarty_Internal_Block
+class Block_94434300460a7e958868fc6_31148254 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_54582493460a1002fb599a8_65234503',
+    0 => 'Block_94434300460a7e958868fc6_31148254',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,7 +57,7 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
     <div class="card-body col-md-12">
       <div>
         <div><?php echo $_smarty_tpl->tpl_vars['p']->value['user_name'];?>
- | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['p']->value['created_at'],"%e/%b/%G");?>
+ | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['p']->value['created_at'],"%e/%m/%G");?>
 </div>
         <?php if ((isset($_SESSION['login_user']))) {?>
         <?php if (($_SESSION['login_access_level'] >= 10)) {?>
@@ -92,7 +92,7 @@ $_smarty_tpl->tpl_vars['message']->do_else = false;
     <div class="card-body col-md-12">
       <div>
         <div><?php echo $_smarty_tpl->tpl_vars['message']->value['user_name'];?>
- | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['message']->value['created_at'],"%e/%b/%G");?>
+ | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['message']->value['created_at'],"%e/%m/%G");?>
  </div>
         <?php if ((isset($_SESSION['login_user']))) {?>
         <?php if (($_SESSION['login_access_level'] >= 10)) {?>

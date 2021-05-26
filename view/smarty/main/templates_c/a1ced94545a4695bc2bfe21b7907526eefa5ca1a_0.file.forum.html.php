@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-15 11:47:13
+/* Smarty version 3.1.39, created on 2021-05-17 17:58:10
   from '/srv/http/toposiciones/view/smarty/main/templates/forum.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_609fb4c10f1b57_79502102',
+  'unifunc' => 'content_60a2aeb298fdb8_99498662',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a1ced94545a4695bc2bfe21b7907526eefa5ca1a' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/forum.html',
-      1 => 1621079232,
+      1 => 1621184676,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_609fb4c10f1b57_79502102 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a2aeb298fdb8_99498662 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_106178849609fb4c10db6e4_80725789', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12884598760a2aeb297a941_52821183', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_106178849609fb4c10db6e4_80725789 extends Smarty_Internal_Block
+class Block_12884598760a2aeb297a941_52821183 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_106178849609fb4c10db6e4_80725789',
+    0 => 'Block_12884598760a2aeb297a941_52821183',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -69,17 +69,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     <div>Crear post</div>
   </a>
 </div>
-<?php if (($_SESSION['login_access_level'] > 5)) {?>
-<!--
-<div class="full-action-button text-center">
-  <a href="/toposiciones/lista-posts/">
-    <i class="fas fa-list"></i>
-    <div>Listar posts</div>
-  </a>
-</div>
--->
-<?php }
-}?>
+<?php }?>
 <div class="page-header">
   <h2><?php echo $_smarty_tpl->tpl_vars['page']->value->pageTitle;?>
 </h2>
