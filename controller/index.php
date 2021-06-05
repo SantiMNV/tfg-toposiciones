@@ -3,7 +3,7 @@ require('./config/urls.php');
 global $smarty;
 $page = new Page("", "Inicio", "Titulo", "slug", "");
 
-$smarty->assign('alerts', array());
+$smarty->assign('alerts', $alerts);
 $smarty->assign('page', $page);
 $carroussel = getCarroussel();
 $smarty->assign('carroussel', $carroussel);

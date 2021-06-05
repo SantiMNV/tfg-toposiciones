@@ -1,6 +1,20 @@
 BEGIN;
 create database if not exists toposicionesDB;
 use toposicionesDB;
+
+-- Admin notificiations
+CREATE TABLE if not exists admin_notifications (
+  notificationId int not null auto_increment,
+  notificationText varchar(80) not null,
+  notificationType varchar(50) not null,
+  created_at datetime NOT NULL,
+  PRIMARY KEY(notificationId)
+);
+INSERT INTO admin_notifications
+VALUES (null, 'En mantenimiento', 'alert-danger', now()),
+(null, 'Hoy es sabado', 'alert-success', now()),
+(null, 'Oh mierda, hoy es sabado', 'alert-warning', now());
+
 -- Provincias
 CREATE TABLE if not exists spain_states (
   stateId int not null auto_increment,

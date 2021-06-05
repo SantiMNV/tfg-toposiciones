@@ -2,7 +2,6 @@
 require('./config/urls.php');
 global $smarty;
 $page = new Page("Admin", "Editar usuario", "Editar Usuarios", "slug", "");
-$alerts = array();
 
 if (isset($_SESSION['login_user'])) {
   if ($_SESSION['login_access_level'] >= 10) {
@@ -12,14 +11,10 @@ if (isset($_SESSION['login_user'])) {
           $editResult = editUserFull($_POST);
           switch ($editResult) {
             case "edit-success":
-              $alerts = array(
-                "Usuario correctamente editado. " => "alert-success"
-              );
+              $alerts["Usuario correctamente editado. "] = "alert-success";
               break;
             case "edit-failure":
-              $alerts = array(
-                "Ha ocurrido un fallo al editar el usuario, vuelva a intentarlo o contacte a soporte@toposiciones.com" => "alert-danger"
-              );
+              $alerts["Ha ocurrido un fallo al editar el usuario, vuelva a intentarlo o contacte a soporte@toposiciones.com"] = "alert-danger";
               break;
             default:
               break;

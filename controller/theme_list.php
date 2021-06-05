@@ -4,7 +4,6 @@ require(MODEL_DIRECTORY . "/include/themes.php");
 global $smarty;
 $page = new Page("Temas", "Lista Temas", "Listado de temas", "slug", "");
 
-$alerts = array();
 $smarty->assign('alerts', $alerts);
 $smarty->assign('page', $page);
 
@@ -14,14 +13,10 @@ if (isset($_SESSION['login_user'])) {
       if ($_POST['remove-request'] == "remove") {
         switch (removeTheme($_POST['remove-theme'])) {
           case "remove-theme-success":
-            $alerts = array(
-              "Tema eliminado correctamente. " => "alert-success"
-            );
+            $alerts["Tema eliminado correctamente. "] = "alert-success";
             break;
           case "remove-theme-failure":
-            $alerts = array(
-              "Ha ocurrido un fallo al eliminar el tema, inténtelo de nuevo o contacte a soporte@toposiciones.com" => "alert-warning"
-            );
+            $alerts["Ha ocurrido un fallo al eliminar el tema, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-warning";
             break;
           default:
             break;

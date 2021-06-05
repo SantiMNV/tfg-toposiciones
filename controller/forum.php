@@ -3,7 +3,6 @@ require('./config/urls.php');
 global $smarty;
 $page = new Page("Foro", "Foro", "", "slug", "");
 $smarty->assign('page', $page);
-$alerts = array();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['search-request'])) {
@@ -15,13 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           for ($i = 0; $i < sizeof($ids); $i++) {
             array_push($postList, getPostsShortId($ids[$i])->fetch());
           }
-          $alerts = array(
-            "Se han encontrado " . sizeof($ids) . " coincidencias. " => "alert-success"
-          );
+          $alerts["Se han encontrado " . sizeof($ids) . " coincidencias. "] = "alert-success";
         } else {
-          $alerts = array(
-            "No se han contrado coincidencias para: " . $_POST['txtSearch'] . ". " => "alert-danger"
-          );
+          $alerts["No se han contrado coincidencias para: " . $_POST['txtSearch'] . ". "] = "alert-danger";
         }
       }
     }

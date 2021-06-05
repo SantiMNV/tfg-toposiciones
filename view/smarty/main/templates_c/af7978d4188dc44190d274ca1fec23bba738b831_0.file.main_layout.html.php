@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-03 17:02:55
+/* Smarty version 3.1.39, created on 2021-06-05 16:16:24
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60b90b3f0dfd70_76580825',
+  'unifunc' => 'content_60bba3580988f7_11499907',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1622739774,
+      1 => 1622909720,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60b90b3f0dfd70_76580825 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60bba3580988f7_11499907 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -221,15 +221,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </nav>
       <div class="alerts">
         <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alerts']->value, 'alert_item', false, 'alert_key');
-$_smarty_tpl->tpl_vars['alert_item']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['alert_key']->value => $_smarty_tpl->tpl_vars['alert_item']->value) {
-$_smarty_tpl->tpl_vars['alert_item']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alerts']->value, 'alert_type', false, 'alert_text');
+$_smarty_tpl->tpl_vars['alert_type']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['alert_text']->value => $_smarty_tpl->tpl_vars['alert_type']->value) {
+$_smarty_tpl->tpl_vars['alert_type']->do_else = false;
 ?>
-        <div class="alert <?php echo $_smarty_tpl->tpl_vars['alert_item']->value;?>
+        <div class="alert <?php echo $_smarty_tpl->tpl_vars['alert_type']->value;?>
  alert-dismissable">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <?php echo $_smarty_tpl->tpl_vars['alert_key']->value;?>
+          <?php echo $_smarty_tpl->tpl_vars['alert_text']->value;?>
 
         </div>
         <?php
@@ -261,7 +261,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95213965160b90b3f0ccc92_22168555', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_70886468760bba358086fb1_50948888', "body-content");
 ?>
 
         </div>
@@ -357,12 +357,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_95213965160b90b3f0ccc92_22168555 extends Smarty_Internal_Block
+class Block_70886468760bba358086fb1_50948888 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_95213965160b90b3f0ccc92_22168555',
+    0 => 'Block_70886468760bba358086fb1_50948888',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

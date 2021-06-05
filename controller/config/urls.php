@@ -21,6 +21,7 @@ const MEDIA_DIRECTORY = PUBLIC_DIRECTORY . "/view/media";
 const CSS_DIRECTORY = PUBLIC_DIRECTORY . "/view/css";
 const JS_DIRECTORY = PUBLIC_DIRECTORY . "/view/js";
 
+
 require(SMARTY_LIB . '/libs/Smarty.class.php');
 require(MODEL_DIRECTORY . "/include/Page.php");
 require(MODEL_DIRECTORY . "/include/pdo_connection.php");
@@ -30,8 +31,9 @@ require(MODEL_DIRECTORY . "/include/user.php");
 require(MODEL_DIRECTORY . "/include/admin.php");
 require(MODEL_DIRECTORY . "/include/carroussel.php");
 require(MODEL_DIRECTORY . "/include/ambit.php");
+require(MODEL_DIRECTORY . "/include/notifications.php");
 
-
+$alerts = getNotifications();
 
 $smarty = new Smarty;
 $smarty->template_dir = SMARTY_DIRECTORY . '/main/templates';
@@ -49,9 +51,10 @@ $smarty->assign('JS_DIRECTORY', JS_DIRECTORY);
 require("urlify.php");
 $smarty->registerPlugin('function', 'urlify', 'urlify');
 
-// For side sections
+// For static data sections
 $smarty->assign("oppositions", getOppositions(5)->fetchAll());
 $smarty->assign("side_messages", getPostsSummary(5)->fetchAll());
+
 
 // Receive the url
 $crumbs = explode("/", $_SERVER["REQUEST_URI"]);

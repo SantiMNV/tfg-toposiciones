@@ -5,7 +5,6 @@ require(MODEL_DIRECTORY . "/include/categories.php");
 global $smarty;
 $page = new Page("Convocatorias", "Convocatorias", "Últimas convocatorias", "slug", "");
 
-$alerts = array();
 $smarty->assign('alerts', $alerts);
 $smarty->assign('page', $page);
 $smarty->assign("all_oppositions", getOppositions(0)->fetchAll());

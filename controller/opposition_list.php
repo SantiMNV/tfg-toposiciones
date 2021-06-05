@@ -1,9 +1,7 @@
 <?php
 require('./config/urls.php');
 global $smarty;
-$page = new Page("Convocatorias","Lista Convocatorias", "Listado de convocatorias", "slug", "");
-
-$alerts = array();
+$page = new Page("Convocatorias", "Lista Convocatorias", "Listado de convocatorias", "slug", "");
 
 if (isset($_SESSION['login_user'])) {
   if ($_SESSION['login_access_level'] >= 10) {
@@ -11,14 +9,10 @@ if (isset($_SESSION['login_user'])) {
       if ($_POST['remove-request'] == "remove") {
         switch (removeOpposition($_POST['remove-theme'])) {
           case "remove-theme-success":
-            $alerts = array(
-              "Tema eliminado correctamente. " => "alert-success"
-            );
+            $alerts["Tema eliminado correctamente. "] = "alert-success";
             break;
           case "remove-theme-failure":
-            $alerts = array(
-              "Ha ocurrido un fallo al eliminar el tema, inténtelo de nuevo o contacte a soporte@toposiciones.com" => "alert-danger"
-            );
+            $alerts["Ha ocurrido un fallo al eliminar el tema, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";
             break;
           default:
             break;

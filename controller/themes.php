@@ -4,7 +4,6 @@ require(MODEL_DIRECTORY . "/include/themes.php");
 global $smarty;
 $page = new Page("Temas", "Temas", "Temas", "slug", "");
 $smarty->assign('page', $page);
-$alerts = array();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['search-request'])) {
@@ -16,13 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           for ($i = 0; $i < sizeof($ids); $i++) {
             array_push($themeList, getThemeShortId($ids[$i]));
           }
-          $alerts = array(
-            "Se han encontrado " . sizeof($ids) . " coincidencias. " => "alert-success"
-          );
+          $alerts["Se han encontrado " . sizeof($ids) . " coincidencias. "] = "alert-success";
         } else {
-          $alerts = array(
-            "No se han contrado coincidencias para: " . $_POST['txtSearch'] . ". " => "alert-danger"
-          );
+          $alerts["No se han contrado coincidencias para: " . $_POST['txtSearch'] . ". "] = "alert-danger";
         }
       }
     }
