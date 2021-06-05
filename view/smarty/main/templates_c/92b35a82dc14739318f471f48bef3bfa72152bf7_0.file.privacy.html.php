@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-24 16:05:19
+/* Smarty version 3.1.39, created on 2021-05-26 16:21:08
   from '/srv/http/toposiciones/view/smarty/main/templates/privacy.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_608441bfb20eb4_44610014',
+  'unifunc' => 'content_60ae7574174377_07124350',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92b35a82dc14739318f471f48bef3bfa72152bf7' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/privacy.html',
-      1 => 1618900746,
+      1 => 1621184736,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_608441bfb20eb4_44610014 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60ae7574174377_07124350 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1009004922608441bfb1f4b1_83630220', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_186475355260ae7574172512_67326089', "body-content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1009004922608441bfb1f4b1_83630220 extends Smarty_Internal_Block
+class Block_186475355260ae7574172512_67326089 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1009004922608441bfb1f4b1_83630220',
+    0 => 'Block_186475355260ae7574172512_67326089',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -180,9 +180,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 <ul>
   <li>Correo electrónico: soporte@toposiciones.com</li>
 </ul>
-
-Traducción realizada con la versión gratuita del traductor
-www.DeepL.com/Translator <?php
+<?php
 }
 }
 /* {/block "body-content"} */

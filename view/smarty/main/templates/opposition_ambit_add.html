@@ -1,0 +1,18 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<form action="/toposiciones/convocatorias/ambitos/" method="POST">
+  <input type="hidden" name="add-request" value="add">
+  <div class="form-group">
+    <label for="input-ambit-name">Nombre del Ámbito</label>
+    <input type="text" class="form-control" id="input-ambit-name" name="input-ambit-name" required>
+  </div>
+  <div>
+    <input class="btn btn-light float-left" type="reset" value="Limpiar">
+    <button type="submit" class="btn btn-primary float-right">Guardar</button>
+  </div>
+  <br>
+</form>
+{/block}

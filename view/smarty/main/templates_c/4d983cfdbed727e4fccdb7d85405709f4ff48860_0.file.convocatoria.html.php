@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-02 17:11:57
+/* Smarty version 3.1.39, created on 2021-05-16 15:45:34
   from '/srv/http/toposiciones/view/smarty/main/templates/convocatoria.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6067505db073f9_24450655',
+  'unifunc' => 'content_60a13e1ecb7f00_79553393',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4d983cfdbed727e4fccdb7d85405709f4ff48860' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/convocatoria.html',
-      1 => 1617383516,
+      1 => 1621167385,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6067505db073f9_24450655 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a13e1ecb7f00_79553393 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20149026196067505dae1134_28014403', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_143044438160a13e1ec93b68_28430693', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_20149026196067505dae1134_28014403 extends Smarty_Internal_Block
+class Block_143044438160a13e1ec93b68_28430693 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_20149026196067505dae1134_28014403',
+    0 => 'Block_143044438160a13e1ec93b68_28430693',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -98,7 +98,7 @@ if ($_prefixVariable2 > 1) {?>
         </a>
       </div>
       <div class="date">
-        <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['updated_at'],"%e/%b/%G %H:%M:%S");?>
+        <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['opposition']->value['updated_at'],"%e/%m/%G");?>
 
       </div>
     </div>

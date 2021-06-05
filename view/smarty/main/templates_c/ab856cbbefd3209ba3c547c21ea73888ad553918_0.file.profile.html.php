@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-10 12:02:11
+/* Smarty version 3.1.39, created on 2021-05-15 16:52:18
   from '/srv/http/toposiciones/view/smarty/main/templates/profile.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607193c3283dd7_79586518',
+  'unifunc' => 'content_609ffc42ca2145_46417790',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ab856cbbefd3209ba3c547c21ea73888ad553918' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/profile.html',
-      1 => 1618056120,
+      1 => 1621097533,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607193c3283dd7_79586518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_609ffc42ca2145_46417790 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1333707004607193c3277ea4_32565791', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1521403717609ffc42c8e956_46724166', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1333707004607193c3277ea4_32565791 extends Smarty_Internal_Block
+class Block_1521403717609ffc42c8e956_46724166 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1333707004607193c3277ea4_32565791',
+    0 => 'Block_1521403717609ffc42c8e956_46724166',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,7 +53,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <div class="card">
           <div class="card-header">Configuración de cuenta</div>
           <div class="card-body">
-            <form action="/toposiciones/profile/" method="POST">
+            <form action="/toposiciones/perfil/" method="POST">
               <input type="hidden" name="edit-request" value="edit">
               <div class="form-group row">
                 <label for="login-mail" class="col-md-4 col-form-label text-md-right">Email</label>
@@ -89,7 +89,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     </div>
   </div>
 </div>
-<form action="/toposiciones/profile/" method="POST">
+<form action="/toposiciones/perfil/" method="POST">
   <input type="hidden" name="edit-request" value="logout">
   <button type="submit" class="btn btn-link btn-logout">Logout</button>
 </form>

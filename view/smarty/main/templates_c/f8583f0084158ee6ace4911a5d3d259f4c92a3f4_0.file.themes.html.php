@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-04-19 17:04:03
+/* Smarty version 3.1.39, created on 2021-05-15 11:02:53
   from '/srv/http/toposiciones/view/smarty/main/templates/themes.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_607db803ca7a74_63773165',
+  'unifunc' => 'content_609faa5d25c4f5_41500490',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f8583f0084158ee6ace4911a5d3d259f4c92a3f4' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/themes.html',
-      1 => 1618829492,
+      1 => 1621076571,
       2 => 'file',
     ),
   ),
@@ -20,28 +20,49 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_607db803ca7a74_63773165 (Smarty_Internal_Template $_smarty_tpl) {
+function content_609faa5d25c4f5_41500490 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_915093491607db803c93729_37455465', "body-content");
-?>
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1335042920609faa5d2485c2_80847029', "body-content");
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_915093491607db803c93729_37455465 extends Smarty_Internal_Block
+class Block_1335042920609faa5d2485c2_80847029 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_915093491607db803c93729_37455465',
+    0 => 'Block_1335042920609faa5d2485c2_80847029',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
- <?php if ((isset($_SESSION['login_user']))) {?>
+
+<div class="full-action-button text-center">
+  <a data-toggle="collapse" data-target="#searchDiv">
+    <i class="fas fa-filter"></i>
+    <div>Filtrar Temas</div>
+  </a>
+</div>
+<div id="searchDiv" class="col-md-12 text-center collapse">
+  <form action="/toposiciones/temas/" method="POST">
+    <div class="row justify-content-center">
+      <div class="input-group">
+        <input type="hidden" name="search-request" value="search">
+        <input type="text" class="form-control" placeholder="Buscar" name="txtSearch" id="txtSearch" />
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <span class="fas fa-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<?php if ((isset($_SESSION['login_user']))) {?>
 <div class="full-action-button text-center">
   <a href="/toposiciones/crear-tema/">
     <i class="fas fa-plus-circle"></i>
@@ -63,7 +84,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 </div>
 
 <!-- SECCION TEMAS -->
-
 <section id="temas" class="col-md-12">
   <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_themes']->value, 'theme');
@@ -73,7 +93,7 @@ $_smarty_tpl->tpl_vars['theme']->do_else = false;
 ?>
   <!-- TEMA-->
   <div id="tema1" class="tema row col-md-12">
-    <div class="texto-tema col-md-10">
+    <div class="texto-tema col-md-12">
       <a href="/toposiciones/temas/tema/<?php echo $_smarty_tpl->tpl_vars['theme']->value['themeId'];?>
 ">
         <h3><?php echo $_smarty_tpl->tpl_vars['theme']->value['theme_name'];?>
@@ -82,19 +102,12 @@ $_smarty_tpl->tpl_vars['theme']->do_else = false;
       <p><?php echo $_smarty_tpl->tpl_vars['theme']->value['content'];?>
 </p>
     </div>
-    <div class="col-md-2">
-      <form action="/toposiciones/temas/tema/<?php echo $_smarty_tpl->tpl_vars['theme']->value['themeId'];?>
-">
-        <button type="submit" class="btn btn-info">Acceder</button>
-      </form>
-    </div>
     <hr />
   </div>
   <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </section>
-
 <?php
 }
 }

@@ -1,0 +1,76 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<div class="full-action-button text-center">
+  <a data-toggle="collapse" data-target="#searchDiv">
+    <i class="fas fa-plus-circle"></i>
+    <div>Añadir notificación</div>
+  </a>
+</div>
+<div id="searchDiv" class="col-md-12 collapse">
+  <form action="/toposiciones/admin/notificaciones/" method="POST">
+    <input type="hidden" name="add-request" value="add">
+    <div class="form-group">
+      <label for="input-notification-text">Texto</label>
+      <input type="text" class="form-control" id="input-notification-text" name="input-notification-text" required>
+    </div>
+    <div class="form-group">
+      <label for="input-notification-type">Tipo</label>
+      <select id="input-notification-type" name="input-notification-type" class="form-control" required>
+        <option value="alert-primary">Principal</option>
+        <option value="alert-secondary">Secundaria</option>
+        <option value="alert-success">Éxito</option>
+        <option value="alert-danger">Peligro</option>
+        <option value="alert-warning">Advertencia</option>
+        <option value="alert-info">Información</option>
+        <option value="alert-light">Luminosa</option>
+        <option value="alert-dark">Oscura</option>
+      </select>
+    </div>
+    <div>
+      <input class="btn btn-light float-left" type="reset" value="Limpiar">
+      <button type="submit" class="btn btn-primary float-right">Guardar</button>
+    </div>
+    <br>
+    <br>
+    <br>
+  </form>
+</div>
+<br>
+
+
+<!-- SECCION TEMAS -->
+<div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll;">
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Texto</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Creación</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$notifications item=notification}
+      <tr>
+        <th>
+          <form action="/toposiciones/admin/notificaciones/" method="POST">
+            <input type="hidden" name="remove-request" value="remove">
+            <input type="hidden" name="remove-notification" value="{$notification.notificationId}">
+            <button type="submit" class="btn btn-light">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </th>
+        <td scope="row">{$notification.notificationText}</td>
+        <td>{$notification.notificationType}</td>
+        <td class="cut">{$notification.created_at|date_format:"%e/%m/%G"}</td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+
+{/block}

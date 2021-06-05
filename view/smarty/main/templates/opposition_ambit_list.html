@@ -1,0 +1,50 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+{If isset($smarty.session.login_user)}
+{If ($smarty.session.login_access_level > 8)}
+<div class="full-action-button text-center">
+  <a href="/toposiciones/convocatorias/ambitos/crear/">
+    <i class="fas fa-plus-circle"></i>
+    <div>Añadir Ámbito</div>
+  </a>
+</div>
+{/if}{/if}
+
+<!-- SECCION TEMAS -->
+<div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll;">
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categorías</th>
+        <th scope="col">Convocatorias</th>
+        <th scope="col">Creación</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach from=$ambits item=ambit}
+      <tr onclick="window.location='/toposiciones/convocatorias/ambitos/{$ambit.ambitId}'">
+        <th>
+          <form action="/toposiciones/convocatorias/ambitos/" method="POST">
+            <input type="hidden" name="remove-request" value="remove">
+            <input type="hidden" name="remove-ambit" value="{$ambit.ambitId}">
+            <button type="submit" class="btn btn-light">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </th>
+        <td scope="row">{$ambit.ambit_name}</td>
+        <td>{$ambit.category_count}</td>
+        <td>{$ambit.opposition_count}</td>
+        <td class="cut">{$ambit.created_at|date_format:"%e/%m/%G"}</td>
+      </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+
+{/block}

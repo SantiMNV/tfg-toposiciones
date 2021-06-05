@@ -6,7 +6,7 @@ let jsonResponseText = {};
 document.onload = principal()
 
 function principal() {
-  console.log("Conectado")
+  //console.log("Conectado")
   backToTopBtn = document.getElementById("backToTopBtn");
   backToTopBtn.addEventListener("click", topFunction)
   window.onscroll = function () { scrollFunction() };
@@ -17,15 +17,12 @@ function principal() {
   })
   $('#modalCookie1').modal('show');
 
-}
 
 
-
-function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  if (screen.width > 550 && document.getElementById("svg_map") != null) {
+    console.log("Estoy en el script");
+    document.getElementById("svg_map").style.height = "350px";
+  }
 }
 
 // Show btn when scroll is 20 down
@@ -45,7 +42,6 @@ function topFunction() {
 
 function pickState(e) {
   let event = window.event || e;
-  //console.log("Me han llamado: " + event.srcElement.id);
 
   if (event.srcElement.id !== "africa") {
     if (stateSelected === "") {
@@ -73,12 +69,10 @@ function pickState(e) {
         stateSelected = "";
       }
     }
-
   }
 }
 
 function getSearchInput() {
-  // Inicializo la consulta con nocache
   let params = "nocache=" + Math.random();
   let status = document.getElementById("inputStatus").value;
   let category = document.getElementById("inputSearchCategory").value;
@@ -95,7 +89,6 @@ function getSearchInput() {
   if (date !== "") {
     params += "&date=" + date
   }
-
   return params;
 }
 
@@ -111,8 +104,7 @@ function mapListeners() {
 function showSearch() {
   if (!searchDisplayed) {
     var xhr = new XMLHttpRequest();
-    //xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
-    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout2.html', true);
+    xhr.open('GET', '/toposiciones/view/smarty/main/templates/layouts/search_layout.html', true);
     xhr.onreadystatechange = function () {
       if (this.readyState !== 4) return;
       if (this.status !== 200) return;
@@ -122,12 +114,8 @@ function showSearch() {
     };
     xhr.send();
     searchDisplayed = true;
-    //document.getElementById("searchBtn").firstChild.nextSibling.className += "active-link"
-    //document.getElementById("searchBtn").className += "active-link"
     topFunction();
   } else {
-    //document.getElementById("searchBtn").firstChild.nextSibling.className = document.getElementById("searchBtn").firstChild.nextSibling.className.replace("active-link", "");
-    //document.getElementById("searchBtn").className = document.getElementById("searchBtn").className.replace("active-link", "");
     document.getElementById('search-container').innerHTML = "";
     searchDisplayed = false;
   }
@@ -136,7 +124,6 @@ function showSearch() {
 function showCategories(field_id) {
   let categories_options = "";
   categories_options += "<option value='any' selected>Todas</option>";
-  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -145,7 +132,6 @@ function showCategories(field_id) {
 
 function showCategoriesItems(field_id) {
   let categories_options = "";
-  //console.log(jsonResponseText);
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -154,7 +140,14 @@ function showCategoriesItems(field_id) {
 
 function showStates(field_id) {
   let categories_options = "";
-  //console.log(jsonResponseText);
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
+function showAmbits(field_id) {
+  let categories_options = "";
   for (let key in jsonResponseText) {
     categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
   }
@@ -185,12 +178,16 @@ function searchJSON() {
 }
 
 function searchCategoryJSON() {
-  //JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesItems("inputSearchCategory") })
   JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategories("inputSearchCategory") })
 }
 
 function searchStateJSON() {
+  console.log("En serarchstateJSON");
   JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=states", function () { showStates("inputSearchState") });
+}
+
+function searchAmbitJSON() {
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=ambits", function () { showAmbits("inputSearchAmbit") });
 }
 
 // manage json respones
@@ -200,16 +197,5 @@ function jsonResponse() {
     for (let i in serverResponse) {
       jsonResponseText[i] = serverResponse[i];
     }
-  }
-}
-
-function showPasswoadrd() {
-  console.log("Quieres verla");
-  let pwInput = document.getElementById("input-password");
-  if (pwInput.type === "password") {
-    pwInput.type = "text";
-    console.log(pwInput.firstChild.innerHTML);
-  } else {
-    pwInput.type = "password";
   }
 }

@@ -5,13 +5,23 @@
     <div>Usuarios</div>
   </a>
 </div>
+<div class="full-action-button text-center">
+  <a href="/toposiciones/admin/carroussel/">
+    <i class="fas fa-sliders"></i>
+    <div>Carrousel</div>
+  </a>
+</div>
+<div class="full-action-button text-center">
+  <a href="/toposiciones/admin/notificaciones/">
+    <i class="fas fa-bell"></i>
+    <div>Notificaciones</div>
+  </a>
+</div>
 <div class="page-header">
   <h2>{$page->pageTitle}</h2>
 </div>
 <div class="col-md-12 col-12 col-sm-12" style="overflow-x: scroll">
-  <table
-    class="table list-table table-striped table-hover table-sm table-bordered"
-  >
+  <table class="table list-table table-striped table-hover table-sm table-bordered">
     <thead class="thead-dark">
       <tr>
         <th scope="col"></th>
@@ -20,7 +30,6 @@
         <th scope="col">Content</th>
         <th scope="col">Leido</th>
         <th scope="col">Fecha</th>
-        <!-- <th scope="col"><i class="fas fa-envelope"></i></th> -->
       </tr>
     </thead>
     <tbody>
@@ -29,12 +38,8 @@
         <th>
           <form action="/toposiciones/admin/" method="POST">
             <input type="hidden" name="remove-request" value="remove" />
-            <input
-              type="hidden"
-              name="remove-message"
-              value="{$admin_message.messageId}"
-            />
-            <button type="submit">
+            <input type="hidden" name="remove-message" value="{$admin_message.messageId}" />
+            <button type="submit" class="btn btn-light">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </form>
@@ -46,17 +51,9 @@
           $admin_message.messageUserContent == "Restore password"}
           <form action="/toposiciones/admin/" method="POST">
             <input type="hidden" name="changepw-request" value="change" />
-            <input
-              type="hidden"
-              name="changepw-userMail"
-              value="{$admin_message.messageUserMail}"
-            />
-            <input
-              type="hidden"
-              name="changepw-messageId"
-              value="{$admin_message.messageId}"
-            />
-            <button type="submit">
+            <input type="hidden" name="changepw-userMail" value="{$admin_message.messageUserMail}" />
+            <input type="hidden" name="changepw-messageId" value="{$admin_message.messageId}" />
+            <button type="submit" class="btn btn-light">
               <i class="fas fa-key"></i>
             </button>
           </form>
@@ -64,10 +61,9 @@
             {if isset($changepw_userMail) } {if $changepw_userMail ==
             $admin_message.messageUserMail} Contraseña cambiada: {if
             isset($newpw)} {$newpw}
-
             <a
-              href="mailto:{$admin_message.messageUserMail}?subject=Contraseña reestablecida&body=Su nueva contraseña es: {$newpw} "
-              ><i class="fas fa-envelope"></i>
+              href="mailto:{$admin_message.messageUserMail}?subject=Contraseña reestablecida&body=Su nueva contraseña es: {$newpw} "><i
+                class="fas fa-envelope"></i>
             </a>
             {/if} {/if} {/if}
           </div>
@@ -76,17 +72,9 @@
         <td class="text-center">
           <form action="/toposiciones/admin/" method="POST">
             <input type="hidden" name="readed-request" value="readed" />
-            <input
-              type="hidden"
-              name="read-message"
-              value="{$admin_message.messageId}"
-            />
-            <input
-              type="hidden"
-              name="read-readed"
-              value="{$admin_message.readed}"
-            />
-            <button type="submit">
+            <input type="hidden" name="read-message" value="{$admin_message.messageId}" />
+            <input type="hidden" name="read-readed" value="{$admin_message.readed}" />
+            <button type="submit" class="btn btn-light">
               {if $admin_message.readed}
               <i class="fas fa-check-circle"></i>
               {else}
@@ -96,16 +84,6 @@
           </form>
         </td>
         <td style="min-width: 100px">{$admin_message.created_at}</td>
-        <!-- 
-        <td>
-          <a
-            href="mailto:{$admin_message.messageUserMail}?Subject=Reseteo de contraseña
-            &body=Buenos dias desde toposiciones, quieres una nueva contraseña?"
-          >
-            <i class="fas fa-envelope"></i>
-          </a>
-        </td>
-        -->
       </tr>
       {/foreach}
     </tbody>

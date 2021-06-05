@@ -1,4 +1,7 @@
+# In production this should be added
+
 #.htaccess
+#.view/media/
 .view/smarty_lib/
-.view/media/
-.view/smarty/main/templates_c
+
+.view/smarty/main/templates_c/

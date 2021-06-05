@@ -7,7 +7,6 @@ function getOppositions($count) {
   if ($count) {
     $sql .= " limit " . $count;
   }
-
   $resultado = $conn->query($sql);
   return $resultado;
 }
@@ -71,8 +70,6 @@ function addOpposition($post) {
   $ok = true;
   $conn->beginTransaction();
   $sql = "INSERT into opposition values(null,'{$post['input-opposition-status']}',{$post['input-opposition-seats']},'{$post['input-opposition-link']}',{$post['input-opposition-state']},{$post['input-opposition-category']},null,'{$post['input-opposition-start']}','{$post['input-opposition-end']}',now(),now())";
-
-  echo ("El sql de añadir es: " . $sql);
   if ($conn->exec($sql) == 0) $ok = false;
   if ($ok) {
     $conn->commit();
@@ -83,7 +80,6 @@ function addOpposition($post) {
   }
   return $status;
 }
-
 
 function removeOpposition($id) {
   global $conn;
@@ -110,3 +106,4 @@ function getLastOppositionId() {
   $r = $result->fetch()['oppositionId'];
   return $r;
 }
+

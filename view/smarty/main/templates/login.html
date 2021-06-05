@@ -11,46 +11,31 @@
           <div class="card-header">Login</div>
           <div class="card-body">
             <form action="/toposiciones/login/" method="POST">
-              <input type="hidden" name="login-request" value="login">
               <div class="form-group row">
                 <label for="email_address" class="col-md-4 col-form-label text-md-right">Email</label>
                 <div class="col-md-6">
                   <input type="text" id="login-mail" class="form-control" name="login-mail" required autofocus>
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="login-password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
                 <div class="col-md-6">
-                  <input type="password" id="login-password" class="form-control" name="login-password" required>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-6 offset-md-4">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="login-remember"> Recordar Contraseña
-                    </label>
-                  </div>
+                  <input type="password" id="login-password" class="form-control" name="login-password">
                 </div>
               </div>
               <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" name="login-btn" class="btn btn-primary">
                   Login
                 </button>
-                <a href="#" class="btn btn-link">
+                <button type="submit" name="reset-btn" class="btn btn-primary">
                   Contraseña olvidada
-                </a>
+                </button>
               </div>
+            </form>
           </div>
-          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-<br>
-</main>
-
 {/block}

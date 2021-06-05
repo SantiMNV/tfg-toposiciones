@@ -1,0 +1,32 @@
+{extends 'layouts/main_layout.html'}
+{block name="body-content"}
+<script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+<div class="page-header">
+  <h2>{$page->pageTitle}</h2>
+</div>
+<form action="/toposiciones/convocatorias/categorias/" method="POST">
+  <input type="hidden" name="add-request" value="add">
+  <div class="form-group">
+    <label for="input-category-name">Nombre de la categoría</label>
+    <input type="text" class="form-control" id="input-category-name" name="input-category-name" required>
+  </div>
+  <div class="form-group">
+    <label for="input-category-material">Material recomendado</label>
+    <input type="text" class="form-control" id="input-category-material" name="input-category-material" required>
+  </div>
+  <div class="form-group">
+    <label for="input-category-ambit">Ámbito al que pertenece</label><br>
+    <select id="inputSearchAmbit" class="form-control form-control-md" name="input-category-ambit"></select>
+  </div>
+  <input class="btn btn-light float-left" type="reset" value="Limpiar">
+  <button type="submit" class="btn btn-primary float-right">Guardar</button>
+  </div>
+  <br>
+
+</form>
+<script>
+  window.onload = function () {
+    searchAmbitJSON();
+  }
+</script>
+{/block}

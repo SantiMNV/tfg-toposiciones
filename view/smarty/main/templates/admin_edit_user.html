@@ -1,0 +1,52 @@
+{extends 'layouts/main_layout.html'} {block name="body-content"}
+<div class="page-header">
+  <!-- <h2>{$page->pageTitle}</h2> -->
+</div>
+{if isset($user)}
+<div class="edit-form">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Editar Usuario</div>
+          <div class="card-body">
+            <form action="/toposiciones/admin/editar/{$user.userId}" method="POST">
+              <input type="hidden" name="edit-request" value="edit">
+              <input type="hidden" id="edit-userId" class="form-control" name="edit-userId" value="{$user.userId}" >
+              <div class="form-group row">
+                <label for="edit-mail" class="col-md-4 col-form-label text-md-right">Email</label>
+                <div class="col-md-6">
+                  <input type="text" id="edit-mail" class="form-control" name="edit-mail" value="{$user.mail}"
+                    required autofocus>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="edit-user" class="col-md-4 col-form-label text-md-right">
+                  Nombre
+                </label>
+                <div class="col-md-6">
+                  <input type="text" id="edit-user" class="form-control" name="edit-user"
+                    value="{$user.user_name}" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="register-level" class="col-md-4 col-form-label text-md-right">Nivel Acceso</label>
+                <div class="col-md-6">
+                  <input type="number" id="edit-access" class="form-control" name="edit-access"
+                    value="{$user.access_level}" required min="0" max="10" step="1" value="0">
+                </div>
+              </div>
+              <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn btn-primary">
+                  Editar
+                </button>
+              </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{/if}
+{/block}
