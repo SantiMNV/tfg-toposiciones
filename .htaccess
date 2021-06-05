@@ -31,6 +31,8 @@ RewriteRule ^admin/$ controller/admin.php
 RewriteRule ^admin/usuarios/$ controller/admin_users.php
 RewriteRule ^admin/crear/$ controller/admin_create_user.php
 RewriteRule ^admin/editar/([^/]*)$ controller/admin_edit_user.php?id=$1 [L]
+RewriteRule ^admin/carroussel/$ controller/admin_carroussel.php
+RewriteRule ^admin/carroussel/crear/$ controller/add_admin_carroussel.php
 
 RewriteRule ^404/$ controller/404.php
 ErrorDocument 404 /toposiciones/404/

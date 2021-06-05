@@ -321,6 +321,11 @@ footer div:nth-child(2) {
   color: var(--main-color);
 }
 
+.fa-arrow-up,
+.fa-arrow-down {
+  color: var(--main-color);
+}
+
 /* ########## INDIVIDUAL ########## */
 #searchBtn {
   cursor: pointer;

@@ -28,6 +28,7 @@ require(MODEL_DIRECTORY . "/include/oppositions.php");
 require(MODEL_DIRECTORY . "/include/forums.php");
 require(MODEL_DIRECTORY . "/include/user.php");
 require(MODEL_DIRECTORY . "/include/admin.php");
+require(MODEL_DIRECTORY . "/include/carroussel.php");
 
 $smarty = new Smarty;
 $smarty->template_dir = SMARTY_DIRECTORY . '/main/templates';

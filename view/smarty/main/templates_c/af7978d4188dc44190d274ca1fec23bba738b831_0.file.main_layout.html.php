@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-16 17:47:57
+/* Smarty version 3.1.39, created on 2021-06-03 17:02:55
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a15acde52481_41204194',
+  'unifunc' => 'content_60b90b3f0dfd70_76580825',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1621187256,
+      1 => 1622739774,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a15acde52481_41204194 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b90b3f0dfd70_76580825 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -261,80 +261,80 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14427387760a15acde481c0_30520600', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95213965160b90b3f0ccc92_22168555', "body-content");
 ?>
 
+        </div>
       </div>
-    </div>
-    <!-- Right bar -->
-    <div class="right-bar col-md-2 d-none d-lg-block order-3 ">
-      <div class="sticky-top">
-        <div class="card">
-          <img class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+      <!-- Right bar -->
+      <div class="right-bar col-md-2 d-none d-lg-block order-3 ">
+        <div class="sticky-top">
+          <div class="card">
+            <img class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/foro.jpg" alt="Foro">
-          <h5 class="card-title">Mensajes en foro</h5>
-          <ul class="list-group list-group-flush">
-            <?php
+            <h5 class="card-title">Mensajes en foro</h5>
+            <ul class="list-group list-group-flush">
+              <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['side_messages']->value, 'm');
 $_smarty_tpl->tpl_vars['m']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
 $_smarty_tpl->tpl_vars['m']->do_else = false;
 ?>
-            <li class="list-group-item">
-              <div class="question">
-                <a class="card-link" href="/toposiciones/foro/<?php echo $_smarty_tpl->tpl_vars['m']->value['postId'];?>
+              <li class="list-group-item">
+                <div class="question">
+                  <a class="card-link" href="/toposiciones/foro/<?php echo $_smarty_tpl->tpl_vars['m']->value['postId'];?>
 ">
-                  <?php echo $_smarty_tpl->tpl_vars['m']->value['title'];?>
+                    <?php echo $_smarty_tpl->tpl_vars['m']->value['title'];?>
 </a>
-              </div>
-              <div class="secondary">
-                <?php echo $_smarty_tpl->tpl_vars['m']->value['user_name'];?>
+                </div>
+                <div class="secondary">
+                  <?php echo $_smarty_tpl->tpl_vars['m']->value['user_name'];?>
  | <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['m']->value['created_at'],"%e/%m/%G");?>
 
-              </div>
-            </li>
-            <?php
+                </div>
+              </li>
+              <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
+      <div id="snackbar"></div>
+      <button id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
     </div>
-    <div id="snackbar"></div>
-    <button id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
-  </div>
-  <!-- Footer -->
-  <footer class="text-center">
-    <div class="p-4">
-      <section class="mb-4">
-        <!-- Google -->
-        <a class="btn btn-outline-light m-2" href="mailto:santimnv27@gmail.com" role="button"><i
-            class="fab fa-google"></i></a>
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light m-2" href="www.linkedin.com/in/santimnv" role="button"><i
-            class="fab fa-linkedin-in"></i></a>
-        <!-- Github -->
-        <a class="btn btn-outline-light m-2" href="https://github.com/santimnv" role="button"><i
-            class="fab fa-github"></i></a>
-      </section>
-      <section class="mb-4">
-        <p>
-          Toposiciones todo los que necesitas para sacar tu plaza! <br />
-        </p>
-        <p>
-          <a href="/toposiciones/privacidad/">Cookies & Política de privacidad</a>
-        </p>
-        <p>
-          <a href="/toposiciones/contacto/">Contacta con nosotros</a>
-        </p>
-      </section>
-    </div>
-    <!-- Copyright -->
-    <div class="text-center p-3"">
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="p-4">
+        <section class="mb-4">
+          <!-- Google -->
+          <a class="btn btn-outline-light m-2" href="mailto:santimnv27@gmail.com" role="button"><i
+              class="fab fa-google"></i></a>
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light m-2" href="www.linkedin.com/in/santimnv" role="button"><i
+              class="fab fa-linkedin-in"></i></a>
+          <!-- Github -->
+          <a class="btn btn-outline-light m-2" href="https://github.com/santimnv" role="button"><i
+              class="fab fa-github"></i></a>
+        </section>
+        <section class="mb-4">
+          <p>
+            Toposiciones todo los que necesitas para sacar tu plaza! <br />
+          </p>
+          <p>
+            <a href="/toposiciones/privacidad/">Cookies & Política de privacidad</a>
+          </p>
+          <p>
+            <a href="/toposiciones/contacto/">Contacta con nosotros</a>
+          </p>
+        </section>
+      </div>
+      <!-- Copyright -->
+      <div class="text-center p-3"">
             &copy; 2021 Copyright: SantiMNV
             <a class=" text-white" href="https://toposiciones.es">Toposiciones.es</a>
-    </div>
-  </footer>
+      </div>
+    </footer>
 </body>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -357,12 +357,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_14427387760a15acde481c0_30520600 extends Smarty_Internal_Block
+class Block_95213965160b90b3f0ccc92_22168555 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_14427387760a15acde481c0_30520600',
+    0 => 'Block_95213965160b90b3f0ccc92_22168555',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -370,110 +370,122 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <?php
+$_smarty_tpl->tpl_vars['var'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['var']->step = 1;$_smarty_tpl->tpl_vars['var']->total = (int) ceil(($_smarty_tpl->tpl_vars['var']->step > 0 ? $_smarty_tpl->tpl_vars['carrousselSize']->value-1+1 - (0) : 0-($_smarty_tpl->tpl_vars['carrousselSize']->value-1)+1)/abs($_smarty_tpl->tpl_vars['var']->step));
+if ($_smarty_tpl->tpl_vars['var']->total > 0) {
+for ($_smarty_tpl->tpl_vars['var']->value = 0, $_smarty_tpl->tpl_vars['var']->iteration = 1;$_smarty_tpl->tpl_vars['var']->iteration <= $_smarty_tpl->tpl_vars['var']->total;$_smarty_tpl->tpl_vars['var']->value += $_smarty_tpl->tpl_vars['var']->step, $_smarty_tpl->tpl_vars['var']->iteration++) {
+$_smarty_tpl->tpl_vars['var']->first = $_smarty_tpl->tpl_vars['var']->iteration === 1;$_smarty_tpl->tpl_vars['var']->last = $_smarty_tpl->tpl_vars['var']->iteration === $_smarty_tpl->tpl_vars['var']->total;?>
+            <?php if ($_smarty_tpl->tpl_vars['var']->value == 0) {?>
+            <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $_smarty_tpl->tpl_vars['var']->value;?>
+" class="active"></li>
+            <?php } else { ?>
+            <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $_smarty_tpl->tpl_vars['var']->value;?>
+"></li>
+            <?php }?>
+            <?php }
+}
+?>
           </ol>
           <div class="carousel-inner">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['carroussel']->value, 'i', false, NULL, 'slide', array (
+  'first' => true,
+  'index' => true,
+));
+$_smarty_tpl->tpl_vars['i']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['i']->value) {
+$_smarty_tpl->tpl_vars['i']->do_else = false;
+$_smarty_tpl->tpl_vars['__smarty_foreach_slide']->value['index']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_slide']->value['first'] = !$_smarty_tpl->tpl_vars['__smarty_foreach_slide']->value['index'];
+?>
+            <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_slide']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_slide']->value['first'] : null)) {?>
             <div class="carousel-item active">
-              <a href="/toposiciones/convocatorias/">
-                <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/calendar.jpg" alt="First slide">
-                <div class="carousel-caption ">
-                  <h5>Accede a las últimas convocatorias</h5>
-                  <p>Podras encontrar las últimas convocatorias anunciafas y filtrarlas según tu criterio</p>
-                </div>
-              </a>
+              <?php } else { ?>
+              <div class="carousel-item">
+                <?php }?>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['i']->value['imageLink'];?>
+">
+                  <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['i']->value['imagePath'];?>
+">
+                  <div class="carousel-caption ">
+                    <h5><?php echo $_smarty_tpl->tpl_vars['i']->value['title'];?>
+</h5>
+                    <p><?php echo $_smarty_tpl->tpl_vars['i']->value['subtitle'];?>
+</p>
+                  </div>
+                </a>
+              </div>
+              <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </div>
-            <div class="carousel-item ">
-              <a href="/toposiciones/temas/">
-                <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/library.jpg" href="/toposiciones/temas/"
-                  alt="First slide">
-                <div class="carousel-caption ">
-                  <h5>Temas de oposiciones</h5>
-                  <p>Accede a la sección de temas para encontrar los últimos temas para las oposiciones</p>
-                </div>
-              </a>
-            </div>
-            <div class="carousel-item ">
-              <a href="/toposiciones/foro/">
-                <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
-/images/forum.png" href="/toposiciones/foro/"
-                  alt="First slide">
-                <div class="carousel-caption">
-                  <h5>Foro</h5>
-                  <p>En el foro hallarás compañeros que plantean y resuelven dudas a diario</p>
-                </div>
-              </a>
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-        <br>
-        <hr><br>
-        <h2 class="text-center">Trucos para sacar plaza!</h2>
-        <br>
-        <div class="half-sq row">
-          <div class="col-md-6 d-block w-100 float-left">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+          <br>
+          <hr><br>
+          <h2 class="text-center">Trucos para sacar plaza!</h2>
+          <br>
+          <div class="half-sq row">
+            <div class="col-md-6 d-block w-100 float-left">
+              <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/trick_pen.jpg" class="img-thumbnail trick-img float-right" alt="">
+            </div>
+            <div class="col-md-6 d-block w-100 float-right">
+              <blockquote class="quote-card blue-card">
+                <p>
+                  Recuerda llevar todo el material necesario, incluyendo dos bolígrafos al menos
+                </p>
+              </blockquote>
+            </div>
           </div>
-          <div class="col-md-6 d-block w-100 float-right">
-            <blockquote class="quote-card blue-card">
-              <p>
-                Recuerda llevar todo el material necesario, incluyendo dos bolígrafos al menos
-              </p>
-            </blockquote>
-          </div>
-        </div>
-        <div class="half-sq row">
-          <div class="col-md-6 d-block w-100 float-right">
-            <blockquote class="quote-card">
-              <p>
-                Se recomienda llevar una botella de agua, es común que un exámen dure 3 horas
-              </p>
-            </blockquote>
-          </div>
-          <div class="col-md-6 d-block w-100 float-left">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+          <div class="half-sq row">
+            <div class="col-md-6 d-block w-100 float-right">
+              <blockquote class="quote-card">
+                <p>
+                  Se recomienda llevar una botella de agua, es común que un exámen dure 3 horas
+                </p>
+              </blockquote>
+            </div>
+            <div class="col-md-6 d-block w-100 float-left">
+              <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/trick_time.jpg" class="img-thumbnail trick-img float-left" alt="">
+            </div>
           </div>
-        </div>
-        <div class="half-sq row">
-          <div class="col-md-6 d-block w-100 float-left">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+          <div class="half-sq row">
+            <div class="col-md-6 d-block w-100 float-left">
+              <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/trick_chill.jpeg" class="img-thumbnail trick-img float-right" alt="">
+            </div>
+            <div class="col-md-6 d-block w-100 float-right">
+              <blockquote class="quote-card yellow-card">
+                <p>
+                  No se ponga nervioso/a es sólo un exámen
+                </p>
+              </blockquote>
+            </div>
           </div>
-          <div class="col-md-6 d-block w-100 float-right">
-            <blockquote class="quote-card yellow-card">
-              <p>
-                No se ponga nervioso/a es sólo un exámen
-              </p>
-            </blockquote>
-          </div>
-        </div>
-        <div class="half-sq row">
-          <div class="col-md-6 d-block w-100 float-right">
-            <blockquote class="quote-card red-card">
-              <p>
-                Lea las preguntas con detenimiento
-              </p>
-            </blockquote>
-          </div>
-          <div class="col-md-6 d-block w-100 float-left">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
+          <div class="half-sq row">
+            <div class="col-md-6 d-block w-100 float-right">
+              <blockquote class="quote-card red-card">
+                <p>
+                  Lea las preguntas con detenimiento
+                </p>
+              </blockquote>
+            </div>
+            <div class="col-md-6 d-block w-100 float-left">
+              <img src="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/trick_check.jpg" class="img-thumbnail trick-img float-left" alt="">
+            </div>
           </div>
-        </div>
-        <?php
+          <?php
 }
 }
 /* {/block "body-content"} */

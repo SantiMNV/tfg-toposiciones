@@ -96,3 +96,4 @@ function removeAdminMessage($id) {
   }
   return $status;
 }
+

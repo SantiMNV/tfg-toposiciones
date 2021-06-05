@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-21 17:08:27
+/* Smarty version 3.1.39, created on 2021-06-01 16:57:05
   from '/srv/http/toposiciones/view/smarty/main/templates/admin.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a7e90b781853_23493330',
+  'unifunc' => 'content_60b666e10b0bb2_17290635',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd29dbd65cf1f7211c93c030dd09ac11e0ea3c7c5' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin.html',
-      1 => 1621184637,
+      1 => 1622566565,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a7e90b781853_23493330 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b666e10b0bb2_17290635 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_164913932060a7e90b761c00_20415859', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_186394063960b666e1091565_95670813', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_164913932060a7e90b761c00_20415859 extends Smarty_Internal_Block
+class Block_186394063960b666e1091565_95670813 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_164913932060a7e90b761c00_20415859',
+    0 => 'Block_186394063960b666e1091565_95670813',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -44,6 +44,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
   <a href="/toposiciones/admin/usuarios/">
     <i class="fas fa-users"></i>
     <div>Usuarios</div>
+  </a>
+</div>
+<div class="full-action-button text-center">
+  <a href="/toposiciones/admin/carroussel/">
+    <i class="fas fa-sliders"></i>
+    <div>Carrousel</div>
   </a>
 </div>
 <div class="page-header">
