@@ -14,12 +14,27 @@
   </a>
 </div>
 {If ($smarty.session.login_access_level > 5)}
+
 <div class="full-action-button text-center">
   <a href="/toposiciones/lista-convocatoria/">
     <i class="fas fa-list"></i>
     <div>Listar Convocatorias</div>
   </a>
 </div>
+{If ($smarty.session.login_access_level > 8)}
+<div class="full-action-button text-center">
+  <a href="/toposiciones/convocatorias/categorias/">
+    <i class="fas fa-list"></i>
+    <div>Listar Categorías</div>
+  </a>
+</div>
+<div class="full-action-button text-center">
+  <a href="/toposiciones/convocatorias/ambitos/">
+    <i class="fas fa-list"></i>
+    <div>Listar Ámbitos</div>
+  </a>
+</div>
+{/if}
 {/if} {/if}
 <div class="page-header">
   <h2>{$page->pageTitle}</h2>
@@ -30,18 +45,13 @@
 <section id="" class="col-md-12">
   <div id="opposition1" class="opposition row col-md-12">
     <div class="opposition_image_container col-md-3 col-sm-3 text-center">
-      <img
-        class="rounded-circle"
-        src="{$MEDIA_DIRECTORY}/images/banderas/bandera-{$opposition.state|urlify|lower}.png"
-      />
+      <img class="rounded-circle"
+        src="{$MEDIA_DIRECTORY}/images/banderas/bandera-{$opposition.state|urlify|lower}.png" />
     </div>
 
     <div class="texto-tema col-md-9 col-sm-9">
       <div class="">
-        <a
-          class="card-link"
-          href="/toposiciones/convocatorias/convocatoria/{$opposition.oppositionId}"
-        >
+        <a class="card-link" href="/toposiciones/convocatorias/convocatoria/{$opposition.oppositionId}">
           <h3>
             {if {$opposition.seats}>1} {$opposition.opposition_status|cat:"s"}
             {else} {$opposition.opposition_status} {/if} [{$opposition.seats}]

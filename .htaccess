@@ -17,6 +17,11 @@ RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]
 
 RewriteRule ^crear-convocatoria/$ controller/add_opposition.php
 RewriteRule ^lista-convocatoria/$ controller/opposition_list.php
+RewriteRule ^convocatorias/ambitos/$ controller/opposition_ambit_list.php
+RewriteRule ^convocatorias/ambitos/crear/$ controller/opposition_ambit_add.php
+RewriteRule ^convocatorias/ambitos/([^/]*)$ controller/opposition_ambit.php?id=$1 [L]
+RewriteRule ^convocatorias/categorias/$ controller/opposition_category_list.php
+RewriteRule ^convocatorias/categorias/crear/$ controller/opposition_category_add.php
 
 RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
 

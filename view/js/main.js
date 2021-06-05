@@ -146,6 +146,14 @@ function showStates(field_id) {
   document.getElementById(field_id).innerHTML += categories_options;
 }
 
+function showAmbits(field_id) {
+  let categories_options = "";
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
 
 // JSON ATTACKERS
 function JSONPostController(url, responseFunct, params, afterFunct) {
@@ -174,7 +182,12 @@ function searchCategoryJSON() {
 }
 
 function searchStateJSON() {
+  console.log("En serarchstateJSON");
   JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=states", function () { showStates("inputSearchState") });
+}
+
+function searchAmbitJSON() {
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=ambits", function () { showAmbits("inputSearchAmbit") });
 }
 
 // manage json respones

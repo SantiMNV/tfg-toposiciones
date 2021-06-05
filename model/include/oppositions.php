@@ -81,7 +81,6 @@ function addOpposition($post) {
   return $status;
 }
 
-
 function removeOpposition($id) {
   global $conn;
   // *** TRANSACTION ***
@@ -107,3 +106,4 @@ function getLastOppositionId() {
   $r = $result->fetch()['oppositionId'];
   return $r;
 }
+
