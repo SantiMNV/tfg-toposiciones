@@ -39,7 +39,11 @@ function addTheme($post) {
   if ($conn->exec($sql) == 0) $ok = false;
   if ($ok) {
     $conn->commit();
-    $status = "add-theme-success";
+    $sql = "SELECT themeId from theme order by created_at DESC limit 1";
+    $themeId = $conn->query($sql)->fetch()[0];
+    echo $themeId;
+
+    $status = "add-theme-success-" . $themeId;
   } else {
     $conn->rollback();
     $status = "add-theme-failure";

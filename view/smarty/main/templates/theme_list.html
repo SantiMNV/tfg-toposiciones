@@ -34,7 +34,7 @@
         <th scope="row">{$theme.themeId}</th>
         <td class="cut">{$theme.theme_name}</td>
         <td>{$theme.category_name}</td>
-        <td class="cut">{$theme.content}</td>
+        <td class="cut">{$theme.content|strip_tags}</td>
         <td>{$theme.user_name}</td>
         <td style="min-width: 100px;">{$theme.created_at}</td>
       </tr>

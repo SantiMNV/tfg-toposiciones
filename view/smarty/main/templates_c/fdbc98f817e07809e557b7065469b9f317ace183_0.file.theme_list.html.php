@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-16 15:47:42
+/* Smarty version 3.1.39, created on 2021-06-07 18:29:22
   from '/srv/http/toposiciones/view/smarty/main/templates/theme_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a13e9ec14230_05202260',
+  'unifunc' => 'content_60be6582eabf04_22317590',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fdbc98f817e07809e557b7065469b9f317ace183' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/theme_list.html',
-      1 => 1621110119,
+      1 => 1623090520,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a13e9ec14230_05202260 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60be6582eabf04_22317590 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_157157114460a13e9ec04347_71103636', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_84011285160be6582e97f15_47744842', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_157157114460a13e9ec04347_71103636 extends Smarty_Internal_Block
+class Block_84011285160be6582e97f15_47744842 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_157157114460a13e9ec04347_71103636',
+    0 => 'Block_84011285160be6582e97f15_47744842',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -86,7 +86,7 @@ $_smarty_tpl->tpl_vars['theme']->do_else = false;
 </td>
         <td><?php echo $_smarty_tpl->tpl_vars['theme']->value['category_name'];?>
 </td>
-        <td class="cut"><?php echo $_smarty_tpl->tpl_vars['theme']->value['content'];?>
+        <td class="cut"><?php echo preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['theme']->value['content']);?>
 </td>
         <td><?php echo $_smarty_tpl->tpl_vars['theme']->value['user_name'];?>
 </td>

@@ -23,7 +23,7 @@ if (isset($_SESSION['login_user'])) {
     }
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    $smarty->display('add_opposition.html');
+    $smarty->display('opposition_add.html');
   } else {
     header('Location: /toposiciones/');
   }

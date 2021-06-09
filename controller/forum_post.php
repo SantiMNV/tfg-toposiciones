@@ -11,6 +11,7 @@ if (isset($_SESSION['login_user'])) {
           switch (removePost($_POST['remove-post'])) {
             case "remove-post-success":
               $alerts["Post eliminado correctamente. "] = "alert-success";
+              header('Location: /toposiciones/foro/');
               break;
             case "remove-post-failure":
               $alerts["Ha ocurrido un fallo al eliminar el post, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";

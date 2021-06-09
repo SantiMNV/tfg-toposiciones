@@ -46,7 +46,7 @@ if (isset($_SESSION['login_user'])) {
     $smarty->assign("all_users", getUsers()->fetchAll());
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    $smarty->display('admin_create_user.html');
+    $smarty->display('admin_user_add.html');
   } else {
     header('Location: /toposiciones/');
   }

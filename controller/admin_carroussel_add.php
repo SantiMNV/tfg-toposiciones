@@ -7,7 +7,7 @@ if (isset($_SESSION['login_user'])) {
   if ($_SESSION['login_access_level'] >= 10) {
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    $smarty->display('add_admin_carroussel.html');
+    $smarty->display('admin_carroussel_add.html');
   } else {
     header('Location: /toposiciones/');
   }

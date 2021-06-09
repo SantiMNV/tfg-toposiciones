@@ -25,7 +25,7 @@ if (isset($_SESSION['login_user'])) {
     $smarty->assign("user", getUser($_GET['id']));
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    $smarty->display('admin_edit_user.html');
+    $smarty->display('admin_user_edit.html');
   } else {
     header('Location: /toposiciones/');
   }

@@ -8,4 +8,4 @@ $smarty->assign('page', $page);
 $smarty->assign('nombre', "Juan");
 
 $smarty->assign("all_themes", getTheme($_GET['id'])->fetchAll());
-$smarty->display('tema.html');
+$smarty->display('theme.html');
