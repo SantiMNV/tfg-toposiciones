@@ -23,7 +23,7 @@
       {foreach from=$all_themes item=theme}
       <tr onclick="window.location='/toposiciones/temas/tema/{$theme.themeId}';">
         <th>
-          <form action="/toposiciones/lista-tema/" method="POST">
+          <form action="/toposiciones/temas/lista/" method="POST">
             <input type="hidden" name="remove-request" value="remove">
             <input type="hidden" name="remove-theme" value="{$theme.themeId}">
             <button type="submit" class="btn btn-light">

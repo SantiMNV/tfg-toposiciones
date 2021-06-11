@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-17 17:58:10
+/* Smarty version 3.1.39, created on 2021-06-10 17:12:36
   from '/srv/http/toposiciones/view/smarty/main/templates/forum.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a2aeb298fdb8_99498662',
+  'unifunc' => 'content_60c24804b9b421_75001918',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a1ced94545a4695bc2bfe21b7907526eefa5ca1a' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/forum.html',
-      1 => 1621184676,
+      1 => 1623345152,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a2aeb298fdb8_99498662 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c24804b9b421_75001918 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12884598760a2aeb297a941_52821183', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_83383197960c24804b86044_07545415', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_12884598760a2aeb297a941_52821183 extends Smarty_Internal_Block
+class Block_83383197960c24804b86044_07545415 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_12884598760a2aeb297a941_52821183',
+    0 => 'Block_83383197960c24804b86044_07545415',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,7 +64,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 </div>
 <?php if ((isset($_SESSION['login_user']))) {?>
 <div class="full-action-button text-center">
-  <a href="/toposiciones/crear-post/">
+  <a href="/toposiciones/foro/crear-post/">
     <i class="fas fa-plus-circle"></i>
     <div>Crear post</div>
   </a>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-05 08:32:46
+/* Smarty version 3.1.39, created on 2021-06-10 17:29:19
   from '/srv/http/toposiciones/view/smarty/main/templates/oppositions.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60bb36ae49f314_79746482',
+  'unifunc' => 'content_60c24befa5e7c8_80718150',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '20d0f1206d51b7892c417555bd4000774f3141f9' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/oppositions.html',
-      1 => 1622881965,
+      1 => 1623346157,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60bb36ae49f314_79746482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c24befa5e7c8_80718150 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_37223327160bb36ae47c298_98611632', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_122568307160c24befa3c8d8_14043548', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_37223327160bb36ae47c298_98611632 extends Smarty_Internal_Block
+class Block_122568307160c24befa3c8d8_14043548 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_37223327160bb36ae47c298_98611632',
+    0 => 'Block_122568307160c24befa3c8d8_14043548',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -50,7 +50,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/
 <div id="search-container" class="col-md-12"></div>
 <?php if ((isset($_SESSION['login_user']))) {?>
 <div class="full-action-button text-center">
-  <a href="/toposiciones/crear-convocatoria/">
+  <a href="/toposiciones/convocatorias/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Añadir Convocatoria</div>
   </a>
@@ -58,7 +58,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/
 <?php if (($_SESSION['login_access_level'] > 5)) {?>
 
 <div class="full-action-button text-center">
-  <a href="/toposiciones/lista-convocatoria/">
+  <a href="/toposiciones/convocatorias/lista/">
     <i class="fas fa-list"></i>
     <div>Listar Convocatorias</div>
   </a>

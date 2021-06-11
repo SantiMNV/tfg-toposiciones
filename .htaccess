@@ -11,12 +11,12 @@ RewriteRule ^login/$ controller/login.php
 RewriteRule ^perfil/$ controller/profile.php
 
 RewriteRule ^temas/$ controller/themes.php
-RewriteRule ^crear-tema/$ controller/theme_add.php
-RewriteRule ^lista-tema/$ controller/theme_list.php
+RewriteRule ^temas/crear/$ controller/theme_add.php
+RewriteRule ^temas/lista/$ controller/theme_list.php
 RewriteRule ^temas/tema/([^/]*)$ controller/theme.php?id=$1 [L]
 
-RewriteRule ^crear-convocatoria/$ controller/opposition_add.php
-RewriteRule ^lista-convocatoria/$ controller/opposition_list.php
+RewriteRule ^convocatorias/crear/$ controller/opposition_add.php
+RewriteRule ^convocatorias/lista/$ controller/opposition_list.php
 RewriteRule ^convocatorias/ambitos/$ controller/opposition_ambit_list.php
 RewriteRule ^convocatorias/ambitos/crear/$ controller/opposition_ambit_add.php
 RewriteRule ^convocatorias/ambitos/([^/]*)$ controller/opposition_ambit.php?id=$1 [L]
@@ -27,7 +27,7 @@ RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
 
 RewriteRule ^foro/$ controller/forum.php
 RewriteRule ^foro/([^/]*)$ controller/forum_post.php?id=$1 [L]
-RewriteRule ^crear-post/$ controller/forum_post_add.php
+RewriteRule ^foro/crear-post/$ controller/forum_post_add.php
 
 RewriteRule ^contacto/$ controller/contact.php
 RewriteRule ^privacidad/$ controller/addprivacy.php

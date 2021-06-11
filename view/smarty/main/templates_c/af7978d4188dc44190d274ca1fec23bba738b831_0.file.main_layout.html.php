@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-05 16:16:24
+/* Smarty version 3.1.39, created on 2021-06-10 18:30:15
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60bba3580988f7_11499907',
+  'unifunc' => 'content_60c25a37ba2252_73968706',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1622909720,
+      1 => 1623349815,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60bba3580988f7_11499907 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c25a37ba2252_73968706 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -184,33 +184,33 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <nav aria-label="breadcrumb" class="sticky-top breadcrumb-nav d-none d-lg-block">
         <ol class="breadcrumb">
           <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['breadCrumbs']->value, 'crumb', false, NULL, 'breadCrumb', array (
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['breadCrumbs']->value, 'crumb_link', false, 'crumb_name', 'crumb', array (
   'first' => true,
   'last' => true,
   'index' => true,
   'iteration' => true,
   'total' => true,
 ));
-$_smarty_tpl->tpl_vars['crumb']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['crumb']->value) {
-$_smarty_tpl->tpl_vars['crumb']->do_else = false;
-$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['iteration']++;
-$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['index']++;
-$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['first'] = !$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['index'];
-$_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] = $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['iteration'] === $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['total'];
+$_smarty_tpl->tpl_vars['crumb_link']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['crumb_name']->value => $_smarty_tpl->tpl_vars['crumb_link']->value) {
+$_smarty_tpl->tpl_vars['crumb_link']->do_else = false;
+$_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['iteration']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['index']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['first'] = !$_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['index'];
+$_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['last'] = $_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['iteration'] === $_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['total'];
 ?>
-          <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['first'] : null)) {?>
-          <li class="breadcrumb-item"><a href="/<?php echo (mb_strtolower($_smarty_tpl->tpl_vars['crumb']->value, 'UTF-8')).('/');?>
+          <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['first'] : null)) {?>
+          <li class="breadcrumb-item"><a href="/<?php echo (mb_strtolower($_smarty_tpl->tpl_vars['crumb_link']->value, 'UTF-8')).('/');?>
 ">Inicio</a>
           </li>
           <?php } else { ?>
-          <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_breadCrumb']->value['last'] : null)) {?>
-          <li class="breadcrumb-item active" aria-current="page"><?php echo $_smarty_tpl->tpl_vars['crumb']->value;?>
+          <?php if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['last']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_crumb']->value['last'] : null)) {?>
+          <li class="breadcrumb-item active" aria-current="page"><?php echo $_smarty_tpl->tpl_vars['crumb_name']->value;?>
 
           </li>
           <?php } else { ?>
-          <li class="breadcrumb-item"><a href="/toposiciones/<?php echo (mb_strtolower($_smarty_tpl->tpl_vars['crumb']->value, 'UTF-8')).('/');?>
-"><?php echo $_smarty_tpl->tpl_vars['crumb']->value;?>
+          <li class="breadcrumb-item"><a href="/toposiciones/<?php echo mb_strtolower($_smarty_tpl->tpl_vars['crumb_link']->value, 'UTF-8');?>
+"><?php echo $_smarty_tpl->tpl_vars['crumb_name']->value;?>
 </a></li>
           <?php }?>
           <?php }?>
@@ -261,7 +261,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_70886468760bba358086fb1_50948888', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_188149570760c25a37b8f060_63759985', "body-content");
 ?>
 
         </div>
@@ -357,12 +357,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_70886468760bba358086fb1_50948888 extends Smarty_Internal_Block
+class Block_188149570760c25a37b8f060_63759985 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_70886468760bba358086fb1_50948888',
+    0 => 'Block_188149570760c25a37b8f060_63759985',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
