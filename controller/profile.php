@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       case "edit-failure":
         $alerts["Ha ocurrido un fallo al editar el usuario, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";
         break;
+      case "nei":
+        $alerts["Debes rellenar todos los campos"] = "alert-danger";
       default:
         break;
     }

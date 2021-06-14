@@ -55,34 +55,44 @@ function getMessages($postId) {
 
 function addPost($post) {
   global $conn;
-  // *** TRANSACTION ***
-  $ok = true;
-  $conn->beginTransaction();
-  $sql = "INSERT into forum_post values(null,{$_SESSION['login_userId']},'{$post['input-post-title']}','{$post['input-post-content']}',now())";
-  if ($conn->exec($sql) == 0) $ok = false;
-  if ($ok) {
-    $conn->commit();
-    $status = "add-post-success";
-  } else {
-    $conn->rollback();
-    $status = "add-post-failure";
+  $post_title = $post['input-post-title'] ?? "";
+  $post_content = $post['input-post-content'] ?? "";
+  $status = "nei";
+  if (!empty($post_title) && !empty($post_content)) {
+    // *** TRANSACTION ***
+    $ok = true;
+    $conn->beginTransaction();
+    $sql = "INSERT into forum_post values(null,{$_SESSION['login_userId']},'{$post_title}','{$post_content}',now())";
+    if ($conn->exec($sql) == 0) $ok = false;
+    if ($ok) {
+      $conn->commit();
+      $status = "add-post-success";
+    } else {
+      $conn->rollback();
+      $status = "add-post-failure";
+    }
   }
   return $status;
 }
 
 function addMessage($post) {
   global $conn;
-  // *** TRANSACTION ***
-  $ok = true;
-  $conn->beginTransaction();
-  $sql = "INSERT into forum_message values({$post['input-message-post']},null,{$_SESSION['login_userId']},'{$post['input-message-content']}',now())";
-  if ($conn->exec($sql) == 0) $ok = false;
-  if ($ok) {
-    $conn->commit();
-    $status = "add-message-success";
-  } else {
-    $conn->rollback();
-    $status = "add-message-failure";
+  $post_content = $post['input-message-content'] ?? "";
+  $post_message = $post['input-message-post'] ?? "";
+  $status = "nei";
+  if (!empty($post_content) && !empty($post_message)) {
+    // *** TRANSACTION ***
+    $ok = true;
+    $conn->beginTransaction();
+    $sql = "INSERT into forum_message values({$post_message},null,{$_SESSION['login_userId']},'{$post_content}',now())";
+    if ($conn->exec($sql) == 0) $ok = false;
+    if ($ok) {
+      $conn->commit();
+      $status = "add-message-success";
+    } else {
+      $conn->rollback();
+      $status = "add-message-failure";
+    }
   }
   return $status;
 }

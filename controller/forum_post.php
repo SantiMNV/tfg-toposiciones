@@ -4,8 +4,8 @@ global $smarty;
 $page = new Page("Foro", "", "", "slug", "");
 
 if (isset($_SESSION['login_user'])) {
-  if ($_SESSION['login_access_level'] >= 10) {
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_SESSION['login_access_level'] >= 8) {
       if (isset($_POST['remove-request'])) {
         if ($_POST['remove-request'] == "post") {
           switch (removePost($_POST['remove-post'])) {
@@ -33,18 +33,20 @@ if (isset($_SESSION['login_user'])) {
           }
         }
       }
-      if (isset($_POST['message-request'])) {
-        if ($_POST['message-request'] == "message") {
-          switch (addMessage($_POST)) {
-            case "add-message-success":
-              $alerts["Mensaje añadido correctamente. "] = "alert-success";
-              break;
-            case "add-theme-failure":
-              $alerts["Ha ocurrido un fallo al añadir el mensaje, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";
-              break;
-            default:
-              break;
-          }
+    }
+    if (isset($_POST['message-request'])) {
+      if ($_POST['message-request'] == "message") {
+        switch (addMessage($_POST)) {
+          case "add-message-success":
+            $alerts["Mensaje añadido correctamente. "] = "alert-success";
+            break;
+          case "add-theme-failure":
+            $alerts["Ha ocurrido un fallo al añadir el mensaje, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";
+            break;
+          case "nei":
+            $alerts["Debes rellenar todos los campos"] = "alert-danger";
+          default:
+            break;
         }
       }
     }

@@ -61,15 +61,14 @@ $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
 $breadCrumbs = array();
 $lastCrumb = "";
 for ($i = 0; $i < sizeof($crumbs); $i++) {
-
-
-  if ($i > 2) {
-    $breadCrumbs[ucfirst($crumbs[$i])] = $lastCrumb . "/" . ucfirst($crumbs[$i]."/");
-  } else {
-    $breadCrumbs[ucfirst($crumbs[$i])] = ucfirst($crumbs[$i] . "/");
+  if ($i != sizeof($crumbs) - 1 && !is_numeric($crumbs[$i])) {
+    if ($i > 2) {
+      $breadCrumbs[ucfirst($crumbs[$i])] = $lastCrumb . "/" . ucfirst($crumbs[$i] . "/");
+    } else {
+      $breadCrumbs[ucfirst($crumbs[$i])] = ucfirst($crumbs[$i] . "/");
+    }
+    $lastCrumb = ucfirst($crumbs[$i]);
   }
-  $lastCrumb = ucfirst($crumbs[$i]);
-
 }
 // Removes the first bc are empty
 array_shift($breadCrumbs);

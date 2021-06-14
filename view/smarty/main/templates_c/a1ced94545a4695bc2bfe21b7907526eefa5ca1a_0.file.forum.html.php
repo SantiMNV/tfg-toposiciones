@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-10 17:12:36
+/* Smarty version 3.1.39, created on 2021-06-12 18:11:12
   from '/srv/http/toposiciones/view/smarty/main/templates/forum.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c24804b9b421_75001918',
+  'unifunc' => 'content_60c4f8c0e4a114_93265007',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a1ced94545a4695bc2bfe21b7907526eefa5ca1a' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/forum.html',
-      1 => 1623345152,
+      1 => 1623521469,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c24804b9b421_75001918 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c4f8c0e4a114_93265007 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_83383197960c24804b86044_07545415', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_144285663760c4f8c0e310c8_68963963', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_83383197960c24804b86044_07545415 extends Smarty_Internal_Block
+class Block_144285663760c4f8c0e310c8_68963963 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_83383197960c24804b86044_07545415',
+    0 => 'Block_144285663760c4f8c0e310c8_68963963',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -90,7 +90,7 @@ $_smarty_tpl->tpl_vars['post']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
 $_smarty_tpl->tpl_vars['post']->do_else = false;
 ?>
-      <tr onclick="window.location='/toposiciones/foro/<?php echo $_smarty_tpl->tpl_vars['post']->value['postId'];?>
+      <tr onclick="window.location='/toposiciones/foro/post/<?php echo $_smarty_tpl->tpl_vars['post']->value['postId'];?>
 ';">
         <th scope="row">
           <div class="post-title">

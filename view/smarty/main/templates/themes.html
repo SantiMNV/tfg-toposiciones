@@ -28,7 +28,7 @@
     <div>Añadir Tema</div>
   </a>
 </div>
-{If ($smarty.session.login_access_level > 5)}
+{If ($smarty.session.login_access_level >= 8)}
 <div class="full-action-button text-center">
   <a href="/toposiciones/temas/lista/">
     <i class="fas fa-list"></i>

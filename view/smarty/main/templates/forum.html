@@ -43,7 +43,7 @@
     </thead>
     <tbody>
       {foreach from=$all_posts item=post}
-      <tr onclick="window.location='/toposiciones/foro/{$post.postId}';">
+      <tr onclick="window.location='/toposiciones/foro/post/{$post.postId}';">
         <th scope="row">
           <div class="post-title">
             {$post.title}

@@ -2,7 +2,6 @@
 require('./config/urls.php');
 global $smarty;
 $page = new Page("Admin", "Crear usuario", "Crear Usuarios", "slug", "");
-
 if (isset($_SESSION['login_user'])) {
   if ($_SESSION['login_access_level'] >= 10) {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {

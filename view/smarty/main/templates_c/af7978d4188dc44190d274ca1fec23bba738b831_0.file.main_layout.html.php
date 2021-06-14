@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-10 18:30:15
+/* Smarty version 3.1.39, created on 2021-06-12 18:10:10
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c25a37ba2252_73968706',
+  'unifunc' => 'content_60c4f8829378e9_03852101',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1623349815,
+      1 => 1623521404,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c25a37ba2252_73968706 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c4f8829378e9_03852101 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -92,7 +92,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             Contacto
           </a></li>
         <?php if ((isset($_SESSION['login_user']))) {?>
-        <?php if (($_SESSION['login_access_level'] > 5)) {?>
+        <?php if (($_SESSION['login_access_level'] >= 8)) {?>
         <li class="nav-item" id="adminSite">
           <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['page']->value->getCurrentPage() == 'Admin') {?>active-link<?php }?>" href="/toposiciones/admin/">
             <i class="fas fa-tools"></i>
@@ -261,7 +261,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_188149570760c25a37b8f060_63759985', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_139501467560c4f882924bb5_52334251', "body-content");
 ?>
 
         </div>
@@ -282,7 +282,7 @@ $_smarty_tpl->tpl_vars['m']->do_else = false;
 ?>
               <li class="list-group-item">
                 <div class="question">
-                  <a class="card-link" href="/toposiciones/foro/<?php echo $_smarty_tpl->tpl_vars['m']->value['postId'];?>
+                  <a class="card-link" href="/toposiciones/foro/post/<?php echo $_smarty_tpl->tpl_vars['m']->value['postId'];?>
 ">
                     <?php echo $_smarty_tpl->tpl_vars['m']->value['title'];?>
 </a>
@@ -357,12 +357,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_188149570760c25a37b8f060_63759985 extends Smarty_Internal_Block
+class Block_139501467560c4f882924bb5_52334251 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_188149570760c25a37b8f060_63759985',
+    0 => 'Block_139501467560c4f882924bb5_52334251',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

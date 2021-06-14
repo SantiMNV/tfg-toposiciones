@@ -13,7 +13,7 @@
     <div>Añadir Convocatoria</div>
   </a>
 </div>
-{If ($smarty.session.login_access_level > 5)}
+{If ($smarty.session.login_access_level >= 8)}
 
 <div class="full-action-button text-center">
   <a href="/toposiciones/convocatorias/lista/">
@@ -21,7 +21,7 @@
     <div>Listar Convocatorias</div>
   </a>
 </div>
-{If ($smarty.session.login_access_level > 8)}
+{If ($smarty.session.login_access_level >= 8)}
 <div class="full-action-button text-center">
   <a href="/toposiciones/convocatorias/categorias/">
     <i class="fas fa-list"></i>

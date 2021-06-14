@@ -15,7 +15,6 @@ function getAmbitsJSON() {
   $result = array();
   $sql = "SELECT opposition_ambit.ambitId,opposition_ambit.ambit_name FROM opposition_ambit order by created_at desc";
   foreach ($conn->query($sql) as $row) {
-    /*array_push($result, $row['categoryId'], $row["category_name"]);*/
     $result[$row['ambitId']] = $row["ambit_name"];
   }
   echo json_encode($result);
@@ -47,21 +46,25 @@ function addAmbit($post) {
   // *** TRANSACTION ***
   $ok = true;
   $conn->beginTransaction();
-  $sql = "SELECT ambitId from opposition_ambit where ambit_name LIKE '{$post['input-ambit-name']}'";
-  $result = $conn->query($sql)->fetch();
-  if ($result) {
-    $status = "add-ambit-failure-alreadyexists";
-  } else {
-    $sql = "INSERT into opposition_ambit values(null,'{$post['input-ambit-name']}','',now(),now())";
-
-    if ($conn->exec($sql) == 0) $ok = false;
-    if ($ok) {
-      $conn->commit();
-      $status = "add-ambit-success";
+  $status = "nei";
+  if(isset($post['input-ambit-name'])){
+    $sql = "SELECT ambitId from opposition_ambit where ambit_name LIKE '{$post['input-ambit-name']}'";
+    $result = $conn->query($sql)->fetch();
+    if ($result) {
+      $status = "add-ambit-failure-alreadyexists";
     } else {
-      $conn->rollback();
-      $status = "add-ambit-failure";
+      $sql = "INSERT into opposition_ambit values(null,'{$post['input-ambit-name']}','',now(),now())";
+
+      if ($conn->exec($sql) == 0) $ok = false;
+      if ($ok) {
+        $conn->commit();
+        $status = "add-ambit-success";
+      } else {
+        $conn->rollback();
+        $status = "add-ambit-failure";
+      }
     }
   }
+
   return $status;
 }

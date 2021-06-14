@@ -49,22 +49,29 @@ function addCategory($post) {
   global $conn;
   // *** TRANSACTION ***
   $ok = true;
-  $conn->beginTransaction();
-  $sql = "SELECT categoryId from opposition_category where category_name LIKE '{$post['input-category-name']}'";
-  $result = $conn->query($sql)->fetch();
-  if ($result) {
-    $status = "add-category-failure-alreadyexists";
-  } else {
-    $sql = "INSERT into opposition_category values(null,'{$post['input-category-name']}','','{$post['input-category-material']}',{$post['input-category-ambit']},now(),now())";
-
-    if ($conn->exec($sql) == 0) $ok = false;
-    if ($ok) {
-      $conn->commit();
-      $status = "add-category-success";
+  $category_name = $post['input-category-name'] ?? "";
+  $category_material = $post['input-category-material'] ?? "";
+  $category_ambit = $post['input-category-ambit'] ?? "";
+  $status = "nei";
+  if(!empty($category_name) && !empty($category_material) && !empty($category_ambit)){
+    $conn->beginTransaction();
+    $sql = "SELECT categoryId from opposition_category where category_name LIKE '{$post['input-category-name']}'";
+    $result = $conn->query($sql)->fetch();
+    if ($result) {
+      $status = "add-category-failure-alreadyexists";
     } else {
-      $conn->rollback();
-      $status = "add-category-failure";
+      $sql = "INSERT into opposition_category values(null,'{$post['input-category-name']}','','{$post['input-category-material']}',{$post['input-category-ambit']},now(),now())";
+
+      if ($conn->exec($sql) == 0) $ok = false;
+      if ($ok) {
+        $conn->commit();
+        $status = "add-category-success";
+      } else {
+        $conn->rollback();
+        $status = "add-category-failure";
+      }
     }
   }
+
   return $status;
 }

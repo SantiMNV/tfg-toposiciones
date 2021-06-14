@@ -44,19 +44,22 @@ function addSlide($post) {
     $title = $post['input-carroussel-title'] ?? "";
     $subtitle = $post['input-carroussel-subtitle'] ?? "";
     $order = $post['input-carroussel-order'] ?? 100;
-    $ok = true;
-    $conn->beginTransaction();
-    $sql = "INSERT into carroussel values(null,'images/{$img_filename}','{$link}','{$title}','{$subtitle}',{$order},now())";
-    if ($conn->exec($sql) == 0) $ok = false;
-    if (!move_uploaded_file($_FILES["input-carroussel-image"]["tmp_name"], $img_full_path)) {
-      $ok = false;
-    }
-    if ($ok) {
-      $conn->commit();
-      $status = "add-carroussel-success";
-    } else {
-      $conn->rollback();
-      $status = "add-carroussel-failure";
+    $status = "nei";
+    if (!empty($link) && !empty($title) && !empty($subtitle) && !empty($order)) {
+      $ok = true;
+      $conn->beginTransaction();
+      $sql = "INSERT into carroussel values(null,'images/{$img_filename}','{$link}','{$title}','{$subtitle}',{$order},now())";
+      if ($conn->exec($sql) == 0) $ok = false;
+      if (!move_uploaded_file($_FILES["input-carroussel-image"]["tmp_name"], $img_full_path)) {
+        $ok = false;
+      }
+      if ($ok) {
+        $conn->commit();
+        $status = "add-carroussel-success";
+      } else {
+        $conn->rollback();
+        $status = "add-carroussel-failure";
+      }
     }
   }
   return $status;

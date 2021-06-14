@@ -33,6 +33,8 @@ if (isset($_SESSION['login_user'])) {
           case "add-notification-failure-alreadyexists":
             $alerts["Ha ocurrido un fallo al crear la notificación, ya existe"] = "alert-warning";
             break;
+          case "nei":
+            $alerts["Debes rellenar todos los campos"] = "alert-danger";
           default:
             break;
         }

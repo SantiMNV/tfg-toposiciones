@@ -26,7 +26,7 @@ RewriteRule ^convocatorias/categorias/crear/$ controller/opposition_category_add
 RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
 
 RewriteRule ^foro/$ controller/forum.php
-RewriteRule ^foro/([^/]*)$ controller/forum_post.php?id=$1 [L]
+RewriteRule ^foro/post/([^/]*)$ controller/forum_post.php?id=$1 [L]
 RewriteRule ^foro/crear-post/$ controller/forum_post_add.php
 
 RewriteRule ^contacto/$ controller/contact.php

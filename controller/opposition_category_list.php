@@ -5,7 +5,7 @@ global $smarty;
 $page = new Page("Convocatorias", "Lista Convocatorias", "Listado de convocatorias", "slug", "");
 
 if (isset($_SESSION['login_user'])) {
-  if ($_SESSION['login_access_level'] >= 10) {
+  if ($_SESSION['login_access_level'] >= 8) {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if (isset($_POST['remove-request'])) {
         if ($_POST['remove-request'] == "remove") {
@@ -30,6 +30,8 @@ if (isset($_SESSION['login_user'])) {
             case "add-category-failure":
               $alerts["Ha ocurrido un fallo al añadir la categoría, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";
               break;
+            case "nei":
+              $alerts["Debes rellenar todos los campos"] = "alert-danger";
             default:
               break;
           }
