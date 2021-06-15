@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-12 17:55:18
+/* Smarty version 3.1.39, created on 2021-06-14 18:29:56
   from '/srv/http/toposiciones/view/smarty/main/templates/admin_user_edit.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c4f5061f7b61_16808606',
+  'unifunc' => 'content_60c7a02442d389_01585148',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f816fd9140f7391a927fab50938ed0e6e2bc2180' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin_user_edit.html',
-      1 => 1623176043,
+      1 => 1623695247,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c4f5061f7b61_16808606 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c7a02442d389_01585148 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_36715844360c4f5061ea228_69791759', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_120089978560c7a024421330_62002096', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_36715844360c4f5061ea228_69791759 extends Smarty_Internal_Block
+class Block_120089978560c7a024421330_62002096 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_36715844360c4f5061ea228_69791759',
+    0 => 'Block_120089978560c7a024421330_62002096',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,7 +76,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="register-level" class="col-md-4 col-form-label text-md-right">Nivel Acceso</label>
+                <label for="edit-access" class="col-md-4 col-form-label text-md-right">Nivel Acceso</label>
                 <div class="col-md-6">
                   <input type="number" id="edit-access" class="form-control" name="edit-access"
                     value="<?php echo $_smarty_tpl->tpl_vars['user']->value['access_level'];?>

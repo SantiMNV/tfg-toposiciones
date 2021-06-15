@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-15 20:23:17
+/* Smarty version 3.1.39, created on 2021-06-14 18:15:46
   from '/srv/http/toposiciones/view/smarty/main/templates/admin_users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a02db57acaf1_79543030',
+  'unifunc' => 'content_60c79cd21dc363_23930079',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e35a0c45f7fc5bcefc6ed32ba640f1c87559f63' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin_users.html',
-      1 => 1621110119,
+      1 => 1623694541,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a02db57acaf1_79543030 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c79cd21dc363_23930079 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_38798028660a02db579d5b8_54204793', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_175221588460c79cd21c0ab8_41819709', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_38798028660a02db579d5b8_54204793 extends Smarty_Internal_Block
+class Block_175221588460c79cd21c0ab8_41819709 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_38798028660a02db579d5b8_54204793',
+    0 => 'Block_175221588460c79cd21c0ab8_41819709',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,9 +53,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <input type="hidden" name="search-request" value="search">
         <input type="text" class="form-control" placeholder="Buscar" name="txtSearch" id="txtSearch" />
         <div class="input-group-btn">
+
           <button class="btn btn-primary" type="submit">
             <span class="fas fa-search"></span>
           </button>
+
         </div>
       </div>
     </div>
@@ -90,27 +92,37 @@ $_smarty_tpl->tpl_vars['user']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 $_smarty_tpl->tpl_vars['user']->do_else = false;
 ?>
+      <?php if ($_SESSION['login_access_level'] >= $_smarty_tpl->tpl_vars['user']->value['access_level']) {?>
       <tr onclick="window.location='/toposiciones/admin/editar/<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
 '">
-        <th>
-          <form action="/toposiciones/admin/usuarios/" method="POST">
-            <input type="hidden" name="remove-request" value="remove" />
-            <input type="hidden" name="remove-user" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
+        <?php } else { ?>
+      <tr></tr>
+      <?php }?>
+      <th>
+        <?php if ($_SESSION['login_access_level'] >= $_smarty_tpl->tpl_vars['user']->value['access_level']) {?>
+        <form action="/toposiciones/admin/usuarios/" method="POST">
+          <input type="hidden" name="remove-request" value="remove" />
+          <input type="hidden" name="remove-user" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
 " />
-            <button type="submit" class="btn btn-light">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </form>
-        </th>
-        <th scope="row"><?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
+          <button type="submit" class="btn btn-light">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </form>
+        <?php } else { ?>
+        <button class="btn btn-light">
+          <i class="fas fa-ban"></i>
+        </button>
+        <?php }?>
+      </th>
+      <th scope="row"><?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
 </th>
-        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['access_level'];?>
+      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['access_level'];?>
 </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['mail'];?>
+      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['mail'];?>
 </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
+      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
 </td>
-        <td style="min-width: 100px"><?php echo $_smarty_tpl->tpl_vars['opposition']->value['opposition_start_date'];?>
+      <td style="min-width: 100px"><?php echo $_smarty_tpl->tpl_vars['opposition']->value['opposition_start_date'];?>
 </td>
       </tr>
       <?php

@@ -30,7 +30,7 @@ RewriteRule ^foro/post/([^/]*)$ controller/forum_post.php?id=$1 [L]
 RewriteRule ^foro/crear-post/$ controller/forum_post_add.php
 
 RewriteRule ^contacto/$ controller/contact.php
-RewriteRule ^privacidad/$ controller/addprivacy.php
+RewriteRule ^privacidad/$ controller/privacy.php
 
 RewriteRule ^admin/$ controller/admin.php
 RewriteRule ^admin/usuarios/$ controller/admin_users.php

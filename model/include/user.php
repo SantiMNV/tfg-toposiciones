@@ -6,8 +6,9 @@ function registerUser($post) {
   $register_mail = $post['register-mail'] ?? "";
   $register_password = $post['register-password'] ?? "";
   $register_user = $post['register-user'] ?? "";
+  $register_access = $post['register-access'] ?? "";
   $status = "nei";
-  if (!empty($register_mail) && !empty($register_mail) && !empty($register_mail)) {
+  if (!empty($register_mail) && !empty($register_password) && !empty($register_user) && !empty($register_access)) {
     $sql = "SELECT user.mail,user.user_password from user where user.mail = '{$register_mail}'";
     $result = $conn->query($sql);
     if ($result->rowCount() > 0) {
@@ -18,7 +19,7 @@ function registerUser($post) {
       $ok = true;
       $conn->beginTransaction();
 
-      $sql = "INSERT into user values(null,0, '{$register_user}', '{$register_mail}','" . hash('sha512', $register_password) . "', now(), now())";
+      $sql = "INSERT into user values(null,{$register_access}, '{$register_user}', '{$register_mail}','" . hash('sha512', $register_password) . "', now(), now())";
       if ($conn->exec($sql) == 0) $ok = false;
       if ($ok) {
         $conn->commit();
@@ -139,7 +140,8 @@ function editUserFull($post) {
 
 function getUsers() {
   global $conn;
-  $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user` where access_level != 10';
+  // $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user` where access_level != 10';
+  $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user`';
   $result = $conn->query($sql);
   return $result;
 }

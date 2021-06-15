@@ -6,24 +6,12 @@
 <form action="/toposiciones/temas/crear/" method="POST">
   <div class="form-group">
     <label for="input-theme-name">Título</label>
-    <input
-      type="text"
-      class="form-control"
-      id="input-theme-name"
-      name="input-theme-name"
-      maxlength="250"
-    />
-    <small id="emailHelp" class="form-text text-muted"
-      >Máximo 250 caracteres.</small
-    >
+    <input type="text" class="form-control" id="input-theme-name" name="input-theme-name" maxlength="250" />
+    <small id="emailHelp" class="form-text text-muted">Máximo 250 caracteres.</small>
   </div>
   <div class="form-group">
     <label for="input-theme-category">Categoría</label><br />
-    <select
-      id="inputSearchCategory"
-      class="form-control form-control-md"
-      name="input-theme-category"
-    ></select>
+    <select id="inputSearchCategory" class="form-control form-control-md" name="input-theme-category"></select>
   </div>
 
   <div class="form-group">
@@ -37,7 +25,7 @@
 </form>
 <script>
   window.onload = function () {
-    searchCategoryJSON("");
+    searchExactCategoryJSON();
   };
   ClassicEditor.defaultConfig = {
     toolbar: {

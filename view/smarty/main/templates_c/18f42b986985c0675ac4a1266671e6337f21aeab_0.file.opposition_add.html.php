@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-10 17:29:21
+/* Smarty version 3.1.39, created on 2021-06-14 17:48:43
   from '/srv/http/toposiciones/view/smarty/main/templates/opposition_add.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c24bf1301e51_58780508',
+  'unifunc' => 'content_60c7967b388393_35546436',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18f42b986985c0675ac4a1266671e6337f21aeab' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/opposition_add.html',
-      1 => 1623346091,
+      1 => 1623692921,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c24bf1301e51_58780508 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c7967b388393_35546436 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_127476941960c24bf12fde19_96083136', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_24715112960c7967b3866c7_85567754', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_127476941960c24bf12fde19_96083136 extends Smarty_Internal_Block
+class Block_24715112960c7967b3866c7_85567754 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_127476941960c24bf12fde19_96083136',
+    0 => 'Block_24715112960c7967b3866c7_85567754',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,7 +48,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
   <h2><?php echo $_smarty_tpl->tpl_vars['page']->value->pageTitle;?>
 </h2>
 </div>
-<form action="/toposiciones/crear/" method="POST">
+<form action="/toposiciones/convocatorias/crear/" method="POST">
   <div class="form-group">
     <label for="input-opposition-link">Link oficial</label>
     <input type="text" class="form-control" id="input-opposition-link" name="input-opposition-link" required>
@@ -91,7 +91,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 <?php echo '<script'; ?>
 >
   window.onload = function () {
-    searchCategoryJSON();
+    searchExactCategoryJSON();
     searchStateJSON();
   }
 <?php echo '</script'; ?>

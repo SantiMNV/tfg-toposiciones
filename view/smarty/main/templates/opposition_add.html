@@ -4,7 +4,7 @@
 <div class="page-header">
   <h2>{$page->pageTitle}</h2>
 </div>
-<form action="/toposiciones/crear/" method="POST">
+<form action="/toposiciones/convocatorias/crear/" method="POST">
   <div class="form-group">
     <label for="input-opposition-link">Link oficial</label>
     <input type="text" class="form-control" id="input-opposition-link" name="input-opposition-link" required>
@@ -46,7 +46,7 @@
 </form>
 <script>
   window.onload = function () {
-    searchCategoryJSON();
+    searchExactCategoryJSON();
     searchStateJSON();
   }
 </script>

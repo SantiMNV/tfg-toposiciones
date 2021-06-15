@@ -21,7 +21,6 @@ const MEDIA_DIRECTORY = PUBLIC_DIRECTORY . "/view/media";
 const CSS_DIRECTORY = PUBLIC_DIRECTORY . "/view/css";
 const JS_DIRECTORY = PUBLIC_DIRECTORY . "/view/js";
 
-
 require(SMARTY_LIB . '/libs/Smarty.class.php');
 require(MODEL_DIRECTORY . "/include/Page.php");
 require(MODEL_DIRECTORY . "/include/pdo_connection.php");
