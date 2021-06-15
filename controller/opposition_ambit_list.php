@@ -4,7 +4,7 @@ global $smarty;
 $page = new Page("Convocatorias/ambitos", "Lista Ámbitos", "Listado de ámbitos", "slug", "");
 
 if (isset($_SESSION['login_user'])) {
-  if ($_SESSION['login_access_level'] >= 10) {
+  if ($_SESSION['login_access_level'] >= 8) {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if (isset($_POST['remove-request'])) {
         if ($_POST['remove-request'] == "remove") {
@@ -33,6 +33,9 @@ if (isset($_SESSION['login_user'])) {
             break;
           case "add-ambit-failure-alreadyexists":
             $alerts["Ha ocurrido un fallo al crear el ámbito, ya existe"] = "alert-warning";
+            break;
+          case "nei":
+            $alerts["Debes rellenar todos los campos"] = "alert-danger";
             break;
           default:
             break;

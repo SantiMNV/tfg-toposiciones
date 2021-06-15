@@ -130,6 +130,14 @@ function showCategories(field_id) {
   document.getElementById(field_id).innerHTML += categories_options;
 }
 
+function showCategoriesExact(field_id) {
+  let categories_options = "";
+  for (let key in jsonResponseText) {
+    categories_options += "<option value='" + key + "'>" + jsonResponseText[key] + "</option>";
+  }
+  document.getElementById(field_id).innerHTML += categories_options;
+}
+
 function showCategoriesItems(field_id) {
   let categories_options = "";
   for (let key in jsonResponseText) {
@@ -179,6 +187,10 @@ function searchJSON() {
 
 function searchCategoryJSON() {
   JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategories("inputSearchCategory") })
+}
+
+function searchExactCategoryJSON() {
+  JSONPostController("/toposiciones/controller/jsonManager.php?", jsonResponse, "request=categories", function () { showCategoriesExact("inputSearchCategory") })
 }
 
 function searchStateJSON() {

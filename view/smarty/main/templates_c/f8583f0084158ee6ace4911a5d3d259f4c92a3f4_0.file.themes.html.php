@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-15 11:02:53
+/* Smarty version 3.1.39, created on 2021-06-12 18:06:38
   from '/srv/http/toposiciones/view/smarty/main/templates/themes.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_609faa5d25c4f5_41500490',
+  'unifunc' => 'content_60c4f7ae946550_06066070',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f8583f0084158ee6ace4911a5d3d259f4c92a3f4' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/themes.html',
-      1 => 1621076571,
+      1 => 1623519948,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_609faa5d25c4f5_41500490 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c4f7ae946550_06066070 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1335042920609faa5d2485c2_80847029', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_189194177460c4f7ae92eb65_41934926', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_1335042920609faa5d2485c2_80847029 extends Smarty_Internal_Block
+class Block_189194177460c4f7ae92eb65_41934926 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_1335042920609faa5d2485c2_80847029',
+    0 => 'Block_189194177460c4f7ae92eb65_41934926',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,14 +64,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <?php if ((isset($_SESSION['login_user']))) {?>
 <div class="full-action-button text-center">
-  <a href="/toposiciones/crear-tema/">
+  <a href="/toposiciones/temas/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Añadir Tema</div>
   </a>
 </div>
-<?php if (($_SESSION['login_access_level'] > 5)) {?>
+<?php if (($_SESSION['login_access_level'] >= 8)) {?>
 <div class="full-action-button text-center">
-  <a href="/toposiciones/lista-tema/">
+  <a href="/toposiciones/temas/lista/">
     <i class="fas fa-list"></i>
     <div>Listar Temas</div>
   </a>
@@ -99,7 +99,7 @@ $_smarty_tpl->tpl_vars['theme']->do_else = false;
         <h3><?php echo $_smarty_tpl->tpl_vars['theme']->value['theme_name'];?>
 </h3>
       </a>
-      <p><?php echo $_smarty_tpl->tpl_vars['theme']->value['content'];?>
+      <p><?php echo preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['theme']->value['content']);?>
 </p>
     </div>
     <hr />

@@ -23,6 +23,8 @@ if (isset($_SESSION['login_user'])) {
             case "add-carroussel-failure-unsupportedfiletype":
               $alerts["Ha ocurrido un fallo al crear el slide, formato de imagen no soportada, ha de ser png,jpg,jpeg,gif"] = "alert-danger";
               break;
+            case "nei":
+              $alerts["Debes rellenar todos los campos"] = "alert-danger";
             default:
               break;
           }

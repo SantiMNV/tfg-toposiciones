@@ -3,16 +3,23 @@ require("pdo_connection.php");
 
 function registerUser($post) {
   global $conn;
-  $sql = "SELECT user.mail,user.user_password from user where user.mail = '{$post['register-mail']}'";
-  $result = $conn->query($sql);
-  if ($result->rowCount() > 0) {
-    $status = "registered";
-  } else {
-    // *** TRANSACTION ***
-    $ok = true;
-    $conn->beginTransaction();
-    if (isset($post['register-user']) && isset(($post['register-mail'])) && isset($post['register-password'])) {
-      $sql = "INSERT into user values(null,0, '{$post['register-user']}', '{$post['register-mail']}','" . hash('sha512', $post['register-password']) . "', now(), now())";
+  $register_mail = $post['register-mail'] ?? "";
+  $register_password = $post['register-password'] ?? "";
+  $register_user = $post['register-user'] ?? "";
+  $register_access = $post['register-access'] ?? "";
+  $status = "nei";
+  if (!empty($register_mail) && !empty($register_password) && !empty($register_user) && !empty($register_access)) {
+    $sql = "SELECT user.mail,user.user_password from user where user.mail = '{$register_mail}'";
+    $result = $conn->query($sql);
+    if ($result->rowCount() > 0) {
+      $status = "registered";
+    } else {
+
+      // *** TRANSACTION ***
+      $ok = true;
+      $conn->beginTransaction();
+
+      $sql = "INSERT into user values(null,{$register_access}, '{$register_user}', '{$register_mail}','" . hash('sha512', $register_password) . "', now(), now())";
       if ($conn->exec($sql) == 0) $ok = false;
       if ($ok) {
         $conn->commit();
@@ -21,8 +28,6 @@ function registerUser($post) {
         $conn->rollback();
         $status = "register-failure";
       }
-    } else {
-      $status = "nei";
     }
   }
   return $status;
@@ -30,17 +35,22 @@ function registerUser($post) {
 
 function loginUser($post) {
   global $conn;
-  $sql = "SELECT user.user_name,user.userId,user.access_level from user where user.mail = '{$post['login-mail']}' and user.user_password = '" . hash('sha512', $post['login-password']) . "'";
-  $result = $conn->query($sql);
-  if ($result->rowCount() > 0) {
-    $row = $result->fetch();
-    $status = "login-success";
-    $_SESSION['login_mail'] = $post['login-mail'];
-    $_SESSION['login_user'] = $row['user_name'];
-    $_SESSION['login_userId'] = $row['userId'];
-    $_SESSION['login_access_level'] = $row['access_level'];
-  } else {
-    $status = "login-failure";
+  $login_mail = $post['login-mail'] ?? "";
+  $login_password = $post['login-password'] ?? "";
+  $status = "nei";
+  if (!empty($login_mail) && !empty($login_password)) {
+    $sql = "SELECT user.user_name,user.userId,user.access_level from user where user.mail = '{$login_mail}' and user.user_password = '" . hash('sha512', $login_password) . "'";
+    $result = $conn->query($sql);
+    if ($result->rowCount() > 0) {
+      $row = $result->fetch();
+      $_SESSION['login_mail'] = $post['login-mail'];
+      $_SESSION['login_user'] = $row['user_name'];
+      $_SESSION['login_userId'] = $row['userId'];
+      $_SESSION['login_access_level'] = $row['access_level'];
+      $status = "login-success";
+    } else {
+      $status = "login-failure";
+    }
   }
   return $status;
 }
@@ -54,58 +64,68 @@ function getUser($id) {
 
 function editUser($post) {
   global $conn;
-  $ok = true;
-  if (isset($post['login-user']) || isset($post['login-password'])) {
-    if (isset($post['login-user'])) {
-      if ($post['login-user'] != $_SESSION['login_user']) {
-        $sqlUsername = "UPDATE user set user.user_name = '{$post['login-user']}' WHERE mail = '{$post['login-mail']}'";
-      }
-    }
-    if (isset($post['login-password'])) {
-      if ($post['login-password'] != "") {
-        $sqlPassword = "UPDATE user set user_password = '" . hash('sha512', $post['login-password']) . "' WHERE mail = '{$post['login-mail']}'";
-      }
-    }
-  }
-
-  // *** TRANSACTION ***
-  $conn->beginTransaction();
-  if (isset($sqlUsername)) {
-    if ($conn->exec($sqlUsername) == 0) $ok = false;
-  }
-  if (isset($sqlPassword)) {
-    if ($conn->exec($sqlPassword) == 0) $ok = false;
-  }
-
-  if ($ok) {
-    $conn->commit();
-    $status = "edit-success";
-  } else {
-    $conn->rollback();
+  $login_user = $post['login-user'] ?? "";
+  $login_mail = $post['login-mail'] ?? "";
+  $login_password = $post['login-password'] ?? "";
+  $status = "nei";
+  if (!empty($login_user) && !empty($login_mail) && !empty($login_password)) {
+    $ok = true;
     $status = "edit-failure";
+
+    if (!empty($login_mail)) {
+      if (!empty($login_user)) {
+        if ($login_user != $_SESSION['login_user']) {
+          $sqlUsername = "UPDATE user set user.user_name = '{$login_user}' WHERE mail = '{$login_mail}'";
+        }
+      }
+
+      if (!empty($login_password)) {
+        $sqlPassword = "UPDATE user set user_password = '{hash('sha512', $login_password)}' WHERE mail = '{$login_mail}'";
+      }
+      $sqlSelect = "SELECT user.user_name from user where user.mail = '{$login_mail}' and user.user_password = '{hash('sha512', $login_password)}'";
+      // *** TRANSACTION ***
+      $conn->beginTransaction();
+      if (isset($sqlUsername)) {
+        if ($conn->exec($sqlUsername) == 0) $ok = false;
+      }
+      if (isset($sqlPassword)) {
+        if ($conn->exec($sqlPassword) == 0) $ok = false;
+      }
+      if (isset($sqlSelect)) {
+        if ($conn->exec($sqlSelect) == 0) $ok = false;
+      }
+      if ($ok) {
+        $conn->commit();
+        $status = "edit-success";
+        $result = $conn->query($sqlSelect);
+        if ($result->rowCount() > 0) {
+          $_SESSION['login_mail'] = $login_mail;
+          $_SESSION['login_user'] = $result->fetch()['user_name'];
+        }
+      } else {
+        $conn->rollback();
+        $status = "edit-failure";
+      }
+    }
   }
 
-  $sql = "SELECT user.user_name from user where user.mail = '{$post['login-mail']}' and user.user_password = '" . hash('sha512', $post['login-password']) . "'";
-  $result = $conn->query($sql);
 
-  if ($result->rowCount() > 0) {
-    $_SESSION['login_mail'] = $post['login-mail'];
-    $_SESSION['login_user'] = $result->fetch()['user_name'];
-  } else {
-    //$status = "login-failure";
-  }
   return $status;
 }
-
 
 function editUserFull($post) {
   global $conn;
   // *** TRANSACTION ***
+  $edit_user = $post['edit-user'] ?? "";
+  $edit_userId = $post['edit-userId'] ?? "";
+  $edit_mail = $post['edit-mail'] ?? "";
+  $edit_access = $post['edit-access'] ?? "";
+  $status = "nei";
   $ok = true;
-  if (isset($post['edit-user']) && isset($post['edit-userId']) && isset($post['edit-mail']) && isset($post['edit-access'])) {
+  if (!empty($edit_user) && !empty($edit_userId) && !empty($edit_mail) && !empty($edit_access)) {
     $conn->beginTransaction();
-    $sql = "UPDATE user set user.user_name = '{$post['edit-user']}', user.mail = '{$post['edit-mail']}',
-    user.access_level = {$post['edit-access']},user.updated_at = now() where user.userId = '{$post['edit-userId']}' ";
+    $sql = "UPDATE user set user.user_name = '{$edit_user}', user.mail = '{$edit_mail}',
+    user.access_level = {$edit_access},user.updated_at = now() where user.userId = '{$edit_userId}' ";
     if ($conn->exec($sql) == 0) $ok = false;
     if ($ok) {
       $conn->commit();
@@ -114,15 +134,14 @@ function editUserFull($post) {
       $conn->rollback();
       $status = "edit-failure";
     }
-  } else {
-    $status = "nei";
   }
   return $status;
 }
 
 function getUsers() {
   global $conn;
-  $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user` where access_level != 10';
+  // $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user` where access_level != 10';
+  $sql = 'SELECT userId,access_level,user_name,mail,created_at FROM `user`';
   $result = $conn->query($sql);
   return $result;
 }
@@ -150,10 +169,14 @@ function removeUser($id) {
 function sendContact($post) {
   global $conn;
   // *** TRANSACTION ***
-  if (isset($post['input-contact-mail']) && isset($post['input-contact-name']) && isset($post['input-contact-message'])) {
+  $contact_mail = $post['input-contact-mail'] ?? "";
+  $contact_name = $post['input-contact-name'] ?? "";
+  $contact_message = $post['input-contact-message'] ?? "";
+  $status = "nei";
+  if (!empty($contact_mail) && !empty($contact_name) && !empty($contact_message)) {
     $ok = true;
     $conn->beginTransaction();
-    $sql = "INSERT into admin_messages values(null,'{$post['input-contact-mail']}','{$post['input-contact-message']}',0,now())";
+    $sql = "INSERT into admin_messages values(null,'{$contact_mail}','{$contact_message}',0,now())";
     if ($conn->exec($sql) == 0) $ok = false;
     if ($ok) {
       $conn->commit();
@@ -171,10 +194,12 @@ function sendContact($post) {
 function sendResetPW($post) {
   global $conn;
   // *** TRANSACTION ***
-  if (isset($post['login-mail']) && isset($post['reset-btn'])) {
+  $login_mail = $post['login-mail'] ?? "";
+  $status = "nei";
+  if (!empty($login_mail) && isset($post['reset-btn'])) {
     $ok = true;
     $conn->beginTransaction();
-    $sql = "INSERT into admin_messages values(null,'{$post['login-mail']}','Restore password',0,now())";
+    $sql = "INSERT into admin_messages values(null,'{$login_mail}','Restore password',0,now())";
     if ($conn->exec($sql) == 0) $ok = false;
     if ($ok) {
       $conn->commit();
@@ -183,8 +208,6 @@ function sendResetPW($post) {
       $conn->rollback();
       $status = "reset-failure";
     }
-  } else {
-    $status = "nei";
   }
   return $status;
 }

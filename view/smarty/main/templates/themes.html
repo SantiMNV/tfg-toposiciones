@@ -23,14 +23,14 @@
 
 {If isset($smarty.session.login_user)}
 <div class="full-action-button text-center">
-  <a href="/toposiciones/crear-tema/">
+  <a href="/toposiciones/temas/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Añadir Tema</div>
   </a>
 </div>
-{If ($smarty.session.login_access_level > 5)}
+{If ($smarty.session.login_access_level >= 8)}
 <div class="full-action-button text-center">
-  <a href="/toposiciones/lista-tema/">
+  <a href="/toposiciones/temas/lista/">
     <i class="fas fa-list"></i>
     <div>Listar Temas</div>
   </a>
@@ -50,7 +50,7 @@
       <a href="/toposiciones/temas/tema/{$theme.themeId}">
         <h3>{$theme.theme_name}</h3>
       </a>
-      <p>{$theme.content}</p>
+      <p>{$theme.content|strip_tags}</p>
     </div>
     <hr />
   </div>

@@ -8,20 +8,20 @@
 <div id="search-container" class="col-md-12"></div>
 {If isset($smarty.session.login_user)}
 <div class="full-action-button text-center">
-  <a href="/toposiciones/crear-convocatoria/">
+  <a href="/toposiciones/convocatorias/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Añadir Convocatoria</div>
   </a>
 </div>
-{If ($smarty.session.login_access_level > 5)}
+{If ($smarty.session.login_access_level >= 8)}
 
 <div class="full-action-button text-center">
-  <a href="/toposiciones/lista-convocatoria/">
+  <a href="/toposiciones/convocatorias/lista/">
     <i class="fas fa-list"></i>
     <div>Listar Convocatorias</div>
   </a>
 </div>
-{If ($smarty.session.login_access_level > 8)}
+{If ($smarty.session.login_access_level >= 8)}
 <div class="full-action-button text-center">
   <a href="/toposiciones/convocatorias/categorias/">
     <i class="fas fa-list"></i>

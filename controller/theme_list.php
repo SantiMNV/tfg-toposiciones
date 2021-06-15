@@ -8,7 +8,7 @@ $smarty->assign('alerts', $alerts);
 $smarty->assign('page', $page);
 
 if (isset($_SESSION['login_user'])) {
-  if ($_SESSION['login_access_level'] >= 10) {
+  if ($_SESSION['login_access_level'] >= 8) {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if ($_POST['remove-request'] == "remove") {
         switch (removeTheme($_POST['remove-theme'])) {

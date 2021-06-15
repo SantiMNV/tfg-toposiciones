@@ -60,7 +60,7 @@
             Contacto
           </a></li>
         {if isset($smarty.session.login_user)}
-        {If ($smarty.session.login_access_level > 5)}
+        {If ($smarty.session.login_access_level >= 8)}
         <li class="nav-item" id="adminSite">
           <a class="nav-link {if $page->getCurrentPage() == 'Admin'}active-link{/if}" href="/toposiciones/admin/">
             <i class="fas fa-tools"></i>
@@ -128,16 +128,16 @@
     <div class="col-md order-2" id="content">
       <nav aria-label="breadcrumb" class="sticky-top breadcrumb-nav d-none d-lg-block">
         <ol class="breadcrumb">
-          {foreach item=crumb from=$breadCrumbs name=breadCrumb}
-          {if $smarty.foreach.breadCrumb.first}
-          <li class="breadcrumb-item"><a href="/{$crumb|lower|cat:'/'}">Inicio</a>
+          {foreach key=crumb_name item=crumb_link from=$breadCrumbs name=crumb}
+          {if $smarty.foreach.crumb.first}
+          <li class="breadcrumb-item"><a href="/{$crumb_link|lower|cat:'/'}">Inicio</a>
           </li>
           {else}
-          {if $smarty.foreach.breadCrumb.last}
-          <li class="breadcrumb-item active" aria-current="page">{$crumb}
+          {if $smarty.foreach.crumb.last}
+          <li class="breadcrumb-item active" aria-current="page">{$crumb_name}
           </li>
           {else}
-          <li class="breadcrumb-item"><a href="/toposiciones/{$crumb|lower|cat:'/'}">{$crumb}</a></li>
+          <li class="breadcrumb-item"><a href="/toposiciones/{$crumb_link|lower}">{$crumb_name}</a></li>
           {/if}
           {/if}
           {/foreach}
@@ -277,7 +277,7 @@
               {foreach from=$side_messages item=m}
               <li class="list-group-item">
                 <div class="question">
-                  <a class="card-link" href="/toposiciones/foro/{$m.postId}">
+                  <a class="card-link" href="/toposiciones/foro/post/{$m.postId}">
                     {$m.title}</a>
                 </div>
                 <div class="secondary">

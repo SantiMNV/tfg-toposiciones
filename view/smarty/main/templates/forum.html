@@ -23,7 +23,7 @@
 </div>
 {If isset($smarty.session.login_user)}
 <div class="full-action-button text-center">
-  <a href="/toposiciones/crear-post/">
+  <a href="/toposiciones/foro/crear-post/">
     <i class="fas fa-plus-circle"></i>
     <div>Crear post</div>
   </a>
@@ -43,7 +43,7 @@
     </thead>
     <tbody>
       {foreach from=$all_posts item=post}
-      <tr onclick="window.location='/toposiciones/foro/{$post.postId}';">
+      <tr onclick="window.location='/toposiciones/foro/post/{$post.postId}';">
         <th scope="row">
           <div class="post-title">
             {$post.title}

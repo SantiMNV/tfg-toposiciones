@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-16 17:57:47
+/* Smarty version 3.1.39, created on 2021-06-10 17:29:24
   from '/srv/http/toposiciones/view/smarty/main/templates/opposition_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a15d1b34ffc0_35505904',
+  'unifunc' => 'content_60c24bf47fc631_05088300',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '571d265617507d58f49a5f63a94cfbdef3c75b48' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/opposition_list.html',
-      1 => 1621187865,
+      1 => 1623346111,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a15d1b34ffc0_35505904 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c24bf47fc631_05088300 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_102611301560a15d1b33f795_23753236', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_25186232060c24bf47e9896_12157690', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_102611301560a15d1b33f795_23753236 extends Smarty_Internal_Block
+class Block_25186232060c24bf47e9896_12157690 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_102611301560a15d1b33f795_23753236',
+    0 => 'Block_25186232060c24bf47e9896_12157690',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,7 +70,7 @@ $_smarty_tpl->tpl_vars['opposition']->do_else = false;
       <tr onclick="window.location='/toposiciones/convocatorias/convocatoria/<?php echo $_smarty_tpl->tpl_vars['opposition']->value['oppositionId'];?>
 '">
         <th>
-          <form action="/toposiciones/lista-convocatoria/" method="POST">
+          <form action="/toposiciones/convocatorias/lista/" method="POST">
             <input type="hidden" name="remove-request" value="remove">
             <input type="hidden" name="remove-theme" value="<?php echo $_smarty_tpl->tpl_vars['opposition']->value['oppositionId'];?>
 ">

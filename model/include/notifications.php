@@ -21,17 +21,22 @@ function getAllNotifications() {
 
 function addNotification($post) {
   global $conn;
-  // *** TRANSACTION ***
-  $ok = true;
-  $conn->beginTransaction();
-  $sql = "INSERT into admin_notifications values(null,'{$post['input-notification-text']}','{$post['input-notification-type']}',now())";
-  if ($conn->exec($sql) == 0) $ok = false;
-  if ($ok) {
-    $conn->commit();
-    $status = "add-notification-success";
-  } else {
-    $conn->rollback();
-    $status = "add-notification-failure";
+  $notification_text = $post['input-notification-text'] ?? "";
+  $notification_type = $post['input-notification-type'] ?? "";
+  $status = "nei";
+  if (!empty($notification_text) && !empty($notification_type)) {
+    // *** TRANSACTION ***
+    $ok = true;
+    $conn->beginTransaction();
+    $sql = "INSERT into admin_notifications values(null,'{$post['input-notification-text']}','{$post['input-notification-type']}',now())";
+    if ($conn->exec($sql) == 0) $ok = false;
+    if ($ok) {
+      $conn->commit();
+      $status = "add-notification-success";
+    } else {
+      $conn->rollback();
+      $status = "add-notification-failure";
+    }
   }
   return $status;
 }

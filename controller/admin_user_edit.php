@@ -16,6 +16,8 @@ if (isset($_SESSION['login_user'])) {
             case "edit-failure":
               $alerts["Ha ocurrido un fallo al editar el usuario, vuelva a intentarlo o contacte a soporte@toposiciones.com"] = "alert-danger";
               break;
+            case "nei":
+              $alerts["Debes rellenar todos los campos"] = "alert-danger";
             default:
               break;
           }
@@ -25,7 +27,7 @@ if (isset($_SESSION['login_user'])) {
     $smarty->assign("user", getUser($_GET['id']));
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    $smarty->display('admin_edit_user.html');
+    $smarty->display('admin_user_edit.html');
   } else {
     header('Location: /toposiciones/');
   }

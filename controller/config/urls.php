@@ -21,7 +21,6 @@ const MEDIA_DIRECTORY = PUBLIC_DIRECTORY . "/view/media";
 const CSS_DIRECTORY = PUBLIC_DIRECTORY . "/view/css";
 const JS_DIRECTORY = PUBLIC_DIRECTORY . "/view/js";
 
-
 require(SMARTY_LIB . '/libs/Smarty.class.php');
 require(MODEL_DIRECTORY . "/include/Page.php");
 require(MODEL_DIRECTORY . "/include/pdo_connection.php");
@@ -59,13 +58,19 @@ $smarty->assign("side_messages", getPostsSummary(5)->fetchAll());
 // Receive the url
 $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
 $breadCrumbs = array();
-foreach ($crumbs as $crumb) {
-  array_push($breadCrumbs, ucfirst(str_replace(array(".php", "_"), array("", " "), $crumb)));
+$lastCrumb = "";
+for ($i = 0; $i < sizeof($crumbs); $i++) {
+  if ($i != sizeof($crumbs) - 1 && !is_numeric($crumbs[$i])) {
+    if ($i > 2) {
+      $breadCrumbs[ucfirst($crumbs[$i])] = $lastCrumb . "/" . ucfirst($crumbs[$i] . "/");
+    } else {
+      $breadCrumbs[ucfirst($crumbs[$i])] = ucfirst($crumbs[$i] . "/");
+    }
+    $lastCrumb = ucfirst($crumbs[$i]);
+  }
 }
-
 // Removes the first bc are empty
 array_shift($breadCrumbs);
-array_pop($breadCrumbs);
 $smarty->assign('breadCrumbs', $breadCrumbs);
 
 $cookies_accepted = false;

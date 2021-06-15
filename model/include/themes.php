@@ -32,17 +32,25 @@ function listThemes() {
 function addTheme($post) {
   global $conn;
   // *** TRANSACTION ***
-  $ok = true;
-  $conn->beginTransaction();
-  $sql = "INSERT into theme values(null,'{$post['input-theme-name']}',{$post['input-theme-category']},'{$post['input-theme-content']}','{$_SESSION['login_userId']}',now())";
+  $theme_name = $post['input-theme-name'] ?? "";
+  $theme_category = $post['input-theme-category'] ?? "";
+  $theme_content = $post['input-theme-content'] ?? "";
 
-  if ($conn->exec($sql) == 0) $ok = false;
-  if ($ok) {
-    $conn->commit();
-    $status = "add-theme-success";
-  } else {
-    $conn->rollback();
-    $status = "add-theme-failure";
+  if (!empty($theme_name) && !empty($theme_category) && !empty($theme_content)) {
+    $ok = true;
+    $conn->beginTransaction();
+    $sql = "INSERT into theme values(null,'{$theme_name}',{$theme_category},'{$theme_content}','{$_SESSION['login_userId']}',now())";
+
+    if ($conn->exec($sql) == 0) $ok = false;
+    if ($ok) {
+      $conn->commit();
+      $sql = "SELECT themeId from theme order by created_at DESC limit 1";
+      $themeId = $conn->query($sql)->fetch()[0];
+      $status = "add-theme-success-" . $themeId;
+    } else {
+      $conn->rollback();
+      $status = "add-theme-failure";
+    }
   }
   return $status;
 }

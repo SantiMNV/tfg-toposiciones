@@ -4,7 +4,7 @@ global $smarty;
 $page = new Page("Convocatorias", "Añadir convocatoria", "", "slug", "");
 
 if (isset($_SESSION['login_user'])) {
-  if ($_SESSION['login_access_level'] >= 5) {
+  if ($_SESSION['login_access_level'] >= 1) {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
       switch (addOpposition($_POST)) {
         case "add-opposition-success":
@@ -17,13 +17,15 @@ if (isset($_SESSION['login_user'])) {
         case "add-opposition-failure":
           $alerts["Ha ocurrido un fallo al crear la convocatoria, inténtelo de nuevo o contacte a soporte@toposiciones.com"] = "alert-danger";
           break;
+        case "nei":
+          $alerts["Debes rellenar todos los campos"] = "alert-danger";
         default:
           break;
       }
     }
     $smarty->assign('alerts', $alerts);
     $smarty->assign('page', $page);
-    $smarty->display('add_opposition.html');
+    $smarty->display('opposition_add.html');
   } else {
     header('Location: /toposiciones/');
   }

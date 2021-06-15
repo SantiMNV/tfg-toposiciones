@@ -22,7 +22,7 @@
       {foreach from=$all_oppositions item=opposition}
       <tr onclick="window.location='/toposiciones/convocatorias/convocatoria/{$opposition.oppositionId}'">
         <th>
-          <form action="/toposiciones/lista-convocatoria/" method="POST">
+          <form action="/toposiciones/convocatorias/lista/" method="POST">
             <input type="hidden" name="remove-request" value="remove">
             <input type="hidden" name="remove-theme" value="{$opposition.oppositionId}">
             <button type="submit" class="btn btn-light">

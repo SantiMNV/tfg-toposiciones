@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-05 15:01:02
+/* Smarty version 3.1.39, created on 2021-06-14 18:20:52
   from '/srv/http/toposiciones/view/smarty/main/templates/opposition_category_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60bb91ae6d6e79_59839189',
+  'unifunc' => 'content_60c79e04b9d6b1_39570978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e1d0fd9e112b6dcc023747af0a3a8a49d99eeff2' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/opposition_category_list.html',
-      1 => 1622905223,
+      1 => 1623519751,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60bb91ae6d6e79_59839189 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c79e04b9d6b1_39570978 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_105392286960bb91ae6bc309_83873150', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_193410134460c79e04b83f20_73997406', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_105392286960bb91ae6bc309_83873150 extends Smarty_Internal_Block
+class Block_193410134460c79e04b83f20_73997406 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_105392286960bb91ae6bc309_83873150',
+    0 => 'Block_193410134460c79e04b83f20_73997406',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -47,7 +47,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/
 </h2>
 </div>
 <?php if ((isset($_SESSION['login_user']))) {
-if (($_SESSION['login_access_level'] > 8)) {?>
+if (($_SESSION['login_access_level'] >= 8)) {?>
 <div class="full-action-button text-center">
   <a href="/toposiciones/convocatorias/categorias/crear/">
     <i class="fas fa-plus-circle"></i>

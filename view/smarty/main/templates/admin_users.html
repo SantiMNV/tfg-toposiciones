@@ -12,9 +12,11 @@
         <input type="hidden" name="search-request" value="search">
         <input type="text" class="form-control" placeholder="Buscar" name="txtSearch" id="txtSearch" />
         <div class="input-group-btn">
+
           <button class="btn btn-primary" type="submit">
             <span class="fas fa-search"></span>
           </button>
+
         </div>
       </div>
     </div>
@@ -43,21 +45,31 @@
     </thead>
     <tbody>
       {foreach from=$all_users item=user}
+      {If $smarty.session.login_access_level >= $user.access_level}
       <tr onclick="window.location='/toposiciones/admin/editar/{$user.userId}'">
-        <th>
-          <form action="/toposiciones/admin/usuarios/" method="POST">
-            <input type="hidden" name="remove-request" value="remove" />
-            <input type="hidden" name="remove-user" value="{$user.userId}" />
-            <button type="submit" class="btn btn-light">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </form>
-        </th>
-        <th scope="row">{$user.userId}</th>
-        <td>{$user.access_level}</td>
-        <td>{$user.mail}</td>
-        <td>{$user.user_name}</td>
-        <td style="min-width: 100px">{$opposition.opposition_start_date}</td>
+        {else}
+      <tr></tr>
+      {/if}
+      <th>
+        {If $smarty.session.login_access_level >= $user.access_level}
+        <form action="/toposiciones/admin/usuarios/" method="POST">
+          <input type="hidden" name="remove-request" value="remove" />
+          <input type="hidden" name="remove-user" value="{$user.userId}" />
+          <button type="submit" class="btn btn-light">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </form>
+        {else}
+        <button class="btn btn-light">
+          <i class="fas fa-ban"></i>
+        </button>
+        {/if}
+      </th>
+      <th scope="row">{$user.userId}</th>
+      <td>{$user.access_level}</td>
+      <td>{$user.mail}</td>
+      <td>{$user.user_name}</td>
+      <td style="min-width: 100px">{$opposition.opposition_start_date}</td>
       </tr>
       {/foreach}
     </tbody>

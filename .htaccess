@@ -11,12 +11,12 @@ RewriteRule ^login/$ controller/login.php
 RewriteRule ^perfil/$ controller/profile.php
 
 RewriteRule ^temas/$ controller/themes.php
-RewriteRule ^crear-tema/$ controller/add_theme.php
-RewriteRule ^lista-tema/$ controller/theme_list.php
-RewriteRule ^temas/tema/([^/]*)$ controller/tema.php?id=$1 [L]
+RewriteRule ^temas/crear/$ controller/theme_add.php
+RewriteRule ^temas/lista/$ controller/theme_list.php
+RewriteRule ^temas/tema/([^/]*)$ controller/theme.php?id=$1 [L]
 
-RewriteRule ^crear-convocatoria/$ controller/add_opposition.php
-RewriteRule ^lista-convocatoria/$ controller/opposition_list.php
+RewriteRule ^convocatorias/crear/$ controller/opposition_add.php
+RewriteRule ^convocatorias/lista/$ controller/opposition_list.php
 RewriteRule ^convocatorias/ambitos/$ controller/opposition_ambit_list.php
 RewriteRule ^convocatorias/ambitos/crear/$ controller/opposition_ambit_add.php
 RewriteRule ^convocatorias/ambitos/([^/]*)$ controller/opposition_ambit.php?id=$1 [L]
@@ -26,18 +26,18 @@ RewriteRule ^convocatorias/categorias/crear/$ controller/opposition_category_add
 RewriteRule ^jsonManager/([^/]*)$ controller/jsonManager.php?request=$1 [L]
 
 RewriteRule ^foro/$ controller/forum.php
-RewriteRule ^foro/([^/]*)$ controller/forum_post.php?id=$1 [L]
-RewriteRule ^crear-post/$ controller/add_post.php
+RewriteRule ^foro/post/([^/]*)$ controller/forum_post.php?id=$1 [L]
+RewriteRule ^foro/crear-post/$ controller/forum_post_add.php
 
 RewriteRule ^contacto/$ controller/contact.php
 RewriteRule ^privacidad/$ controller/privacy.php
 
 RewriteRule ^admin/$ controller/admin.php
 RewriteRule ^admin/usuarios/$ controller/admin_users.php
-RewriteRule ^admin/crear/$ controller/admin_create_user.php
-RewriteRule ^admin/editar/([^/]*)$ controller/admin_edit_user.php?id=$1 [L]
+RewriteRule ^admin/crear/$ controller/admin_user_add.php
+RewriteRule ^admin/editar/([^/]*)$ controller/admin_user_edit.php?id=$1 [L]
 RewriteRule ^admin/carroussel/$ controller/admin_carroussel.php
-RewriteRule ^admin/carroussel/crear/$ controller/add_admin_carroussel.php
+RewriteRule ^admin/carroussel/crear/$ controller/admin_carroussel_add.php
 RewriteRule ^admin/notificaciones/$ controller/admin_notifications.php
 
 RewriteRule ^404/$ controller/404.php
