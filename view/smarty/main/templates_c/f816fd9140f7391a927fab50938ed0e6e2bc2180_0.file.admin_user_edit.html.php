@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-14 18:29:56
+/* Smarty version 3.1.39, created on 2021-06-15 15:45:08
   from '/srv/http/toposiciones/view/smarty/main/templates/admin_user_edit.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c7a02442d389_01585148',
+  'unifunc' => 'content_60c8cb0482be86_02601109',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f816fd9140f7391a927fab50938ed0e6e2bc2180' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin_user_edit.html',
-      1 => 1623695247,
+      1 => 1623771836,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c7a02442d389_01585148 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c8cb0482be86_02601109 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_120089978560c7a024421330_62002096', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_55379433860c8cb04820654_80751589', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_120089978560c7a024421330_62002096 extends Smarty_Internal_Block
+class Block_55379433860c8cb04820654_80751589 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_120089978560c7a024421330_62002096',
+    0 => 'Block_55379433860c8cb04820654_80751589',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,7 +52,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <div class="card">
           <div class="card-header">Editar Usuario</div>
           <div class="card-body">
-            <form action="/toposiciones/admin/editar/<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
+            <form action="/toposiciones/admin/usuarios/editar/<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
 " method="POST">
               <input type="hidden" name="edit-request" value="edit">
               <input type="hidden" id="edit-userId" class="form-control" name="edit-userId" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
