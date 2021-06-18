@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-16 18:28:37
+/* Smarty version 3.1.39, created on 2021-06-18 09:18:52
   from '/srv/http/toposiciones/view/smarty/main/templates/opposition.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60a164552b8f27_39868784',
+  'unifunc' => 'content_60cc64fceec750_43828394',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5a2ad73d20ef01466a2b8b8a52ba6f45896f6eb' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/opposition.html',
-      1 => 1621184711,
+      1 => 1624007928,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60a164552b8f27_39868784 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60cc64fceec750_43828394 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_61129373260a16455291078_51768629', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10558950560cc64fcec75a5_59759065', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_61129373260a16455291078_51768629 extends Smarty_Internal_Block
+class Block_10558950560cc64fcec75a5_59759065 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_61129373260a16455291078_51768629',
+    0 => 'Block_10558950560cc64fcec75a5_59759065',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -107,7 +107,7 @@ if ($_prefixVariable2 > 1) {?>
   <tr>
     <td>Link oficial</td>
     <td><a href="<?php echo $_smarty_tpl->tpl_vars['opposition']->value['official_link'];?>
-">Acceder</a></td>
+" target="_blank">Acceder</a></td>
   </tr>
   <tr>
     <td>Provincia</td>
@@ -147,7 +147,7 @@ if ($_prefixVariable2 > 1) {?>
   <tr>
     <td>Material recomendado</td>
     <td><a href="<?php echo $_smarty_tpl->tpl_vars['opposition']->value['recommended_material'];?>
-">Acceder</a></td>
+" target="_blank">Acceder</a></td>
   </tr>
 </table>
 <?php

@@ -23,7 +23,7 @@
   </form>
 </div>
 <div class="full-action-button text-center">
-  <a href="/toposiciones/admin/crear/">
+  <a href="/toposiciones/admin/usuarios/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Crear usuario</div>
   </a>
@@ -46,7 +46,7 @@
     <tbody>
       {foreach from=$all_users item=user}
       {If $smarty.session.login_access_level >= $user.access_level}
-      <tr onclick="window.location='/toposiciones/admin/editar/{$user.userId}'">
+      <tr onclick="window.location='/toposiciones/admin/usuarios/editar/{$user.userId}'">
         {else}
       <tr></tr>
       {/if}

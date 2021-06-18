@@ -68,47 +68,44 @@ function editUser($post) {
   $login_mail = $post['login-mail'] ?? "";
   $login_password = $post['login-password'] ?? "";
   $status = "nei";
-  if (!empty($login_user) && !empty($login_mail) && !empty($login_password)) {
+  if (!empty($login_mail) && (!empty($login_user) || !empty($login_password))) {
     $ok = true;
-    $status = "edit-failure";
 
-    if (!empty($login_mail)) {
-      if (!empty($login_user)) {
-        if ($login_user != $_SESSION['login_user']) {
-          $sqlUsername = "UPDATE user set user.user_name = '{$login_user}' WHERE mail = '{$login_mail}'";
-        }
-      }
-
-      if (!empty($login_password)) {
-        $sqlPassword = "UPDATE user set user_password = '{hash('sha512', $login_password)}' WHERE mail = '{$login_mail}'";
-      }
-      $sqlSelect = "SELECT user.user_name from user where user.mail = '{$login_mail}' and user.user_password = '{hash('sha512', $login_password)}'";
-      // *** TRANSACTION ***
-      $conn->beginTransaction();
-      if (isset($sqlUsername)) {
-        if ($conn->exec($sqlUsername) == 0) $ok = false;
-      }
-      if (isset($sqlPassword)) {
-        if ($conn->exec($sqlPassword) == 0) $ok = false;
-      }
-      if (isset($sqlSelect)) {
-        if ($conn->exec($sqlSelect) == 0) $ok = false;
-      }
-      if ($ok) {
-        $conn->commit();
-        $status = "edit-success";
-        $result = $conn->query($sqlSelect);
-        if ($result->rowCount() > 0) {
-          $_SESSION['login_mail'] = $login_mail;
-          $_SESSION['login_user'] = $result->fetch()['user_name'];
-        }
-      } else {
-        $conn->rollback();
-        $status = "edit-failure";
+    if (!empty($login_user)) {
+      if ($login_user != $_SESSION['login_user']) {
+        $sqlUsername = "UPDATE user set user.user_name = '{$login_user}' WHERE mail = '{$login_mail}'";
       }
     }
-  }
 
+    if (!empty($login_password)) {
+      $hashed_pass = hash('sha512', $login_password);
+      $sqlPassword = "UPDATE user set user_password = '{$hashed_pass}' WHERE mail = '{$login_mail}'";
+    }
+
+    // *** TRANSACTION ***
+    $conn->beginTransaction();
+    if (isset($sqlUsername)) {
+      if ($conn->exec($sqlUsername) == 0) $ok = false;
+    }
+    if (isset($sqlPassword)) {
+      if ($conn->exec($sqlPassword) == 0) $ok = false;
+    }
+
+    if ($ok) {
+      $conn->commit();
+      $status = "edit-success";
+      $sqlSelect = "SELECT user.user_name from user where user.mail = '{$login_mail}'";
+      $result = $conn->query($sqlSelect);
+      echo ("Resultado: " . $result->rowCount());
+      if ($result->rowCount() > 0) {
+        $row = $result->fetch();
+        $_SESSION['login_user'] = $row['user_name'];
+      }
+    } else {
+      $conn->rollback();
+      $status = "edit-failure";
+    }
+  }
 
   return $status;
 }

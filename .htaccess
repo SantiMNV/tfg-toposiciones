@@ -34,8 +34,8 @@ RewriteRule ^privacidad/$ controller/privacy.php
 
 RewriteRule ^admin/$ controller/admin.php
 RewriteRule ^admin/usuarios/$ controller/admin_users.php
-RewriteRule ^admin/crear/$ controller/admin_user_add.php
-RewriteRule ^admin/editar/([^/]*)$ controller/admin_user_edit.php?id=$1 [L]
+RewriteRule ^admin/usuarios/crear/$ controller/admin_user_add.php
+RewriteRule ^admin/usuarios/editar/([^/]*)$ controller/admin_user_edit.php?id=$1 [L]
 RewriteRule ^admin/carroussel/$ controller/admin_carroussel.php
 RewriteRule ^admin/carroussel/crear/$ controller/admin_carroussel_add.php
 RewriteRule ^admin/notificaciones/$ controller/admin_notifications.php

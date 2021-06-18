@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-12 18:10:10
+/* Smarty version 3.1.39, created on 2021-06-18 16:42:40
   from '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c4f8829378e9_03852101',
+  'unifunc' => 'content_60cccd00d7a3b1_15577029',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af7978d4188dc44190d274ca1fec23bba738b831' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/layouts/main_layout.html',
-      1 => 1623521404,
+      1 => 1624034558,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c4f8829378e9_03852101 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60cccd00d7a3b1_15577029 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/srv/http/toposiciones/view/smarty_lib/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -44,7 +44,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Custom CSS -->
   <link rel="stylesheet " href="<?php echo $_smarty_tpl->tpl_vars['CSS_DIRECTORY']->value;?>
-/estilos.css" />
+/styles.css" />
   <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['MEDIA_DIRECTORY']->value;?>
 /images/company/fototopo32no-fondo.png">
 </head>
@@ -247,7 +247,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="buttons d-flex flex-column flex-lg-row">
                   <form action="/toposiciones/" method="POST">
                     <input type="hidden" name="cookie_compliance" id="" value="accept">
-                    <input type="submit" value="Acepto" class="btn btn-success btn-sm" />
+                    <input type="submit" value="Acepto" class="btn btn-primary btn-sm" />
                   </form>
                   <a href="/toposiciones/privacidad/" class="btn btn-light btn-sm">
                     Leer más.
@@ -261,7 +261,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <div class="body-content">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_139501467560c4f882924bb5_52334251', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_67394667160cccd00d68351_75351871', "body-content");
 ?>
 
         </div>
@@ -308,13 +308,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <div class="p-4">
         <section class="mb-4">
           <!-- Google -->
-          <a class="btn btn-outline-light m-2" href="mailto:santimnv27@gmail.com" role="button"><i
+          <a class="btn btn-outline-light m-2" href="mailto:santimnv27@gmail.com" target="_blank" role="button"><i
               class="fab fa-google"></i></a>
           <!-- Linkedin -->
-          <a class="btn btn-outline-light m-2" href="www.linkedin.com/in/santimnv" role="button"><i
+          <a class="btn btn-outline-light m-2" href="https://linkedin.com/in/santimnv" target="_blank" role="button"><i
               class="fab fa-linkedin-in"></i></a>
           <!-- Github -->
-          <a class="btn btn-outline-light m-2" href="https://github.com/santimnv" role="button"><i
+          <a class="btn btn-outline-light m-2" href="https://github.com/santimnv" target="_blank" role="button"><i
               class="fab fa-github"></i></a>
         </section>
         <section class="mb-4">
@@ -357,12 +357,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 </html><?php }
 /* {block "body-content"} */
-class Block_139501467560c4f882924bb5_52334251 extends Smarty_Internal_Block
+class Block_67394667160cccd00d68351_75351871 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_139501467560c4f882924bb5_52334251',
+    0 => 'Block_67394667160cccd00d68351_75351871',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-14 18:15:46
+/* Smarty version 3.1.39, created on 2021-06-15 15:45:06
   from '/srv/http/toposiciones/view/smarty/main/templates/admin_users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c79cd21dc363_23930079',
+  'unifunc' => 'content_60c8cb02884c13_60638524',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e35a0c45f7fc5bcefc6ed32ba640f1c87559f63' => 
     array (
       0 => '/srv/http/toposiciones/view/smarty/main/templates/admin_users.html',
-      1 => 1623694541,
+      1 => 1623771841,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c79cd21dc363_23930079 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c8cb02884c13_60638524 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_175221588460c79cd21c0ab8_41819709', "body-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_143879855160c8cb0287b343_87408209', "body-content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layouts/main_layout.html');
 }
 /* {block "body-content"} */
-class Block_175221588460c79cd21c0ab8_41819709 extends Smarty_Internal_Block
+class Block_143879855160c8cb0287b343_87408209 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body-content' => 
   array (
-    0 => 'Block_175221588460c79cd21c0ab8_41819709',
+    0 => 'Block_143879855160c8cb0287b343_87408209',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,7 +64,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
   </form>
 </div>
 <div class="full-action-button text-center">
-  <a href="/toposiciones/admin/crear/">
+  <a href="/toposiciones/admin/usuarios/crear/">
     <i class="fas fa-plus-circle"></i>
     <div>Crear usuario</div>
   </a>
@@ -93,7 +93,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 $_smarty_tpl->tpl_vars['user']->do_else = false;
 ?>
       <?php if ($_SESSION['login_access_level'] >= $_smarty_tpl->tpl_vars['user']->value['access_level']) {?>
-      <tr onclick="window.location='/toposiciones/admin/editar/<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
+      <tr onclick="window.location='/toposiciones/admin/usuarios/editar/<?php echo $_smarty_tpl->tpl_vars['user']->value['userId'];?>
 '">
         <?php } else { ?>
       <tr></tr>

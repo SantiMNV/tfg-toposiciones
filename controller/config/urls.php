@@ -1,7 +1,15 @@
 <?php
+
+ini_set('display_errors', 0);
+/* TO SHOW ERRORS
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
+
+// Fixes go-back form error
+ini_set('session.cache_limiter', 'public');
+session_cache_limiter(false);
 
 function php_console_log($data) {
   echo '<script>';
