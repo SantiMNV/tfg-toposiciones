@@ -43,3 +43,6 @@ RewriteRule ^admin/notificaciones/$ controller/admin_notifications.php
 RewriteRule ^404/$ controller/404.php
 ErrorDocument 404 /toposiciones/404/
 
+RewriteRule ^500/$ controller/500.php
+ErrorDocument 500 /toposiciones/500/
+
