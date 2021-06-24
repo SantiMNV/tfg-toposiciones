@@ -93,7 +93,7 @@ Muchas gracias!
 - [@SantiMNV](https://www.instagram.com/sanitmnv/) en Instagram
 
 # Screenshots
-<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc1.png"></p>
-<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc2.png"></p>
-<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc3.png"></p>
-<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc4.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screenshots/sc1.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screenshots/sc2.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screenshots/sc3.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screenshots/sc4.png"></p>
