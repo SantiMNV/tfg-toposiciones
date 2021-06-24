@@ -88,8 +88,8 @@ footer {
   margin-top: auto;
   width: 100%;
   color: white;
-  margin-top: 50px;
-  padding-top: 50px;
+  /*margin-top: 50px;
+  padding-top: 50px; */
   position: absolute;
   bottom: 0;
 }
@@ -175,7 +175,7 @@ footer div:nth-child(2) {
   margin: 0px;
   min-height: 100vh;
   position: relative;
-  padding-bottom: 300px;
+  padding-bottom: 400px;
 }
 
 #content {
