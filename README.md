@@ -84,10 +84,16 @@ Muchas gracias!
 
 ## Sígueme
 
+- [santimnv](https://www.linkedin.com/in/santimnv) en LinkedIn
+
 - samntimnv27@gmail.com por correo
 
 - [@SantiMNV](https://twitter.com/SantiMNV) en Twitter
 
 - [@SantiMNV](https://www.instagram.com/sanitmnv/) en Instagram
 
-- SantiMNV#0713 En Discord
+# Screenshots
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc1.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc2.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc3.png"></p>
+<p align="center"><img src="https://github.com/SantiMNV/tfg-toposiciones/blob/main/view/media/images/screeenshots/sc4.png"></p>
